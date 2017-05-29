@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AuthenActivity" />
+        <activity android:name=".NewsDetailActivity"></activity>
     </application>
 
 </manifest>
