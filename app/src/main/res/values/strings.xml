@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Manage Res</string>
-    <string name="title">Title</string>
+    <string name="app_name">Manage Restaurant</string>
+    <string name="title">News</string>
+    <string name="login">Login</string>
 
 
 </resources>
