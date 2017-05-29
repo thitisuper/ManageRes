@@ -3,4 +3,7 @@
     <dimen name="padding20">20dp</dimen>
     <dimen name="h1">30sp</dimen>
     <dimen name="h2">20sp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp80">80dp</dimen>
 </resources>
