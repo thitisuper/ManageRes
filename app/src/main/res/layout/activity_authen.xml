@@ -45,14 +45,12 @@
         android:id="@+id/linearLayout">
 
 
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerInside" />
 
     </LinearLayout>
-
 
     <Button
         android:layout_width="match_parent"

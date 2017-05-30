@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
         try {
 
+            GetAllData getAllData = new GetAllData(this);
+            MyConstant myConstant = new MyConstant();
+            getAllData.execute(myConstant.getUrlGetNews());
+            String strJSON = getAllData.get();
+            Log.d("29MayV1", "JSON ==>" + strJSON);
+
         } catch (Exception e) {
             Log.d("20MayV1", "e createListView ==>" + e.toString());
         }
