@@ -1,11 +1,17 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Explicit
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +21,24 @@ public class MainActivity extends AppCompatActivity {
         //create ListView
         createListView();
 
+        //Image Controller
+
+        imageController();
+
 
     }   //Main Method
+
+    private void imageController() {
+        imageView = (ImageView) findViewById(R.id.imvAuthen);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AuthenActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     private void createListView() {
         ListView listView = (ListView) findViewById(R.id.LivNews);
