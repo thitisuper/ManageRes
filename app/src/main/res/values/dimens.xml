@@ -9,4 +9,5 @@
     <dimen name="size20">20sp</dimen>
     <dimen name="dp120">120dp</dimen>
     <dimen name="icon">100dp</dimen>
+    <dimen name="dp25">25dp</dimen>
 </resources>
