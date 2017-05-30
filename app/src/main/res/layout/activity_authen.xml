@@ -10,25 +10,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/padding20"
-        android:id="@+id/relativeLayout">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_authen" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/login"
-            android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/h1"
-            android:textStyle="bold" />
-
-
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
 
     </RelativeLayout>
@@ -39,18 +22,52 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin30"
         android:layout_marginRight="@dimen/margin30"
-        android:layout_marginTop="@dimen/dp80"
+        android:layout_marginTop="@dimen/dp10"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:id="@+id/linearLayout">
 
-
         <ImageView
+            android:src="@mipmap/food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="centerInside" />
+            />
+
 
     </LinearLayout>
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp200"
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:inputType="textPersonName"
+        android:text="@string/username" />
+
+
+    <EditText
+        android:layout_marginTop="@dimen/dp250"
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:text="@string/password"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/caption"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/size20"
+        android:id="@+id/textView"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp25" />
 
     <Button
         android:layout_width="match_parent"
@@ -62,22 +79,7 @@
         android:textSize="@dimen/size20"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:ems="13"
-        android:layout_marginTop="@dimen/dp120"
-        android:inputType="textPersonName"
-        android:text="@string/username" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword" />
 
 
 </RelativeLayout>
