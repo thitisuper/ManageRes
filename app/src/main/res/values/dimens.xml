@@ -6,4 +6,6 @@
     <dimen name="margin30">30dp</dimen>
     <dimen name="dp10">10dp</dimen>
     <dimen name="dp80">80dp</dimen>
+    <dimen name="size20">20sp</dimen>
+    <dimen name="dp120">120dp</dimen>
 </resources>

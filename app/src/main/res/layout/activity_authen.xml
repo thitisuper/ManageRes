@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/padding20">
+        android:padding="@dimen/padding20"
+        android:id="@+id/relativeLayout">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -27,6 +28,9 @@
             android:textSize="@dimen/h1"
             android:textStyle="bold" />
 
+
+
+
     </RelativeLayout>
 
     <LinearLayout
@@ -37,7 +41,8 @@
         android:layout_marginRight="@dimen/margin30"
         android:layout_marginTop="@dimen/dp80"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
 
 
@@ -56,7 +61,25 @@
         android:background="@color/colorSecondary"
         android:text="@string/login"
         android:textColor="@color/textcolorPrimary"
-        android:textSize="20dp"
+        android:textSize="@dimen/size20"
         android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ems="13"
+        android:layout_marginTop="@dimen/dp120"
+        android:inputType="textPersonName"
+        android:text="@string/username" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+
 
 </RelativeLayout>

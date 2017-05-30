@@ -2,6 +2,7 @@
     <string name="app_name">Manage Restaurant</string>
     <string name="title">News</string>
     <string name="login">Login</string>
+    <string name="username">Username</string>
 
 
 </resources>
