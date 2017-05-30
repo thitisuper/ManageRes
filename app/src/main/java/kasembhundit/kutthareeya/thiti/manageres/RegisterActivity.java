@@ -1,8 +1,12 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String nameString, surnameString, userString,
             passwordString, buildString, roomString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,69 @@ public class RegisterActivity extends AppCompatActivity {
         //Button Controller
         buttonController();
 
+        //Create Spinner
+        createSpinner();
+
     }   //Main Method
+
+    private void createSpinner() {
+
+        MyConstant myConstant = new MyConstant();
+        final String[] buildStrings = myConstant.getBuildStrings();
+
+        //For Build Spinner
+        ArrayAdapter<String> buildArrayAdapter = new ArrayAdapter<String>(RegisterActivity.this,
+                android.R.layout.simple_list_item_1, buildStrings);
+        buildSpinner.setAdapter(buildArrayAdapter);
+
+        buildSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                buildString = buildStrings[position];
+                createRoomSpinner(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                buildString = buildStrings[0];
+            }
+        });
+
+    }
+
+    private void createRoomSpinner(int key) {
+
+        String[] roomStrings = null;
+        MyConstant myConstant = new MyConstant();
+        switch (key) {
+            case 0:
+                roomStrings = myConstant.getRoomAStrings();
+                break;
+            case 1:
+                roomStrings = myConstant.getRoomBStrings();
+                break;
+            case 2:
+                roomStrings = myConstant.getRoomCStrings();
+                break;
+        }
+        ArrayAdapter<String> roomArrayAdapter = new ArrayAdapter<String>(RegisterActivity.this,
+                android.R.layout.simple_list_item_1, roomStrings);
+        roomSpinner.setAdapter(roomArrayAdapter);
+
+        final String[] finalRoomStrings = roomStrings;
+        roomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                roomString = finalRoomStrings[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                roomString = finalRoomStrings[0];
+            }
+        });
+
+    }
 
     private void buttonController() {
         button.setOnClickListener(new View.OnClickListener() {
@@ -46,14 +113,42 @@ public class RegisterActivity extends AppCompatActivity {
                 userString = userEditText.getText().toString().trim();
                 passwordString = passwordEditText.getText().toString().trim();
 
+                MyAlert myAlert = new MyAlert(RegisterActivity.this);
+                MyConstant myConstant = new MyConstant();
+
                 if (nameString.equals("") || surnameString.equals("") ||
                         userString.equals("") || passwordString.equals("")) {
                     //Have Space
-
+                    myAlert.myDialogError(getResources().getString(R.string.titleHaveSpace),
+                            getResources().getString(R.string.messageHaveSpace));
+                } else {
+                    confirmValue();
                 }
 
             }   //onClick
         });
+    }
+
+    private void confirmValue() {
+        String tag = "30MayV2";
+        Log.d(tag, "Name =>" + nameString);
+        Log.d(tag, "Surname =>" + surnameString);
+        Log.d(tag, "User =>" + userString);
+        Log.d(tag, "Password =>" + passwordString);
+        Log.d(tag, "Build =>" + buildString);
+        Log.d(tag, "Room =>" + roomString);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+        //builder.setCancelable(false);
+        builder.setTitle("Please Confirm!");
+        builder.setMessage("Name = " + nameString + "\n" +
+                "SurName = " + surnameString + "\n" +
+                "User = " + userString + "\n" +
+                "Password = " + passwordString + "\n" +
+                "Build = " + buildString + "\n" +
+                "Room = " + roomString);
+        builder.show();
+
     }
 
     private void backController() {
