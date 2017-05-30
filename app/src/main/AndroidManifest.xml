@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kasembhundit.kutthareeya.thiti.manageres">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AuthenActivity" />
-        <activity android:name=".NewsDetailActivity"></activity>
+        <activity android:name=".NewsDetailActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>
