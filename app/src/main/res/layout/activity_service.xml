@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.ServiceActivity">
 
+
+    <RelativeLayout
+        android:id="@+id/menuTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padding20">
+
+        <TextView
+            android:id="@+id/txtMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/menu"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/logout" />
+
+
+
+    </RelativeLayout>
+<LinearLayout
+    android:id="@+id/txtUser"
+    android:background="@color/textcolorPrimary"
+    android:orientation="vertical"
+    android:padding="@dimen/padding20"
+    android:layout_above="@id/btnRegister"
+    android:layout_below="@+id/menuTop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:src="@mipmap/ic_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/size20" />
+
+
 </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/txtcategory"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:padding="@dimen/padding20"
+        android:layout_below="@id/txtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spncategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+    </LinearLayout>
+
+    <ListView
+        android:layout_below="@id/txtcategory"
+        android:id="@+id/LivFood"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </ListView>
+
+
+</RelativeLayout>
