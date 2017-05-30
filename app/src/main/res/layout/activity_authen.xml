@@ -35,13 +35,15 @@
 
 
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
     <EditText
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimary"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp200"
-        android:id="@+id/editText"
+        android:id="@+id/edtUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="13"
@@ -53,7 +55,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimary"
         android:layout_marginTop="@dimen/dp250"
-        android:id="@+id/editText2"
+        android:id="@+id/edtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="13"
@@ -69,12 +71,13 @@
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/size20"
         android:id="@+id/txtRegister"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/edtPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp25" />
 
 
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

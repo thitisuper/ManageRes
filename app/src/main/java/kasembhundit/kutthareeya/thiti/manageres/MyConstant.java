@@ -8,6 +8,7 @@ public class MyConstant {
 
     private String urlGetNews = "http://androidthai.in.th/whi/getNews.php";
 
+
     public String getUrlGetNews() {
         return urlGetNews;
     }
