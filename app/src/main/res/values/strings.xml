@@ -11,6 +11,10 @@
     <string name="build">Build</string>
     <string name="room">Room</string>
     <string name="building">Building</string>
+    <string name="menu">MENU</string>
+    <string name="time">time</string>
+    <string name="namefood1">Salad</string>
+    <string name="day">day</string>
 
 
 </resources>
