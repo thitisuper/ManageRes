@@ -6,4 +6,118 @@
     android:layout_height="match_parent"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.RegisterActivity">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:padding="@dimen/padding20"
+    android:id="@+id/relativeLayout2">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/back2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/register"
+        android:textColor="@color/textcolorPrimary"
+        android:textSize="@dimen/h1"
+        android:textStyle="bold"
+        android:id="@+id/textView2" />
+
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true">
+
+    <EditText
+
+        android:layout_marginTop="@dimen/dp100"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:inputType="text"
+        android:hint="@string/name"/>
+
+    <EditText
+
+        android:layout_marginTop="@dimen/dp150"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:inputType="text"
+        android:hint="@string/surname"/>
+
+    <EditText
+
+        android:layout_marginTop="@dimen/dp200"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:inputType="text"
+        android:hint="@string/username"/>
+
+    <EditText
+
+        android:layout_marginTop="@dimen/dp250"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:inputType="text"
+        android:hint="@string/password"/>
+
+    <EditText
+        android:layout_marginLeft="@dimen/dp60"
+        android:layout_marginTop="@dimen/dp300"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:inputType="text"
+        android:hint="@string/build"/>
+
+    <EditText
+        android:layout_marginLeft="@dimen/dp200"
+        android:layout_marginTop="@dimen/dp300"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:inputType="text"
+        android:hint="@string/room"/>
+
+
+</RelativeLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorSecondary"
+        android:text="@string/register"
+        android:textColor="@color/textcolorPrimary"
+        android:textSize="@dimen/size20"
+        android:textStyle="bold" />
+
 </RelativeLayout>

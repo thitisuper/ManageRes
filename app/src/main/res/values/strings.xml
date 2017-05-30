@@ -3,8 +3,13 @@
     <string name="title">News</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
-    <string name="password">password</string>
-    <string name="caption">Press Login</string>
+    <string name="password">Password</string>
+    <string name="caption">Register</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="build">Build</string>
+    <string name="room">Room</string>
 
 
 </resources>
