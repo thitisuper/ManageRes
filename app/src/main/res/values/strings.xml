@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Manage Restaurant</string>
-    <string name="title">Title</string>
+    <string name="title">News</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
+    <string name="password">password</string>
+    <string name="caption">Press Login</string>
 
 
 </resources>
