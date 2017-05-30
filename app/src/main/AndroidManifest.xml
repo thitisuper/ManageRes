@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".AuthenActivity" />
         <activity android:name=".NewsDetailActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ServiceActivity"></activity>
     </application>
 
 </manifest>
