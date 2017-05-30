@@ -10,6 +10,7 @@
     <string name="surname">Surname</string>
     <string name="build">Build</string>
     <string name="room">Room</string>
+    <string name="building">Building</string>
 
 
 </resources>

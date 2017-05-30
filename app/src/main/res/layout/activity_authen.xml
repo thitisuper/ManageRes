@@ -28,7 +28,7 @@
         android:id="@+id/linearLayout">
 
         <ImageView
-            android:src="@mipmap/food"
+            android:src="@drawable/food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
