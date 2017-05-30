@@ -15,11 +15,13 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/imvBack"
             android:src="@mipmap/ic_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/txtTitle"
             android:textSize="@dimen/h1"
             android:textStyle="bold"
             android:textColor="@color/textcolorPrimary"
@@ -34,13 +36,14 @@
         android:padding="@dimen/padding20"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
         <ImageView
+            android:id="@+id/imvIcon"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
-            <ScrollView
+        <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
@@ -52,6 +55,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/txtDetail"
                         android:text="Test"
                         android:textSize="@dimen/h2"
                         android:textColor="@color/colorPrimaryDark"
