@@ -98,4 +98,5 @@ public class AuthenActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.btnLogin);
     }
 
+
 } //Main Class
