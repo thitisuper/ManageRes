@@ -21,7 +21,8 @@
         <activity android:name=".AuthenActivity" />
         <activity android:name=".NewsDetailActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ServiceActivity"></activity>
+        <activity android:name=".ServiceActivity" />
+        <activity android:name=".selectmenuActivity"></activity>
     </application>
 
 </manifest>

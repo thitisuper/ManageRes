@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/menu"
+            android:text="@string/service"
             android:textColor="@color/textcolorPrimary"
             android:textSize="@dimen/h1"
             android:textStyle="bold" />
@@ -34,24 +34,26 @@
 
 
     </RelativeLayout>
-<LinearLayout
+<RelativeLayout
     android:id="@+id/txtUser"
-    android:background="@color/textcolorPrimary"
+    android:background="@color/colorLight"
     android:orientation="vertical"
     android:padding="@dimen/padding20"
-    android:layout_above="@id/btnRegister"
-    android:layout_below="@+id/menuTop"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/menuTop"
+    android:layout_alignParentStart="true">
 
 
     <ImageView
         android:src="@mipmap/ic_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textName"
+        android:id="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -59,7 +61,18 @@
         android:textSize="@dimen/size20" />
 
 
-</LinearLayout>
+    <TextClock
+        android:layout_alignParentRight="true"
+        android:id="@+id/clockTime"
+        android:textSize="@dimen/size20"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+
+</RelativeLayout>
 
     <LinearLayout
         android:id="@+id/txtcategory"
@@ -76,6 +89,7 @@
             android:layout_height="wrap_content">
 
         </Spinner>
+
     </LinearLayout>
 
     <ListView
