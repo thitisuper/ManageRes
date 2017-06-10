@@ -9,4 +9,5 @@
     <color name="colorSecondary">#64dd17</color>
     <color name="colorSecondaryDark">#1faa00</color>
     <color name="colorSecondaryLight">#9cff57</color>
+    <color name="colorLight">#ecedec</color>
 </resources>

@@ -22,6 +22,10 @@
     <string name="messageUserFalse">No This User in my Database</string>
     <string name="titlePasswordFalse">Password False</string>
     <string name="messagePasswordFalse">Please Try Again Password False</string>
+    <string name="service">Service</string>
+    <string name="ingredent">ingredent</string>
+    <string name="checkbox1">Pork</string>
+    <string name="checkbox2">Meat</string>
 
 
 </resources>
