@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class AuthenActivity extends AppCompatActivity {
 
@@ -70,14 +74,66 @@ public class AuthenActivity extends AppCompatActivity {
 
         String tag = "30MayV1";
         MyConstant myConstant = new MyConstant();
+        MyAlert myAlert = new MyAlert(AuthenActivity.this);
 
         try {
+            GetAllData getAllData = new GetAllData(AuthenActivity.this);
+            getAllData.execute(myConstant.getUrlGetUser());
+            String strJSON = getAllData.get();
+            Log.d(tag, "JSON ==> " + strJSON);
 
+            JSONArray jsonArray = new JSONArray(strJSON);
+            String[] columnStrings = myConstant.getColumnUserStrings();
+            String[] loginStrings = new String[columnStrings.length];
+            boolean b = true;
 
+            for (int i=0; i<jsonArray.length(); i+=1){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (userString.equals(jsonObject.getString(columnStrings[5]))) {
+                    b = false;
+                    for (int i1=0; i1<columnStrings.length; i1+=1) {
+                        loginStrings[i1] = jsonObject.getString(columnStrings[i1]);
+                        Log.d(tag, "loginString " + i1 + ") ==>" + loginStrings[i1]);
+                    }   //End Inner For Loop
+                }   // End if loop
+            }// End for loop
+
+            if (b) {
+                //User False
+                myAlert.myDialogError("User False", "No This User in my Database");
+            } else if (passwordString.equals(loginStrings[6])) {
+                //Password True
+                Toast.makeText(AuthenActivity.this,
+                        "Welcome " + loginStrings[1],
+                        Toast.LENGTH_SHORT).show();
+
+                myIntentToService(Integer.parseInt(loginStrings[7]), loginStrings);
+            } else {
+                //Password Failed
+                myAlert.myDialogError("Password Failed", "Please Try Again");
+            }
 
         } catch (Exception e) {
             Log.d(tag, "e check ==>" + e.toString());
         }
+
+    }
+
+    private void myIntentToService(int key, String[] loginStrings) {
+        Class<?> aClass = null;
+        switch (key){
+            case 0:
+                aClass = HubActivity.class;
+                break;
+            case 1:
+                aClass = MerchantActivity.class;
+                break;
+        }
+
+        Intent intent = new Intent(AuthenActivity.this, aClass);
+        intent.putExtra("Login", loginStrings);
+        startActivity(intent);
+        finish();
 
     }
 

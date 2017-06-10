@@ -1,6 +1,7 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -139,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
         Log.d(tag, "Room =>" + roomString);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-        //builder.setCancelable(false);
+        builder.setCancelable(false);
         builder.setTitle("Please Confirm!");
         builder.setMessage("Name = " + nameString + "\n" +
                 "SurName = " + surnameString + "\n" +
@@ -147,8 +148,43 @@ public class RegisterActivity extends AppCompatActivity {
                 "Password = " + passwordString + "\n" +
                 "Build = " + buildString + "\n" +
                 "Room = " + roomString);
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                uploadValueToServer();
+                dialog.dismiss();
+            }
+        });
         builder.show();
 
+    }
+
+    private void uploadValueToServer() {
+        try {
+            MyConstant myConstant = new MyConstant();
+            PostNewUser postNewUser = new PostNewUser(RegisterActivity.this);
+            postNewUser.execute(nameString, surnameString, buildString,
+                    roomString, userString, passwordString,
+                    myConstant.getUrlPostUser());
+            String strResult = postNewUser.get();
+            Log.d("10JuneV1", "Result ==> " + strResult);
+
+            if (Boolean.parseBoolean(strResult)) {
+                finish();
+            } else {
+                MyAlert myAlert = new MyAlert(RegisterActivity.this);
+                myAlert.myDialogError("Cannot Upload Value",
+                        "Please Try Again Cannot Upload Value To Server");
+            }
+        } catch (Exception e) {
+            Log.d("10JuneV1", "e upload ==> " + e.toString());
+        }
     }
 
     private void backController() {

@@ -26,6 +26,7 @@
     <string name="ingredent">ingredent</string>
     <string name="checkbox1">Pork</string>
     <string name="checkbox2">Meat</string>
+    <string name="food_group">Food Group</string>
 
 
 </resources>

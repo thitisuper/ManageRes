@@ -1,105 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.ServiceActivity">
 
-
     <RelativeLayout
-        android:id="@+id/menuTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/padding20">
+        android:background="@color/colorPrimaryDark"
+        android:padding="@dimen/padding10">
+
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_back1" />
 
         <TextView
-            android:id="@+id/txtMenu"
+            android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/service"
+            android:text="@string/title"
             android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/h1"
+            android:textSize="@dimen/h2"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imvLogout"
+        <TextView
+            android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/title"
+            android:textColor="@color/textcolorPrimary"
+            android:textStyle="italic" />
+
+        <ImageView
             android:layout_alignParentRight="true"
-            android:src="@drawable/logout" />
-
-
+            android:id="@+id/imvShowOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_authen" />
 
     </RelativeLayout>
-<RelativeLayout
-    android:id="@+id/txtUser"
-    android:background="@color/colorLight"
-    android:orientation="vertical"
-    android:padding="@dimen/padding20"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/menuTop"
-    android:layout_alignParentStart="true">
-
-
-    <ImageView
-        android:src="@mipmap/ic_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textName"
-        android:id="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/name"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/size20" />
-
-
-    <TextClock
-        android:layout_alignParentRight="true"
-        android:id="@+id/clockTime"
-        android:textSize="@dimen/size20"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-
-
-</RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/txtcategory"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="vertical"
-        android:padding="@dimen/padding20"
-        android:layout_below="@id/txtUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Spinner
-            android:id="@+id/spncategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </Spinner>
-
-    </LinearLayout>
 
     <ListView
-        android:layout_below="@id/txtcategory"
-        android:id="@+id/LivFood"
+        android:id="@+id/livFood"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"></ListView>
 
 
-    </ListView>
-
-
-</RelativeLayout>
+</LinearLayout>
