@@ -32,16 +32,16 @@
         <ImageView
             android:id="@+id/imvFavorite"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/food" />
+            android:src="@drawable/favorite" />
 
         <ImageView
             android:id="@+id/imvPack"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/food" />
+            android:src="@drawable/foodsingle" />
 
 
     </LinearLayout>
@@ -54,16 +54,16 @@
         <ImageView
             android:id="@+id/imvFood"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/food" />
+            android:src="@drawable/sidedish" />
 
         <ImageView
             android:id="@+id/imvNoodle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/food" />
+            android:src="@drawable/noodle" />
 
 
     </LinearLayout>
@@ -76,9 +76,9 @@
         <ImageView
             android:id="@+id/imvFoodAll"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/food" />
+            android:src="@drawable/allfood" />
 
 
     </LinearLayout>
