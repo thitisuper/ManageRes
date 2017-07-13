@@ -27,6 +27,7 @@
     <string name="checkbox1">Pork</string>
     <string name="checkbox2">Meat</string>
     <string name="food_group">Food Group</string>
+    <string name="dev2">ให้ไปส่ง (ปกติให้รับเองที่ร้าน)</string>
 
 
 </resources>

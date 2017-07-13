@@ -1,9 +1,11 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -81,20 +83,39 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
             JSONArray jsonArray = new JSONArray(strJSON);
 
-            String[] productNameStrings = new String[jsonArray.length()];
-            String[] productPriceStrings = new String[jsonArray.length()];
-            String[] iconFood = new String[jsonArray.length()];
+            final String[] productNameStrings = new String[jsonArray.length()];
+            final String[] productPriceStrings = new String[jsonArray.length()];
+            final String[] iconFood = new String[jsonArray.length()];
+            final String[] idFoodStrings = new String[jsonArray.length()];
 
-            for (int i=0; i<jsonArray.length(); i+=1) {
+            for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 productNameStrings[i] = jsonObject.getString("ProductName");
                 productPriceStrings[i] = "ราคา " + jsonObject.getString("ProductPrice") + " บาท";
                 iconFood[i] = jsonObject.getString("ProductImage");
+                idFoodStrings[i] = jsonObject.getString("id");
             }   // for
 
             NewAdapter newAdapter = new NewAdapter(ServiceActivity.this, productNameStrings,
                     productPriceStrings, iconFood);
             listView.setAdapter(newAdapter);
+
+            //Intent to OrderActivity
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent intent = new Intent(ServiceActivity.this, OrderActivity.class);
+                    intent.putExtra("Login", loginStrings);
+                    intent.putExtra("idFood", idFoodStrings[position]);
+                    intent.putExtra("NameFood", productNameStrings[position]);
+                    intent.putExtra("PriceFood", productPriceStrings[position]);
+                    intent.putExtra("iconFood", iconFood[position]);
+                    startActivity(intent);
+
+                }
+            });
+
 
         } catch (Exception e) {
             Log.d(tag, "e createListView ==> " + e.toString());
