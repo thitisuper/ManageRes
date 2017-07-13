@@ -76,9 +76,26 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/dp10">
+<!--Show Infomarion-->
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp25"
+        android:text="ผู้ใช้ : "
+        android:textSize="@dimen/h2"
+        android:textStyle="bold" />
+
+</LinearLayout>
 
             <!--Show Image and Price-->
             <LinearLayout
+                android:layout_marginTop="@dimen/dp25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -89,27 +106,27 @@
                     android:layout_height="@dimen/dp100" />
 
                 <TextView
+                    android:textColor="@color/colorSecondary"
                     android:id="@+id/txttotelPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp25"
-                    android:text="Price = 100 THB"
+                    android:text="ราคา: 100฿"
                     android:textSize="@dimen/h1"
                     android:textStyle="bold" />
 
             </LinearLayout>
             <!--Topping-->
             <LinearLayout
-
+               android:layout_marginTop="@dimen/h2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Topping"
+                    android:text="ส่วนผสม"
                     android:textSize="@dimen/h1" />
 
                 <Spinner
@@ -120,10 +137,106 @@
 
 
             </LinearLayout>
+            <!--Special-->
+            <LinearLayout
+                android:layout_marginTop="@dimen/h2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ขนาด"
+                    android:textSize="@dimen/h1" />
+
+                <CheckBox
+                    android:layout_marginLeft="@dimen/h2"
+                    android:id="@+id/checSimple"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20sp">
+                </CheckBox>
+
+
+            </LinearLayout>
+            <!--Item-->
+            <LinearLayout
+                android:layout_marginTop="@dimen/h2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="จำนวน"
+                    android:textSize="@dimen/h1" />
+
+                <Spinner
+                    android:layout_marginLeft="@dimen/h2"
+                    android:id="@+id/spnItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20sp">
+                </Spinner>
+
+            </LinearLayout>
+            <!--Time-->
+            <LinearLayout
+                android:layout_marginTop="@dimen/h2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="เวลารับอาหาร"
+                    android:textSize="@dimen/h1" />
+
+                <Spinner
+                    android:layout_marginLeft="@dimen/h2"
+                    android:id="@+id/spnTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20sp">
+                </Spinner>
+
+            </LinearLayout>
+
+            <!--Delivery-->
+  <LinearLayout
+                android:layout_marginTop="@dimen/h2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="รับอาหาร"
+                    android:textSize="@dimen/h1" />
+
+                <Spinner
+                    android:layout_marginLeft="@dimen/h2"
+                    android:id="@+id/spnDelivery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20sp">
+                </Spinner>
+
+            </LinearLayout>
+
+
+
+
+
+
+
 
         </LinearLayout>
 
     </ScrollView>
-
 
 </LinearLayout>
