@@ -64,6 +64,7 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
                 break;
         }
 
+
         Intent intent = new Intent(HubActivity.this, ServiceActivity.class);
         intent.putExtra("Favorite", intFavorite);
         intent.putExtra("Group", intGroup);
