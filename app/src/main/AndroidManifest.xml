@@ -22,10 +22,10 @@
         <activity android:name=".NewsDetailActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ServiceActivity" />
-        <activity android:name=".selectmenuActivity" />
         <activity android:name=".MerchantActivity" />
         <activity android:name=".HubActivity" />
-        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".OrderActivity" />
+        <activity android:name=".CheckOrderActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,9 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -35,7 +39,10 @@ public class OrderActivity extends AppCompatActivity {
     private int intHour, intMinus;
 
     private TextView showTotalPriceTextView;
-    private int totalPriceAnInt, factorPriceAnInt;
+    private int totalPriceAnInt, factorPriceAnInt, specialAnInt = 0, toppingAnInt = 0,
+            itemAnInt = 1;
+
+    private String id_FoodString, specialSQLite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,7 @@ public class OrderActivity extends AppCompatActivity {
         //Initial View
         initialView();
 
-        //Find Categoty
+        //Find Category
         findCategory();
 
         //Show View
@@ -59,6 +66,9 @@ public class OrderActivity extends AppCompatActivity {
 
         //Order Controller
         orderController();
+
+        //Special Controller
+        specialController();
 
         //Topping Spinner
         toppingSpinner();
@@ -76,7 +86,29 @@ public class OrderActivity extends AppCompatActivity {
 
     }   //Main Method
 
+    private void specialController() {
+        CheckBox checkBox = (CheckBox) findViewById(R.id.chbSpecial);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    specialAnInt = 10;
+                } else {
+                    specialAnInt = 0;
+                }
+
+                showTotalPrice();
+
+            }
+        });
+    }
+
     private void showTotalPrice() {
+
+        //Calculate
+        totalPriceAnInt = (factorPriceAnInt + specialAnInt + toppingAnInt) * itemAnInt;
+
+
         showTotalPriceTextView = (TextView) findViewById(R.id.txtTotalPrice);
         showTotalPriceTextView.setText("ราคารวม = " + Integer.toString(totalPriceAnInt) + " บาท");
     }
@@ -154,11 +186,15 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 itemString = itemStrings[position];
+                itemAnInt = position + 1;
+                showTotalPrice();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 itemString = itemStrings[0];
+                itemAnInt = 1;
+                showTotalPrice();
             }
         });
 
@@ -192,11 +228,16 @@ public class OrderActivity extends AppCompatActivity {
             JSONArray jsonArray = new JSONArray(strJSON);
             JSONObject jsonObject = jsonArray.getJSONObject(0);
 
+            //Find Category
             categoryString = jsonObject.getString("Category");
             Log.d(tag, "Category ==> " + categoryString);
 
+            //Find Product Price
             String strPrice = jsonObject.getString("ProductPrice");
             factorPriceAnInt = Integer.parseInt(strPrice);
+
+            //Find id
+
 
             switch (Integer.parseInt(categoryString)) {
                 case 0:
@@ -226,6 +267,15 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 toppingChooseString = toppingStrings[position];
+
+                if (position != 0) {
+                    toppingAnInt = 10;
+                } else {
+                    toppingAnInt = 0;
+                }
+
+                showTotalPrice();
+
             }
 
             @Override
@@ -248,8 +298,80 @@ public class OrderActivity extends AppCompatActivity {
                 //Delivery Checkbox
                 deliveryCheckbox();
 
+                confirmDialog();
+
             }   //onClick
         });
+    }
+
+    private void confirmDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(OrderActivity.this);
+        builder.setCancelable(false);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setTitle("Check Order");
+        builder.setMessage("NameFood = " + nameFoodString + "\n" +
+                "Special = " + showSpecial(specialAnInt) + "\n" +
+                "Topping = " + toppingChooseString + "\n" +
+                "Item = " + Integer.toString(itemAnInt));
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                addValueToSQLite();
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
+    }   //Method ConfirmDialog
+
+    private void addValueToSQLite() {
+
+        String tag = "14JulyV1";
+
+        specialSQLite = findSpecialSQLite();
+
+        Log.d(tag, "id_Food ==> " + idFoodString);
+        Log.d(tag, "Special ==> " + specialSQLite);
+        Log.d(tag, "Topping ==> " + toppingChooseString);
+        Log.d(tag, "Item ==> " + Integer.toString(itemAnInt));
+
+        MyManage myManage = new MyManage(OrderActivity.this);
+        myManage.addOrder(idFoodString, specialSQLite,
+                toppingChooseString, Integer.toString(itemAnInt));
+
+        Intent intent = new Intent(OrderActivity.this, CheckOrderActivity.class);
+        intent.putExtra("Login", loginStrings);
+        startActivity(intent);
+
+
+    }   //add Value SQLite
+
+    private String findSpecialSQLite() {
+        if (specialAnInt == 0) {
+            return "0";
+        } else {
+            return "1";
+        }
+    }
+
+
+    private String showSpecial(int specialAnInt) {
+
+        String[] strings = new String[]{"ธรรมดา", "พิเศษ"};
+
+        if (specialAnInt == 0) {
+            return strings[0];
+        } else {
+            return strings[1];
+        }
+
     }
 
     private void backController() {
