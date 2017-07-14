@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/padding20">
+        android:padding="@dimen/dp10">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -22,9 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/app_name"
+            android:text="รายการอาหารที่สั่ง"
             android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/sp23"
+            android:textSize="@dimen/txtH1"
             android:textStyle="bold" />
 
         <ImageView

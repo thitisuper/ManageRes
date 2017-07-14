@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="padHeader">20dp</dimen>
     <dimen name="padding20">20dp</dimen>
     <dimen name="padding10">10dp</dimen>
+
+    <dimen name="txtH1">30sp</dimen>
+    <dimen name="txt20">20sp</dimen>
+    <dimen name="txtH2">25dp</dimen>
+
+    <dimen name="dp25">25dp</dimen>
     <dimen name="h1">30sp</dimen>
     <dimen name="h2">20sp</dimen>
+
+
     <dimen name="margin30">30dp</dimen>
     <dimen name="dp10">10dp</dimen>
     <dimen name="dp80">80dp</dimen>
     <dimen name="size20">20sp</dimen>
     <dimen name="dp120">120dp</dimen>
     <dimen name="icon">100dp</dimen>
-    <dimen name="dp25">25dp</dimen>
+
     <dimen name="dp200">200dp</dimen>
     <dimen name="dp250">250dp</dimen>
     <dimen name="sp23">23sp</dimen>

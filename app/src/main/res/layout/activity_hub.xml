@@ -2,10 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.HubActivity">
+
+    <!--Header-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,18 +16,54 @@
         android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:padding="@dimen/padding10">
+        android:padding="@dimen/padHeader">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/food_group"
+            android:text="หมวดหมู่อาหาร"
             android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/h1" />
+            android:textSize="@dimen/txtH1"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
+    <!--Information-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLight"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_online"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/txt20"
+            android:textStyle="bold"/>
+
+        <TextClock
+            android:layout_alignParentRight="true"
+            android:id="@+id/clockTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/size20" />
+
+    </RelativeLayout>
+
+    <!--Food group-->
+
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="horizontal">
