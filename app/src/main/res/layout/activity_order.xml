@@ -9,6 +9,7 @@
 
     <!--ToolBar-->
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -23,7 +24,7 @@
                 android:id="@+id/imvBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/back2" />
+                android:src="@mipmap/ic_back" />
             <!--Title-->
 
             <LinearLayout
@@ -35,14 +36,16 @@
 
                 <!--Food Name-->
                 <TextView
+                    android:textStyle="bold"
                     android:id="@+id/txtNameFood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name Food"
                     android:textColor="@color/textcolorPrimary"
-                    android:textSize="@dimen/h2" />
+                    android:textSize="@dimen/h1" />
                 <!--Price Name-->
                 <TextView
+                    android:textStyle="bold"
                     android:id="@+id/txtPriceFood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,11 +59,12 @@
             <!--Order-->
 
             <ImageView
+                android:layout_centerInParent="true"
                 android:id="@+id/imvOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_app" />
+                android:src="@drawable/logout" />
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -76,22 +80,41 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/dp10">
-            <!--Show Infomarion-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtUser"
+
+            <!--Show Infomarion-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorLight"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp25"
-                    android:text="ผู้ใช้ : "
-                    android:textSize="@dimen/h2"
-                    android:textStyle="bold" />
+                    android:src="@mipmap/ic_online"/>
 
-            </LinearLayout>
+                <TextView
+                    android:layout_marginLeft="@dimen/dp25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/txt20"
+                    android:textStyle="bold"/>
+
+                <TextClock
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/clockTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size20" />
+
+            </RelativeLayout>
+
+
 
             <!--Show Image and Price-->
             <LinearLayout
@@ -124,10 +147,12 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ส่วนผสม"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/dp25" />
 
                 <Spinner
                     android:id="@+id/spnTopping"
@@ -151,7 +176,7 @@
                     android:layout_marginLeft="@dimen/h2"
                     android:padding="20sp"
                     android:text="พิเศษ"
-                    android:textSize="@dimen/h2">
+                    android:textSize="@dimen/txt20">
                 </CheckBox>
 
 
@@ -164,10 +189,12 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="จำนวน"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/dp25" />
 
                 <Spinner
                     android:id="@+id/spnItem"
@@ -186,10 +213,13 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="เวลารับอาหาร"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/dp25"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spnTime"
@@ -208,12 +238,13 @@
                 android:layout_marginTop="@dimen/h2">
 
                 <TextView
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
                     android:id="@+id/txtShowTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="รับอาหาร"
-                    android:textSize="@dimen/h2" />
+                    android:textSize="@dimen/dp25" />
 
                 <ImageView
                     android:id="@+id/imvChooseTime"
@@ -225,8 +256,9 @@
             </RelativeLayout>
 
             <CheckBox
+                android:layout_marginLeft="@dimen/h2"
                 android:id="@+id/chbDelivery"
-                android:textSize="@dimen/h2"
+                android:textSize="@dimen/txt20"
                 android:text="@string/dev2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

@@ -29,9 +29,8 @@
 
         <ImageView
             android:src="@drawable/food"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:layout_width="169dp"
+            android:layout_height="165dp" />
 
 
     </LinearLayout>
@@ -48,7 +47,7 @@
         android:layout_height="wrap_content"
         android:ems="13"
         android:inputType="text"
-       android:hint="@string/username"/>
+       android:hint="ชื่อผู้ใช้งาน"/>
 
 
     <EditText
@@ -61,19 +60,19 @@
         android:ems="13"
         android:inputType="textPassword"
         android:layout_centerHorizontal="true"
-        android:hint="@string/password"/>
+        android:hint="รหัสผ่าน"/>
 
     <TextView
-
+android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/caption"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/size20"
+        android:text="สมัครสมาชิก"
+        android:textColor="@color/colortext"
+        android:textSize="@dimen/txtH2"
         android:id="@+id/txtRegister"
         android:layout_below="@+id/edtPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp25" />
+        android:layout_marginTop="@dimen/txtH2" />
 
 
     <Button

@@ -10,14 +10,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:padding="@dimen/padding10">
 
         <ImageView
             android:id="@+id/imvBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_back1" />
+            android:src="@mipmap/ic_back" />
 
         <TextView
             android:id="@+id/txtTitle"
@@ -26,7 +26,7 @@
             android:layout_centerInParent="true"
             android:text="@string/title"
             android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/h2"
+            android:textSize="@dimen/h1"
             android:textStyle="bold" />
 
         <TextView
