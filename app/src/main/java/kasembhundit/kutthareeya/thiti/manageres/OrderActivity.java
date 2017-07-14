@@ -349,6 +349,7 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent = new Intent(OrderActivity.this, CheckOrderActivity.class);
         intent.putExtra("Login", loginStrings);
         startActivity(intent);
+        finish();
 
 
     }   //add Value SQLite

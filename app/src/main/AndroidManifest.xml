@@ -25,7 +25,8 @@
         <activity android:name=".MerchantActivity" />
         <activity android:name=".HubActivity" />
         <activity android:name=".OrderActivity" />
-        <activity android:name=".CheckOrderActivity"></activity>
+        <activity android:name=".CheckOrderActivity" />
+        <activity android:name=".ReceiveActivity"></activity>
     </application>
 
 </manifest>

@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void createListView() {
         ListView listView = (ListView) findViewById(R.id.LivNews);
 

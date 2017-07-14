@@ -13,6 +13,7 @@ public class MyConstant {
     private String urlGetFoodFavorite = "http://androidthai.in.th/whi/getFoodWhereFavorite.php";
     private String urlGetFoodGroup = "http://androidthai.in.th/whi/getFoodWhereGroup.php";
     private String urlGetProductWhereID = "http://androidthai.in.th/whi/getProduceWhereID.php";
+    private String urlPostOrder = "http://androidthai.in.th/whi/addOrder.php";
 
     //For Spinner
     private String[] buildStrings = new String[]{"Build A", "Build B", "Build C"};
@@ -24,6 +25,10 @@ public class MyConstant {
     private String[] topping2 = new String[]{"ไม่มี", "เพิ่มผัก", "เพิ่มเนื้อสัตว์", "เพิ่มลูกชิ้น", "เพิ่มเส้น"};
     private String[] itemStrings = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
     private String[] receiveTimeStrings = new String[]{"CurrentTime", "10.00-14.00", "14:00-18.00"};
+
+    public String getUrlPostOrder() {
+        return urlPostOrder;
+    }
 
     public String[] getReceiveTimeStrings() {
         return receiveTimeStrings;
