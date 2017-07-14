@@ -50,13 +50,6 @@
             android:textSize="@dimen/txt20"
             android:textStyle="bold"/>
 
-        <TextClock
-            android:layout_alignParentRight="true"
-            android:id="@+id/clockTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/size20" />
 
     </RelativeLayout>
 
