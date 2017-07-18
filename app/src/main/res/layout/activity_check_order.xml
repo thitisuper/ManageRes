@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:orientation="vertical"
 
     tools:context="kasembhundit.kutthareeya.thiti.manageres.CheckOrderActivity">
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/dp10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/dp10">
 
 
         <!--Header-->
@@ -28,32 +26,31 @@
             <!--Add Order-->
             <ImageView
                 android:id="@+id/imvAddOrder"
-                android:src="@drawable/addcart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="12dp" />
+                android:layout_alignParentTop="true"
+                android:src="@drawable/addcart" />
 
             <!--Title-->
             <TextView
 
-                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textSize="@dimen/txtH1"
                 android:text="ใบสั่งซื้อ"
                 android:textColor="@color/textcolorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textSize="@dimen/txtH1"
+                android:textStyle="bold" />
 
 
             <!--Order Confirm-->
             <ImageView
                 android:id="@+id/imvOrder"
-                android:layout_alignParentRight="true"
-android:src="@drawable/confirm"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/confirm" />
 
         </RelativeLayout>
 
@@ -61,8 +58,8 @@ android:src="@drawable/confirm"
 
     <!--Information-->
     <RelativeLayout
-
-
+        android:layout_below="@id/toolbar"
+        android:id="@+id/relativeUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorLight"
@@ -71,45 +68,46 @@ android:src="@drawable/confirm"
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_online"/>
+            android:src="@mipmap/ic_online" />
 
         <TextView
-            android:layout_marginLeft="@dimen/margin30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
             android:text="@string/username"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/txt20"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <!--ListView Order-->
     <ListView
-        android:layout_above="@+id/relative"
-        android:layout_below="@+id/toolbar"
         android:id="@+id/livOrder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relative"
+        android:layout_below="@+id/relativeUser"></ListView>
 
     <!--Total Price-->
     <RelativeLayout
         android:id="@+id/relative"
-        android:background="@color/colorPrimary"
-        android:layout_alignParentBottom="true"
-        android:padding="@dimen/dp10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/dp10">
 
         <TextView
-            android:layout_alignParentRight="true"
-            android:textColor="@color/textcolorPrimary"
-            android:textStyle="bold"
-            android:textSize="@dimen/txtH2"
-            android:text="Total = 123 THB"
+            android:id="@+id/txtShowTotalPrice"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Total = 123 THB"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="@dimen/txtH2"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

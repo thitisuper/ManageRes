@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.AuthenActivity">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-
-    </RelativeLayout>
-
     <LinearLayout
 
         android:layout_width="match_parent"
@@ -34,9 +24,7 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+
     <EditText
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimary"
