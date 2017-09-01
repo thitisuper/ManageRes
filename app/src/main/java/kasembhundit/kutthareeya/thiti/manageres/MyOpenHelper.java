@@ -21,6 +21,12 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "Topping TEXT," +
             "Item TEXT);";
 
+    private static final String create_receive_table = "create table receiveTABLE (" +
+            "id Integer Primary Key, " +
+            "Ref Text, " +
+            "MyDate Text, " +
+            "MyTime Text);";
+
     public MyOpenHelper(Context context) {
         super(context, database_name, null, database_version);
         this.context = context;
@@ -29,6 +35,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(create_order_table);
+        db.execSQL(create_receive_table);
     }
 
     @Override

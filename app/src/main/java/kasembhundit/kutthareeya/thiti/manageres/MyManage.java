@@ -21,6 +21,19 @@ public class MyManage {
         sqLiteDatabase = myOpenHelper.getWritableDatabase();
 
     }
+
+    public long addReceive(String strRef,
+                           String strDate,
+                           String strTime) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Ref", strRef);
+        contentValues.put("MyDate", strDate);
+        contentValues.put("MyTime", strTime);
+
+        return sqLiteDatabase.insert("receiveTABLE", null, contentValues);
+    }
+
     //เปลี่ยนให้เป็นตัวเลข
     public long addOrder(String id_Food,
                          String Special,
@@ -35,7 +48,6 @@ public class MyManage {
 
         return sqLiteDatabase.insert("orderTABLE", null, contentValues);
     }
-
 
 
 }   //Main Class

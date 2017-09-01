@@ -51,16 +51,16 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
                 intFavorite = 1;
                 break;
             case R.id.imvPack:
-                intGroup = 0;
+                intGroup = 0; //อาหารจานเดี่ยว
                 break;
             case R.id.imvFood:
-                intGroup = 1;
+                intGroup = 1; // กับข้าว
                 break;
             case R.id.imvNoodle:
-                intGroup = 2;
+                intGroup = 2; // อาหารประเภทเส้น
                 break;
             case R.id.imvFoodAll:
-                intGroup = 3;
+                intGroup = 3; // อาหารทั้งหมด
                 break;
         }
 

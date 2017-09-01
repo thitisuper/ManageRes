@@ -192,32 +192,7 @@
                     android:layout_marginLeft="@dimen/h2"
                     android:padding="20sp"></Spinner>
 
-            </LinearLayout>
-            <!--Time-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/h2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="เวลารับอาหาร"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/dp25"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/spnTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/h2"
-                    android:padding="20sp">x
-                </Spinner>
-
-            </LinearLayout>
+            </LinearLayout>"
 
             <!--Delivery-->
             <RelativeLayout
@@ -260,7 +235,7 @@
                 android:textSize="@dimen/txt20" />
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

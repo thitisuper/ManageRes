@@ -1,6 +1,7 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
@@ -16,14 +17,22 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class CheckOrderActivity extends AppCompatActivity {
+
+    private String myTimeString, myDateString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_order);
+
+        setUpTimeAndDate();
 
         //Add Order
         addOrder();
@@ -34,8 +43,14 @@ public class CheckOrderActivity extends AppCompatActivity {
         //Create ListView
         createListView();
 
-
     }   //Main Method
+
+    private void setUpTimeAndDate() {
+        myTimeString = getIntent().getStringExtra("MyTime");
+        Calendar calendar = Calendar.getInstance();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        myDateString = dateFormat.format(calendar.getTime());
+    }
 
     private void createListView() {
         ListView listView = (ListView) findViewById(R.id.livOrder);
@@ -71,7 +86,7 @@ public class CheckOrderActivity extends AppCompatActivity {
                 itemStrings[i] = cursor.getString(4);
 
                 nameFoodStrings[i] = findNameFood(id_FoodStrings[i], true);
-                Log.d(tag, "nameFood[ " + i + "] ==> " + nameFoodStrings);
+                Log.d(tag, "nameFood[ " + i + "] ==> " + nameFoodStrings[i]);
 
                 factorPriceStrings[i] = findNameFood(id_FoodStrings[i], false);
                 priceInts[i] = Integer.parseInt(factorPriceStrings[i]) * Integer.parseInt(itemStrings[i]);
@@ -210,9 +225,42 @@ public class CheckOrderActivity extends AppCompatActivity {
 
                 Log.d(tag, "id_Food[" + i + "] ==> " + id_Food[i]);
 
+                PostOrderToServer postOrderToServer = new PostOrderToServer(CheckOrderActivity.this);
+                MyConstant myConstant = new MyConstant();
+
+                postOrderToServer.execute(
+                        loginStrings[0],
+                        id_ref,
+                        id_Food[i],
+                        Special[i],
+                        Topping[i],
+                        Item[i],
+                        myConstant.getUrlPostOrder()
+                );
+
+                String result = postOrderToServer.get();
+                Log.d(tag, "Result [" + i + "] ==> " + result);
+                if (Boolean.parseBoolean(result)) {
+                    postOrderToServer.cancel(true);
+                    Log.d(tag, "Thread ==> " + postOrderToServer.isCancelled());
+                }
+
                 cursor.moveToNext();
 
             }   //for
+
+            //Delete All SQLite
+            sqLiteDatabase.delete("orderTABLE", null, null);
+
+            //Add New Value to ReceiveTABLE
+            MyManage myManage = new MyManage(CheckOrderActivity.this);
+            myManage.addReceive(id_ref, myDateString, myTimeString);
+
+            //Intent to ReceiveActivity
+            Intent intent = new Intent(CheckOrderActivity.this, ReceiveActivity.class);
+            startActivity(intent);
+            finish();
+
 
         } catch (Exception e) {
             Log.d(tag, "e upload ==> " + e.toString());

@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="kasembhundit.kutthareeya.thiti.manageres.ReceiveActivity">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/dp10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--Add Order-->
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_back" />
+        <TextView
+            android:layout_marginStart="50dp"
+            android:id="@+id/textHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ประวัติการสั่งซื้อ"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="@dimen/txtH1"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="@dimen/dp10"
+            android:id="@+id/txtRef"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:text="Ref.01"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+        <TextView
+            android:padding="@dimen/dp10"
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:text="Date"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <!--Name Food-->
+        <TextView
+            android:id="@+id/txtNameFood"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:text="NameFood"
+            android:textSize="@dimen/h2"
+            android:textStyle="bold" />
+        <!--Special Food-->
+        <TextView
+            android:id="@+id/txtSpecial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="(Special)"
+            android:textSize="@dimen/h2"
+            android:textStyle="italic" />
+        <!--Item-->
+        <TextView
+            android:id="@+id/txtItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="3"
+            android:textSize="@dimen/h2" />
+        <!--Price-->
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="100"
+            android:textSize="@dimen/h2" />
+    </LinearLayout>
+    <!--Topping-->
+    <TextView
+        android:id="@+id/txtTopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginLeft="5dp"
+        android:text="Topping"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+    <!--Totol-->
+    <TextView
+        android:layout_marginLeft="@dimen/dp100"
+        android:id="@+id/txtTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ราคาทั้งหมด :"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 </LinearLayout>

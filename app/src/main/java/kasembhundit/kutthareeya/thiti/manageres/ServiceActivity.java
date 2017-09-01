@@ -21,6 +21,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
     private int favoriteAnInt, groupAnInt;
     private String[] loginStrings;
     private String tag = "10JuneV2";
+    private String strJSON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,30 +56,37 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                 getFoodWhere.execute("Favorite", "1",
                         myConstant.getUrlGetFoodFavorite());
                 strTitle = "Favorite";
+                strJSON = getFoodWhere.get();
             } else if (groupAnInt == 0) {
                 //อาหารจารเดี่ยว
                 getFoodWhere.execute("Group", "0",
                         myConstant.getUrlGetFoodGroup());
                 strTitle = "อาหารจานเดียว";
+                strJSON = getFoodWhere.get();
             } else if (groupAnInt == 1) {
                 //กับข้าว
                 getFoodWhere.execute("Group", "1",
                         myConstant.getUrlGetFoodGroup());
                 strTitle = "กับข้าว";
+                strJSON = getFoodWhere.get();
             } else if (groupAnInt == 2) {
                 //ประเภทเส้น
                 getFoodWhere.execute("Group", "2",
                         myConstant.getUrlGetFoodGroup());
                 strTitle = "ประเภทเส้น";
+                strJSON = getFoodWhere.get();
             } else {
                 //For All Food
+                GetAllData getAllData = new GetAllData(ServiceActivity.this);
+                getAllData.execute(myConstant.getUrlGetAllProduct());
+                strTitle = "อาหารทั้งหมด";
+                strJSON = getAllData.get();
             }
 
             //Show Text
             titleTextView.setText(strTitle);
             nameTextView.setText(loginStrings[1] + " " + loginStrings[2]);
 
-            String strJSON = getFoodWhere.get();
             Log.d(tag, "strJSON ==> " + strJSON);
 
             JSONArray jsonArray = new JSONArray(strJSON);

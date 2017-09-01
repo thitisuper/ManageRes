@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -37,6 +38,7 @@ public class OrderActivity extends AppCompatActivity {
     private ImageView iconImageView;
     private MyConstant myConstant;
     private int intHour, intMinus;
+    private String strCurrentTime;
 
     private TextView showTotalPriceTextView;
     private int totalPriceAnInt, factorPriceAnInt, specialAnInt = 0, toppingAnInt = 0,
@@ -130,9 +132,14 @@ public class OrderActivity extends AppCompatActivity {
 
         //Get Current Time
         final Calendar calendar = Calendar.getInstance();
+
+        int addMinus = 30;
+
+        calendar.add(Calendar.MINUTE, addMinus);
+
         final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        final String strCurrentTime = dateFormat.format(calendar.getTime());
-        Log.d(tag, "CurrentTime ==> " + strCurrentTime);
+        strCurrentTime = dateFormat.format(calendar.getTime());
+        Log.d(tag, "Time ==> " + strCurrentTime);
 
         textView = (TextView) findViewById(R.id.txtShowTime);
         myShowTime(strCurrentTime);
@@ -287,11 +294,10 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void orderController() {
-        ImageView imageView = (ImageView) findViewById(R.id.imvOrder);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        Button button = (Button) findViewById(R.id.btnOrder);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Special CheckBox
                 specialCheckBox();
 
@@ -299,8 +305,7 @@ public class OrderActivity extends AppCompatActivity {
                 deliveryCheckbox();
 
                 confirmDialog();
-
-            }   //onClick
+            }
         });
     }
 
@@ -348,6 +353,7 @@ public class OrderActivity extends AppCompatActivity {
 
         Intent intent = new Intent(OrderActivity.this, CheckOrderActivity.class);
         intent.putExtra("Login", loginStrings);
+        intent.putExtra("MyTime", strCurrentTime);
         startActivity(intent);
         finish();
 

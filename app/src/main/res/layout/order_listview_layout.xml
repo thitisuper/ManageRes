@@ -3,35 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    
 
-
-<LinearLayout
-
-    android:layout_centerHorizontal="true"
-    android:background="@color/colorPrimary"
-    android:padding="@dimen/dp10"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <!--Add Order-->
-    <ImageView
-        android:id="@+id/imvAddOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/addcart" />
-
-
-    <TextView
-        android:layout_marginStart="@dimen/dp70"
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="รายการอาหาร"
-        android:textColor="@color/textcolorPrimary"
-        android:textSize="@dimen/txtH1"
-        android:textStyle="bold" />
-
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
