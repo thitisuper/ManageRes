@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kasembhundit.kutthareeya.thiti.manageres.MainActivity">
+    tools:context="kasembhundit.kutthareeya.thiti.manageres.ReportActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/padHeader">
-
-
-
+        android:padding="@dimen/padHeader"
+        android:id="@+id/relativeLayout">
+        <ImageView
+            android:id="@+id/imvBack"
+            android:src="@mipmap/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="ประกาศโปรโมชั่น"
+            android:text="รายงานรายได้"
             android:textColor="@color/textcolorPrimary"
             android:textSize="@dimen/txtH1"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/imvAuthen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_authen" />
-
-
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/LivNews"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout"></ListView>
 
-</LinearLayout>
+
+</RelativeLayout>

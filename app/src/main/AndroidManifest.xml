@@ -26,7 +26,18 @@
         <activity android:name=".HubActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".CheckOrderActivity" />
-        <activity android:name=".ReceiveActivity"></activity>
+        <activity android:name=".ReceiveActivity" />
+        <activity android:name=".orderMerchantActivity" />
+        <activity android:name=".orderMerChantActivity" />
+        <activity android:name=".addFoodActivity" />
+        <activity android:name=".editPromotionActivity" />
+        <activity android:name=".ReportActivity" />
+        <activity android:name=".EditFoodActivity" />
+        <activity android:name=".DeleteFoodtActivity" />
+        <activity android:name=".AddPromotionActivity" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".StatusActivity" />
+        <activity android:name=".OderSlipActivity"></activity>
     </application>
 
 </manifest>

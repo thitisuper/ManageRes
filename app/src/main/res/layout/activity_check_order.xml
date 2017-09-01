@@ -8,57 +8,10 @@
 
     tools:context="kasembhundit.kutthareeya.thiti.manageres.CheckOrderActivity">
 
-    <!--Toolbar-->
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/dp10">
-
-
-        <!--Header-->
-        <RelativeLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--Add Order-->
-            <ImageView
-                android:id="@+id/imvAddOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/addcart" />
-
-            <!--Title-->
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="ใบสั่งซื้อ"
-                android:textColor="@color/textcolorPrimary"
-                android:textSize="@dimen/txtH1"
-                android:textStyle="bold" />
-
-
-            <!--Order Confirm-->
-            <ImageView
-                android:id="@+id/imvOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/confirm" />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.Toolbar>
 
     <!--Information-->
     <RelativeLayout
-        android:layout_below="@id/toolbar"
+        android:layout_below="@+id/tooloder"
         android:id="@+id/relativeUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,23 +43,69 @@
         android:layout_below="@+id/relativeUser"></ListView>
 
     <!--Total Price-->
-    <RelativeLayout
+    <LinearLayout
+
+        android:orientation="horizontal"
         android:id="@+id/relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/dp10">
+        >
 
         <TextView
             android:id="@+id/txtShowTotalPrice"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/dp100"
             android:text="Total = 123 THB"
             android:textColor="@color/textcolorPrimary"
             android:textSize="@dimen/txtH2"
             android:textStyle="bold" />
+
+        <!--Order Confirm-->
+        <ImageView
+
+      android:layout_marginLeft="@dimen/dp25"
+            android:id="@+id/imvOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/confirm" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:background="@color/colorPrimary"
+        android:id="@+id/tooloder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <!--Add Order-->
+        <ImageView
+            android:padding="@dimen/dp10"
+            android:id="@+id/imvAddOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/addcart" />
+
+        <!--Title-->
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ใบสั่งซื้อ"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="@dimen/txtH1"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
 
     </RelativeLayout>
 

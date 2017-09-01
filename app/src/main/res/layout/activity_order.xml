@@ -36,35 +36,26 @@
 
                 <!--Food Name-->
                 <TextView
-                    android:textStyle="bold"
                     android:id="@+id/txtNameFood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name Food"
+                    android:text="ชื่ออาหาร"
                     android:textColor="@color/textcolorPrimary"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/h1"
+                    android:textStyle="bold" />
                 <!--Price Name-->
                 <TextView
-                    android:textStyle="bold"
                     android:id="@+id/txtPriceFood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price"
+                    android:text="ราคา"
                     android:textColor="@color/textcolorPrimary"
-                    android:textSize="@dimen/h2" />
+                    android:textSize="@dimen/h2"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
 
-            <!--Order-->
-
-            <ImageView
-                android:layout_centerInParent="true"
-                android:id="@+id/imvOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/confirm" />
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -93,27 +84,26 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_online"/>
+                    android:src="@mipmap/ic_online" />
 
                 <TextView
-                    android:layout_marginLeft="@dimen/dp25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp25"
                     android:text="@string/username"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/txt20"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextClock
-                    android:layout_alignParentRight="true"
                     android:id="@+id/clockTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size20" />
 
             </RelativeLayout>
-
 
 
             <!--Show Image and Price-->
@@ -147,12 +137,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ส่วนผสม"
-                    android:textSize="@dimen/dp25" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dp25"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spnTopping"
@@ -176,8 +166,7 @@
                     android:layout_marginLeft="@dimen/h2"
                     android:padding="20sp"
                     android:text="พิเศษ"
-                    android:textSize="@dimen/txt20">
-                </CheckBox>
+                    android:textSize="@dimen/txt20"></CheckBox>
 
 
             </LinearLayout>
@@ -189,20 +178,19 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="จำนวน"
-                    android:textSize="@dimen/dp25" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dp25"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spnItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/h2"
-                    android:padding="20sp">
-                </Spinner>
+                    android:padding="20sp"></Spinner>
 
             </LinearLayout>
             <!--Time-->
@@ -213,11 +201,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:textColor="@color/colorPrimaryDark"
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="เวลารับอาหาร"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dp25"
                     android:textStyle="bold" />
 
@@ -238,31 +226,50 @@
                 android:layout_marginTop="@dimen/h2">
 
                 <TextView
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
                     android:id="@+id/txtShowTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="รับอาหาร"
-                    android:textSize="@dimen/dp25" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dp25"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imvChooseTime"
-                    android:layout_alignParentRight="true"
-                    android:src="@mipmap/ic_authen"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_authen" />
 
             </RelativeLayout>
 
             <CheckBox
-                android:layout_marginLeft="@dimen/h2"
                 android:id="@+id/chbDelivery"
-                android:textSize="@dimen/txt20"
-                android:text="@string/dev2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/h2"
+                android:text="มารับเอง"
+                android:textSize="@dimen/txt20" />
 
+            <CheckBox
+                android:id="@+id/chbDelivery2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/h2"
+                android:text="จัดส่งที่ห้อง"
+                android:textSize="@dimen/txt20" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorSecondary"
+                android:src="@drawable/confirm"
+                android:text="สั่งอาหาร"
+                android:textColor="@color/textcolorPrimary"
+                android:textSize="@dimen/size20"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

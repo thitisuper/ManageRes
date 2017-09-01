@@ -12,10 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin30"
         android:layout_marginRight="@dimen/margin30"
-        android:layout_marginTop="@dimen/dp10"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
         <ImageView
             android:src="@drawable/food"
@@ -51,16 +52,28 @@
         android:hint="รหัสผ่าน"/>
 
     <TextView
-android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="สมัครสมาชิก"
         android:textColor="@color/colortext"
         android:textSize="@dimen/txtH2"
         android:id="@+id/txtRegister"
+        android:layout_marginTop="27dp"
         android:layout_below="@+id/edtPassword"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ลืมรหัสผ่าน"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/txtH2"
+        android:id="@+id/txtforgetpass"
+        android:layout_below="@+id/txtRegister"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/txtH2" />
+        android:layout_marginTop="@dimen/dp10" />
+
 
 
     <Button
@@ -69,7 +82,7 @@ android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorSecondary"
-        android:text="@string/login"
+        android:text="เข้าสู่ระบบ"
         android:textColor="@color/textcolorPrimary"
         android:textSize="@dimen/size20"
         android:textStyle="bold" />

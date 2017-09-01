@@ -1,9 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.MerchantActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <!--Layout on top-->
+    <RelativeLayout
+        android:id="@+id/realTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padHeader">
+
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_back" />
+
+        <TextView
+            android:id="@+id/manage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="จัดการร้านค้า"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
+    <!--manager-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding20"
+        android:layout_below="@+id/realTop"
+        android:layout_alignParentStart="true">
+
+        <!--Add-->
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/nameicon" />
+
+            <TextView
+                android:padding="@dimen/dp10"
+                android:textSize="@dimen/txtH2"
+                android:text="เพิ่มรายการอาหาร"
+                android:id="@+id/textAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+        <!--delete-->
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/nameicon" />
+
+            <TextView
+                android:padding="@dimen/dp10"
+                android:textSize="@dimen/txtH2"
+                android:text="แก้ไขรายการอาหาร"
+                android:id="@+id/textDele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+        <!--edit-->
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/name" />
+
+            <TextView
+                android:padding="@dimen/dp10"
+                android:textSize="@dimen/txtH2"
+                android:text="เพิ่มข่าวสาร"
+                android:id="@+id/textEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+        <!--Edit promotion-->
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/password" />
+
+            <TextView
+                android:padding="@dimen/dp10"
+                android:textSize="@dimen/txtH2"
+                android:text="แก้ไขข่าวสาร"
+                android:id="@+id/textEdnews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+        <!--report-->
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/password" />
+
+            <TextView
+                android:padding="@dimen/dp10"
+                android:textSize="@dimen/txtH2"
+                android:text="รายงานรายได้"
+                android:id="@+id/textReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
