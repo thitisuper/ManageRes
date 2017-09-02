@@ -160,7 +160,7 @@
 
         <ImageView
             android:id="@+id/buttonDele"
-            android:src="@mipmap/ic_authen"
+            android:src="@drawable/deleteproduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

@@ -54,7 +54,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/nameicon" />
+                android:src="@drawable/addproduct" />
 
             <TextView
                 android:padding="@dimen/dp10"
@@ -76,7 +76,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/nameicon" />
+                android:src="@drawable/editproduct" />
 
             <TextView
                 android:padding="@dimen/dp10"
@@ -99,7 +99,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/name" />
+                android:src="@drawable/addnews" />
 
             <TextView
                 android:padding="@dimen/dp10"
@@ -123,7 +123,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/password" />
+                android:src="@drawable/editnew" />
 
             <TextView
                 android:padding="@dimen/dp10"
@@ -147,7 +147,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/password" />
+                android:src="@drawable/coinicon" />
 
             <TextView
                 android:padding="@dimen/dp10"
