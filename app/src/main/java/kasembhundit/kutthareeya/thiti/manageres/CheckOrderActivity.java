@@ -356,9 +356,9 @@ public class CheckOrderActivity extends AppCompatActivity {
 
             //Add New Value to ReceiveTABLE
             MyManage myManage = new MyManage(CheckOrderActivity.this);
-            myManage.addReceive(id_ref, myDateString, myTimeString);
+            myManage.addReceive(id_ref, myDateString, strCurrentTime);
 
-            setupNotification(myTimeString);
+            setupNotification(strCurrentTime);
 
             //Intent to ReceiveActivity
             Intent intent = new Intent(CheckOrderActivity.this, ReceiveActivity.class);
