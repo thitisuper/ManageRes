@@ -40,6 +40,7 @@ public class ReceiveActivity extends AppCompatActivity {
             Log.d(tag, "e createListView ==> " + e.toString());
         }
 
+
     }   //Create ListView
 
     private void getStringFromSQLite() {
