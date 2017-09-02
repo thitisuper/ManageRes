@@ -28,6 +28,13 @@ public class MyConstant {
     private String[] itemStrings = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
     private String[] receiveTimeStrings = new String[]{"CurrentTime", "10.00-14.00", "14:00-18.00"};
 
+    public int getTimeAnInt() {
+        return timeAnInt;
+    }
+
+    //Delay Time
+    private int timeAnInt = 1;  //Default ==> 30min
+
     public String getUrlGetOrderWhereIdRef() {
         return urlGetOrderWhereIdRef;
     }

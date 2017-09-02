@@ -133,7 +133,7 @@ public class OrderActivity extends AppCompatActivity {
         //Get Current Time
         final Calendar calendar = Calendar.getInstance();
 
-        int addMinus = 30;
+        int addMinus = myConstant.getTimeAnInt();
 
         calendar.add(Calendar.MINUTE, addMinus);
 

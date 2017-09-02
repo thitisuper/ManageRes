@@ -85,6 +85,18 @@ public class ReceiveActivity extends AppCompatActivity {
                     titleStrings, itemStrings, unitPriceStrings);
             listView1.setAdapter(receiveAdapter);
 
+            //Show Total
+            int totalAInt = 0;
+            for (int i = 0; i < itemStrings.length; i += 1) {
+
+                int subTotalAInt = (Integer.parseInt(itemStrings[i])) * (Integer.parseInt(unitPriceStrings[i]));
+                totalAInt = totalAInt + subTotalAInt;
+
+            }   // for
+
+            TextView textView = (TextView) findViewById(R.id.txtTotal);
+            textView.setText("ราคารวม: " + Integer.toString(totalAInt) + " บาท");
+
 
         } catch (Exception e) {
             Log.d(tag, "e createListView ==> " + e.toString());

@@ -1,5 +1,8 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -256,6 +259,8 @@ public class CheckOrderActivity extends AppCompatActivity {
             MyManage myManage = new MyManage(CheckOrderActivity.this);
             myManage.addReceive(id_ref, myDateString, myTimeString);
 
+            setupNotification(myTimeString);
+
             //Intent to ReceiveActivity
             Intent intent = new Intent(CheckOrderActivity.this, ReceiveActivity.class);
             startActivity(intent);
@@ -267,6 +272,46 @@ public class CheckOrderActivity extends AppCompatActivity {
         }
 
     }   //Upload Value To Server
+
+    private void setupNotification(String myTimeString) {
+
+        String tag = "2SepV2";
+        Log.d(tag, "Time Notification ==> " + myTimeString);
+
+        String[] strings = myTimeString.split(":");
+        int hrAnInt = Integer.parseInt(strings[0]);
+        int minAnInt = Integer.parseInt(strings[1]);
+
+        Log.d(tag, "hr ==> " + hrAnInt);
+        Log.d(tag, "minus ==> " + minAnInt);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hrAnInt);
+        calendar.set(Calendar.MINUTE, minAnInt);
+        calendar.set(Calendar.SECOND, 0);//ให้ทำงานที่วินาที ที่ 0
+
+        Log.d(tag, "เวลาแจ้งเตือน ==> " + calendar.getTime().toString());
+
+        sentValueToReceiver(calendar);
+
+    }   // Set up Notification
+
+
+    private void sentValueToReceiver(Calendar calendar) {
+
+        int intRandom = 0;
+        Random random = new Random();
+        intRandom = random.nextInt(1000);
+
+        Intent intent = new Intent(getBaseContext(), MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),
+                intRandom, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                pendingIntent);
+
+    }   // sentValue
+
 
     private void addOrder() {
         ImageView imageView = (ImageView) findViewById(R.id.imvAddOrder);
