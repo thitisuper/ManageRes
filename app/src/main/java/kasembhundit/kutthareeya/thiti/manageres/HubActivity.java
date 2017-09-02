@@ -22,8 +22,21 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
         //Controller
         controller();
 
+        //Bracker Market Controller
+        marketController();
+
 
     }   //Main Method
+
+    private void marketController() {
+        ImageView imageView = (ImageView) findViewById(R.id.imvMarket);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HubActivity.this, ReceiveActivity.class));
+            }
+        });
+    }
 
     private void controller() {
         favoriteImageView.setOnClickListener(this);

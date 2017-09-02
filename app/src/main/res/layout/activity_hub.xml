@@ -9,15 +9,13 @@
     tools:context="kasembhundit.kutthareeya.thiti.manageres.HubActivity">
 
     <!--Header-->
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
         android:padding="@dimen/padHeader">
 
+        <!--Title-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +24,14 @@
             android:textSize="@dimen/txtH1"
             android:textStyle="bold" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/imvMarket"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_market"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
     <!--Information-->
     <RelativeLayout

@@ -147,6 +147,7 @@ public class OrderActivity extends AppCompatActivity {
         intHour = calendar.get(Calendar.HOUR_OF_DAY);
         intMinus = calendar.get(Calendar.MINUTE);
 
+        //Image Controller
         ImageView imageView = (ImageView) findViewById(R.id.imvChooseTime);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,13 +175,18 @@ public class OrderActivity extends AppCompatActivity {
                             }
                         }, intHour, intMinus, false);
                 timePickerDialog.show();
-
             }
         });
-    }
+    }   //Receive Time
 
-    private void myShowTime(String strCurrentTime) {
-        textView.setText("เวลารับอาหาร : " + strCurrentTime);
+
+
+    private void myShowTime(String strTime) {
+        textView.setText("เวลารับอาหาร : " + strTime);
+        Log.d("2SepV2", "strCurrentTime เก่า ==> " + strCurrentTime);
+        Log.d("2SepV2", "strTime ใหม่ ==> " + strTime);
+        strCurrentTime = strTime;
+        Log.d("2SepV2", "strCurrentTime ใหม่ ==> " + strCurrentTime);
     }
 
     private void itemSpinner() {
