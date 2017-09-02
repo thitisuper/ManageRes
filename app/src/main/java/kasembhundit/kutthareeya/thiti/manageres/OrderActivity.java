@@ -79,7 +79,7 @@ public class OrderActivity extends AppCompatActivity {
         itemSpinner();
 
         //Receive Time Product
-        receiveTimeProduct();
+        //receiveTimeProduct();
 
         //Show Total Price
         totalPriceAnInt = factorPriceAnInt;
@@ -115,79 +115,6 @@ public class OrderActivity extends AppCompatActivity {
         showTotalPriceTextView.setText("ราคารวม = " + Integer.toString(totalPriceAnInt) + " บาท");
     }
 
-    private void deliveryCheckbox() {
-        CheckBox checkBox = (CheckBox) findViewById(R.id.chbDelivery);
-        if (checkBox.isChecked()) {
-            deliveryString = "1";
-        }
-        if (!checkBox.isChecked()) {
-            deliveryString = "0";
-        }
-    }
-
-
-    private void receiveTimeProduct() {
-
-        String tag = "13JulyV2";
-
-        //Get Current Time
-        final Calendar calendar = Calendar.getInstance();
-
-        int addMinus = myConstant.getTimeAnInt();
-
-        calendar.add(Calendar.MINUTE, addMinus);
-
-        final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        strCurrentTime = dateFormat.format(calendar.getTime());
-        Log.d(tag, "Time ==> " + strCurrentTime);
-
-        textView = (TextView) findViewById(R.id.txtShowTime);
-        myShowTime(strCurrentTime);
-
-        intHour = calendar.get(Calendar.HOUR_OF_DAY);
-        intMinus = calendar.get(Calendar.MINUTE);
-
-        //Image Controller
-        ImageView imageView = (ImageView) findViewById(R.id.imvChooseTime);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(OrderActivity.this,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int Hour, int Minus) {
-
-                                if (Hour >= intHour) {
-
-                                    calendar.set(Calendar.HOUR_OF_DAY, Hour);
-                                    calendar.set(Calendar.MINUTE, Minus);
-                                    String chooseTime = dateFormat.format(calendar.getTime());
-                                    myShowTime(chooseTime);
-
-                                } else {
-
-                                    MyAlert myAlert = new MyAlert(OrderActivity.this);
-                                    myAlert.myDialogError("ชั่วโมงย้อนหลัง", "โปรดเลือกชั่วโมงใหม่");
-
-                                }
-
-                            }
-                        }, intHour, intMinus, false);
-                timePickerDialog.show();
-            }
-        });
-    }   //Receive Time
-
-
-
-    private void myShowTime(String strTime) {
-        textView.setText("เวลารับอาหาร : " + strTime);
-        Log.d("2SepV2", "strCurrentTime เก่า ==> " + strCurrentTime);
-        Log.d("2SepV2", "strTime ใหม่ ==> " + strTime);
-        strCurrentTime = strTime;
-        Log.d("2SepV2", "strCurrentTime ใหม่ ==> " + strCurrentTime);
-    }
 
     private void itemSpinner() {
         Spinner spinner = (Spinner) findViewById(R.id.spnItem);
@@ -306,9 +233,6 @@ public class OrderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Special CheckBox
                 specialCheckBox();
-
-                //Delivery Checkbox
-                deliveryCheckbox();
 
                 confirmDialog();
             }

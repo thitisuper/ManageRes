@@ -2,20 +2,26 @@ package kasembhundit.kutthareeya.thiti.manageres;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,12 +34,17 @@ import java.util.Random;
 
 public class CheckOrderActivity extends AppCompatActivity {
 
-    private String myTimeString, myDateString;
+    private String myTimeString, myDateString,
+            deliveryString = "มารับเอง", strCurrentTime;
+    private TextView textView;
+    private int intHour, intMinus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_order);
+
+        receiveTimeProduct();
 
         setUpTimeAndDate();
 
@@ -43,16 +54,104 @@ public class CheckOrderActivity extends AppCompatActivity {
         //Save Order To Server
         saveOrderToServer();
 
+        //Radio Controller
+        radioController();
+
         //Create ListView
         createListView();
 
     }   //Main Method
 
+    private void radioController() {
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radDelivery);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switch (checkedId){
+                    case R.id.radDelivery1:
+                        deliveryString = "มารับเอง";
+                        break;
+                    case R.id.radDelivery2:
+                        deliveryString = "จัดส่งที่ห้อง";
+                        break;
+                }
+            }
+        });
+    }
+
     private void setUpTimeAndDate() {
-        myTimeString = getIntent().getStringExtra("MyTime");
+
         Calendar calendar = Calendar.getInstance();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         myDateString = dateFormat.format(calendar.getTime());
+
+        myTimeString = strCurrentTime;
+
+    }
+
+
+    private void receiveTimeProduct() {
+
+        String tag = "13JulyV2";
+
+        //Get Current Time
+        final Calendar calendar = Calendar.getInstance();
+
+        MyConstant myConstant = new MyConstant();
+
+        int addMinus = myConstant.getTimeAnInt();
+
+        calendar.add(Calendar.MINUTE, addMinus);
+
+        final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        strCurrentTime = dateFormat.format(calendar.getTime());
+        Log.d(tag, "Time ==> " + strCurrentTime);
+
+        textView = (TextView) findViewById(R.id.txtShowTime);
+        myShowTime(strCurrentTime);
+
+        intHour = calendar.get(Calendar.HOUR_OF_DAY);
+        intMinus = calendar.get(Calendar.MINUTE);
+
+        //Image Controller
+        ImageView imageView = (ImageView) findViewById(R.id.imvChooseTime);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(CheckOrderActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int Hour, int Minus) {
+
+                                if (Hour >= intHour) {
+
+                                    calendar.set(Calendar.HOUR_OF_DAY, Hour);
+                                    calendar.set(Calendar.MINUTE, Minus);
+                                    String chooseTime = dateFormat.format(calendar.getTime());
+                                    myShowTime(chooseTime);
+
+                                } else {
+
+                                    MyAlert myAlert = new MyAlert(CheckOrderActivity.this);
+                                    myAlert.myDialogError("ชั่วโมงย้อนหลัง", "โปรดเลือกชั่วโมงใหม่");
+
+                                }
+
+                            }
+                        }, intHour, intMinus, false);
+                timePickerDialog.show();
+            }
+        });
+    }   //Receive Time
+
+
+    private void myShowTime(String strTime) {
+        textView.setText("เวลารับอาหาร : " + strTime);
+        Log.d("2SepV2", "strCurrentTime เก่า ==> " + strCurrentTime);
+        Log.d("2SepV2", "strTime ใหม่ ==> " + strTime);
+        strCurrentTime = strTime;
+        Log.d("2SepV2", "strCurrentTime ใหม่ ==> " + strCurrentTime);
     }
 
     private void createListView() {

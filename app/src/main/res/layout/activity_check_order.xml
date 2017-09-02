@@ -10,29 +10,64 @@
 
 
     <!--Information-->
-    <RelativeLayout
-        android:layout_below="@+id/tooloder"
+    <LinearLayout
         android:id="@+id/relativeUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tooloder"
         android:background="@color/colorLight"
+        android:orientation="vertical"
         android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <!--Delivery-->
+        <RadioGroup
+            android:id="@+id/radDelivery"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_online" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/radDelivery1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="มารับเอง" />
+
+            <RadioButton
+                android:id="@+id/radDelivery2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="จัดส่งที่ห้อง" />
+
+
+        </RadioGroup>
+
+        <!--Choose Time-->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin30"
-            android:text="@string/username"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/txt20"
-            android:textStyle="bold" />
+            android:layout_marginTop="@dimen/h2">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/txtShowTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="รับอาหาร"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/dp25"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imvChooseTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_authen" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
     <!--ListView Order-->
     <ListView
@@ -40,18 +75,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/relative"
-        android:layout_below="@+id/relativeUser"></ListView>
+        android:layout_below="@+id/relativeUser" />
 
     <!--Total Price-->
     <LinearLayout
 
-        android:orientation="horizontal"
         android:id="@+id/relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtShowTotalPrice"
@@ -67,31 +101,31 @@
         <!--Order Confirm-->
         <ImageView
 
-      android:layout_marginLeft="@dimen/dp25"
             android:id="@+id/imvOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp25"
             android:src="@drawable/confirm" />
 
     </LinearLayout>
 
 
     <RelativeLayout
-        android:background="@color/colorPrimary"
         android:id="@+id/tooloder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:background="@color/colorPrimary">
 
         <!--Add Order-->
         <ImageView
-            android:padding="@dimen/dp10"
             android:id="@+id/imvAddOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:padding="@dimen/dp10"
             android:src="@drawable/addcart" />
 
         <!--Title-->
@@ -99,12 +133,12 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:text="ใบสั่งซื้อ"
             android:textColor="@color/textcolorPrimary"
             android:textSize="@dimen/txtH1"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
