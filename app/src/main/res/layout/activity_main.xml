@@ -24,13 +24,30 @@
             android:textSize="@dimen/txtH1"
             android:textStyle="bold" />
 
+
+
+
+    </RelativeLayout>
+    <!--Show Infomarion-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLight"
+        android:orientation="horizontal">
+
         <ImageView
+            android:layout_marginLeft="@dimen/dp70"
+            android:src="@drawable/ic_authen"
             android:id="@+id/imvAuthen"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_authen" />
+            android:layout_height="wrap_content" />
 
+        <ImageView
+            android:id="@+id/imvregister"
+            android:layout_marginLeft="@dimen/dp200"
+            android:src="@drawable/ic_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
