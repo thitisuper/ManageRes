@@ -27,7 +27,6 @@
         <activity android:name=".OrderActivity" />
         <activity android:name=".CheckOrderActivity" />
         <activity android:name=".ReceiveActivity" />
-        <activity android:name=".orderMerChantActivity" />
         <activity android:name=".addFoodActivity" />
         <activity android:name=".editPromotionActivity" />
         <activity android:name=".ReportActivity" />
@@ -37,8 +36,13 @@
         <activity android:name=".UserActivity" />
         <activity android:name=".StatusActivity" />
         <activity android:name=".OderSlipActivity" />
-        <activity android:name=".ShowNotification"/>
-        <receiver android:name=".MyReceiver" android:process=":remote"/>
+        <activity android:name=".ShowNotification" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:process=":remote" />
+
+        <activity android:name=".MerchantMainActivity"></activity>
     </application>
 
 </manifest>

@@ -330,15 +330,9 @@ public class CheckOrderActivity extends AppCompatActivity {
                 PostOrderToServer postOrderToServer = new PostOrderToServer(CheckOrderActivity.this);
                 MyConstant myConstant = new MyConstant();
 
-                postOrderToServer.execute(
-                        loginStrings[0],
-                        id_ref,
-                        id_Food[i],
-                        Special[i],
-                        Topping[i],
-                        Item[i],
-                        myConstant.getUrlPostOrder()
-                );
+                postOrderToServer.execute(loginStrings[0], id_ref, id_Food[i],
+                        Special[i], Topping[i], Item[i],
+                        myConstant.getUrlPostOrder());
 
                 String result = postOrderToServer.get();
                 Log.d(tag, "Result [" + i + "] ==> " + result);

@@ -126,7 +126,7 @@ public class AuthenActivity extends AppCompatActivity {
                 aClass = HubActivity.class;
                 break;
             case 1:
-                aClass = MerchantActivity.class;
+                aClass = MerchantMainActivity.class;
                 break;
         }
 
