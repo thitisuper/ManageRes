@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/txtTotal"
+        android:layout_below="@+id/myToolbar"
+        android:orientation="vertical">
+
+        <!--Content Ref And Date&Time-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Ref-->
+            <TextView
+                android:id="@+id/txtRef"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/dp10"
+                android:text="Ref.01"
+                android:textSize="@dimen/h1"
+                android:textStyle="bold" />
+
+            <!--Name Order-->
+            <TextView
+                android:layout_weight="0.1"
+                android:id="@+id/txtNameSur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ชื่อผู้รับ : ธิติ ไทยนิยม"
+                android:textSize="18dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <!--Name Food-->
+            <TextView
+                android:id="@+id/txtNameFood"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:text="NameFood"
+                android:textSize="@dimen/h2"
+                android:textStyle="bold" />
+
+            <!--Special Food-->
+            <TextView
+                android:id="@+id/txtSpecial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="(Special)"
+                android:textSize="@dimen/h2"
+                android:textStyle="italic" />
+
+            <!--Item-->
+            <TextView
+                android:id="@+id/txtItem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:text="3 จาน"
+                android:textSize="@dimen/h2" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Topping-->
+            <TextView
+                android:id="@+id/txtTopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_marginLeft="5dp"
+                android:text="Topping"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <!--Price-->
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:text="ราคา 100 บาท"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

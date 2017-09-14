@@ -1,8 +1,11 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -10,7 +13,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class MerchantMainActivity extends AppCompatActivity {
-    String[] id_user, id_ref, id_food, special, topping, item;
+    MyConstant myConstant = new MyConstant();
+    String[] id_ref, id_userStrings, nameUserStrings, surnameUserStrings,
+            id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
+            itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
+            specialAndStrings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +30,6 @@ public class MerchantMainActivity extends AppCompatActivity {
     }   // Main Method
 
     private void createListView() {
-        ListView listView = (ListView) findViewById(R.id.livOrderMerchant);
         String tag = "9SepV1";
 
         try {
@@ -32,19 +38,149 @@ public class MerchantMainActivity extends AppCompatActivity {
             getAllData.execute(myConstant.getUrlGetOrderWhereIdRefAndStatus());
             String result = getAllData.get();
             Log.d(tag, "result ==> " + result);
+            String[] stringsSpecial = new String[]{"ธรรมดา", "พิเศษ"};
 
+            //จองหน่วยความจำเขามาแปลงเป็นตัวหนังสือ
             JSONArray jsonArray = new JSONArray(result);
-            id_ref = new String[jsonArray.length()];
+            int lengthAnInt = jsonArray.length();
+            id_ref = new String[lengthAnInt];
+            id_userStrings = new String[lengthAnInt];
+            nameUserStrings = new String[lengthAnInt];
+            surnameUserStrings = new String[lengthAnInt];
+            id_foodStrings = new String[lengthAnInt];
+            foodNameStrings = new String[lengthAnInt];
+            priceFoodStrings = new String[lengthAnInt];
+            unitPriceStrings = new String[lengthAnInt];
+            specialStrings = new String[lengthAnInt];
+            itemStrings = new String[lengthAnInt];
+            toppingStrings = new String[lengthAnInt];
+            nameAndSurnameString = new String[lengthAnInt];
+            specialAndStrings = new String[lengthAnInt];
 
-            for (int i = 0; i < jsonArray.length(); i += 1) {
+            for (int i = 0; i < lengthAnInt; i += 1) {
+
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+                id_userStrings[i] = jsonObject.getString("id_User");
+                id_foodStrings[i] = jsonObject.getString("id_Food");
                 id_ref[i] = jsonObject.getString("id_Ref");
+                specialStrings[i] = jsonObject.getString("Special");
+                itemStrings[i] = jsonObject.getString("Item");
+                toppingStrings[i] = jsonObject.getString("Topping");
+                nameUserStrings[i] = myFindNameAndSurUser(0, id_userStrings[i]);
+                surnameUserStrings[i] = myFindNameAndSurUser(1, id_userStrings[i]);
+                foodNameStrings[i] = myFindNameFoodAndPrice(0, id_foodStrings[i]);
+                priceFoodStrings[i] = myFindNameFoodAndPrice(1, id_foodStrings[i]);
+                specialAndStrings[i] = stringsSpecial[Integer.parseInt(specialStrings[i])];
+
+                unitPriceStrings[i] = Integer.toString((Integer.parseInt(priceFoodStrings[i])) +
+                        (addSpecial(specialStrings[i])) +
+                        (addTopping(toppingStrings[i])));
+                nameAndSurnameString[i] = nameUserStrings[i] + "  " + surnameUserStrings[i];
+
+                Log.d(tag, "id User ==> " + id_userStrings[i]);
+                Log.d(tag, "User Name ==> " + nameUserStrings[i]);
+                Log.d(tag, "SurName ==> " + surnameUserStrings[i]);
+                Log.d(tag, "id Food ==> " + id_foodStrings[i]);
+                Log.d(tag, "Price ==> " + priceFoodStrings[i]);
+
             }
-            listView.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_1, id_ref));
+
+            ListView listView = (ListView) findViewById(R.id.livOrderMerchant);
+            MerchantOrderAdapter merchantOrderAdapter = new MerchantOrderAdapter(MerchantMainActivity.this,
+                    id_ref, nameAndSurnameString, foodNameStrings, unitPriceStrings, specialAndStrings, toppingStrings, itemStrings);
+            listView.setAdapter(merchantOrderAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+            });
 
         } catch (Exception e) {
             Log.d(tag, "e CreateListView MerchantMainActivity ==>" + e.toString());
         }
 
     }
+
+    private int addTopping(String toppingString) {
+        int resultToppingAnInt = 0;
+        if (!toppingString.equals("ไม่มี")) {
+            resultToppingAnInt = 10;
+        }
+        return resultToppingAnInt;
+    }
+
+    private int addSpecial(String specialString) {
+
+        int resultAnInt = 0;
+        int specialAnInt = Integer.parseInt(specialString);
+
+        if (specialAnInt == 1) {
+            resultAnInt = 10;
+        }
+
+        return resultAnInt;
+    }
+
+    private String myFindNameFoodAndPrice(int index, String id_foodStrings) {
+        String tag = "14SepV2";
+        String myResultFoodString = null;
+
+        try {
+
+            GetFoodWhere getFoodWhere = new GetFoodWhere(MerchantMainActivity.this);
+            getFoodWhere.execute("id", id_foodStrings, myConstant.getUrlGetProductWhereID());//ไม่ว่าจะเป็น 0 หรือ 1 จะได้ค่ามาทั้งบรรทัด
+            String resultFoodString = getFoodWhere.get();
+            Log.d(tag, "result ==> " + resultFoodString);
+
+            JSONArray jsonArray = new JSONArray(resultFoodString);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            switch (index) {
+                case 0:
+                    myResultFoodString = jsonObject.getString("ProductName");
+                    break;
+                case 1:
+                    myResultFoodString = jsonObject.getString("ProductPrice");
+                    break;
+            }
+            return myResultFoodString;
+
+        } catch (Exception e) {
+            Log.d(tag, "e myFindFood == > " + e.toString());
+            return null;
+        }
+    }
+
+    private String myFindNameAndSurUser(int index, String id_userStrings) {
+        String tag = "14SepV1";
+        String myResultString = null;
+
+        try {
+
+            GetFoodWhere getFoodWhere = new GetFoodWhere(MerchantMainActivity.this);
+            getFoodWhere.execute("id", id_userStrings, myConstant.getUrlGetUserWhereID());//ไม่ว่าจะเป็น 0 หรือ 1 จะได้ค่ามาทั้งบรรทัด
+            String resultString = getFoodWhere.get();
+            Log.d(tag, "result ==> " + resultString);
+
+            JSONArray jsonArray = new JSONArray(resultString);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            switch (index) {
+                case 0:
+                    myResultString = jsonObject.getString("Name");
+                    break;
+                case 1:
+                    myResultString = jsonObject.getString("Surname");
+                    break;
+            }
+            return myResultString;
+
+        } catch (Exception e) {
+            Log.d(tag, "e myFindName ==> " + e.toString());
+            return null;
+        }
+    }
+
+
 }   // Main Class
