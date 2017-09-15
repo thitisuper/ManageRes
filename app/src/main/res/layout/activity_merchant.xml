@@ -66,28 +66,7 @@
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
-        <!--delete-->
-        <LinearLayout
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/editproduct" />
-
-            <TextView
-                android:padding="@dimen/dp10"
-                android:textSize="@dimen/txtH2"
-                android:text="แก้ไขรายการอาหาร"
-                android:id="@+id/textDele"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
-
-        </LinearLayout>
         <!--edit-->
         <LinearLayout
             android:padding="5dp"

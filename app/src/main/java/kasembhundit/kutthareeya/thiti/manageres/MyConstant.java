@@ -18,6 +18,7 @@ public class MyConstant {
     private String urlGetOrderWhereIdRef = "http://androidthai.in.th/whi/getOrderWhereIdRef.php";
     private String urlGetOrderWhereIdRefAndStatus = "http://androidthai.in.th/whi/getOrderWhereIdRefAndStatus.php";
     private String urlGetUserWhereID = "http://androidthai.in.th/whi/getUserWhereID.php";
+    private String urlPostStatusOrderMer = "http://androidthai.in.th/whi/postStatusOrder.php";
 
     //For Spinner
     private String[] buildStrings = new String[]{"Build A", "Build B", "Build C"};
@@ -37,9 +38,17 @@ public class MyConstant {
     //Delay Time
     private int timeAnInt = 1;  //Default ==> 30min
 
-    public String getUrlGetUserWhereID() { return urlGetUserWhereID; }
+    public String getUrlPostStatusOrderMer() {
+        return urlPostStatusOrderMer;
+    }
 
-    public String getUrlGetOrderWhereIdRefAndStatus() {return urlGetOrderWhereIdRefAndStatus; }
+    public String getUrlGetUserWhereID() {
+        return urlGetUserWhereID;
+    }
+
+    public String getUrlGetOrderWhereIdRefAndStatus() {
+        return urlGetOrderWhereIdRefAndStatus;
+    }
 
     public String getUrlGetOrderWhereIdRef() {
         return urlGetOrderWhereIdRef;
@@ -49,7 +58,9 @@ public class MyConstant {
         return urlGetAllProduct;
     }
 
-    public String getUrlPostOrder() { return urlPostOrder;}
+    public String getUrlPostOrder() {
+        return urlPostOrder;
+    }
 
     public String[] getReceiveTimeStrings() {
         return receiveTimeStrings;

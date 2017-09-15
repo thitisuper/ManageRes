@@ -1,6 +1,8 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +19,8 @@ public class MerchantMainActivity extends AppCompatActivity {
     String[] id_ref, id_userStrings, nameUserStrings, surnameUserStrings,
             id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
             itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
-            specialAndStrings;
+            specialAndStrings, id_orderStrings;
+    String statusString = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class MerchantMainActivity extends AppCompatActivity {
         String tag = "9SepV1";
 
         try {
-            MyConstant myConstant = new MyConstant();
+            final MyConstant myConstant = new MyConstant();
             GetAllData getAllData = new GetAllData(MerchantMainActivity.this);
             getAllData.execute(myConstant.getUrlGetOrderWhereIdRefAndStatus());
             String result = getAllData.get();
@@ -43,6 +46,7 @@ public class MerchantMainActivity extends AppCompatActivity {
             //จองหน่วยความจำเขามาแปลงเป็นตัวหนังสือ
             JSONArray jsonArray = new JSONArray(result);
             int lengthAnInt = jsonArray.length();
+            id_orderStrings = new String[lengthAnInt];
             id_ref = new String[lengthAnInt];
             id_userStrings = new String[lengthAnInt];
             nameUserStrings = new String[lengthAnInt];
@@ -60,6 +64,7 @@ public class MerchantMainActivity extends AppCompatActivity {
             for (int i = 0; i < lengthAnInt; i += 1) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+                id_orderStrings[i] = jsonObject.getString("id");
                 id_userStrings[i] = jsonObject.getString("id_User");
                 id_foodStrings[i] = jsonObject.getString("id_Food");
                 id_ref[i] = jsonObject.getString("id_Ref");
@@ -91,8 +96,30 @@ public class MerchantMainActivity extends AppCompatActivity {
             listView.setAdapter(merchantOrderAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MerchantMainActivity.this);
+                    builder.setCancelable(false);
+                    builder.setIcon(R.mipmap.ic_launcher);
+                    builder.setTitle("Are You Sure?");
+                    builder.setMessage("You want to Delete this Order!");
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            PostStatusOrderMer postStatusOrderMer = new PostStatusOrderMer(MerchantMainActivity.this);
+                            postStatusOrderMer.execute(id_orderStrings[position], myConstant.getUrlPostStatusOrderMer());
+                            dialog.dismiss();
+                            finish();
+                            Intent intent = new Intent(MerchantMainActivity.this, MerchantMainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    builder.show();
                 }
             });
 
