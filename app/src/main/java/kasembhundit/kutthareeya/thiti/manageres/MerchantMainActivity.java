@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -20,7 +21,7 @@ public class MerchantMainActivity extends AppCompatActivity {
             id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
             itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
             specialAndStrings, id_orderStrings;
-    String statusString = "1";
+    ImageView manageImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,21 @@ public class MerchantMainActivity extends AppCompatActivity {
         //Create ListView
         createListView();
 
+        //Initial View
+        initialView();
+
     }   // Main Method
+
+    private void initialView() {
+        manageImageView = (ImageView) findViewById(R.id.imvManage);
+        manageImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantMainActivity.this, MerchantActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     private void createListView() {
         String tag = "9SepV1";

@@ -41,78 +41,56 @@
         android:orientation="vertical"
         android:padding="@dimen/padding20">
 
-
-        <!--number-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-
-                android:textStyle="bold"
-                android:textSize="@dimen/h1"
-                android:text="No.1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
         <!--Picture-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_marginStart="@dimen/dp100"
-                android:text="เพิ่มรูปภาพ"
-                android:textStyle="bold"
-                android:textSize="@dimen/dp25"
-            android:background="@color/colorAccent"
-                android:padding="@dimen/dp10"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/imvAddNew"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/addproduct" />
 
         <!--Name-->
-        <LinearLayout
+        <EditText
+
+            android:id="@+id/edtnamef"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:hint="ชื่ออาหาร"
+            android:inputType="text"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="@dimen/dp25"
+            android:textStyle="bold" />
 
-
-            <EditText
-
-                android:textColorHint="@color/colorPrimaryDark"
-                android:id="@+id/edtnamef"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ชื่ออาหาร"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dp25"
-                android:inputType="text" />
-
-        </LinearLayout>
         <!--price-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-
+            <!--Input Pirce-->
             <EditText
-                android:textColorHint="@color/colorPrimaryDark"
-                android:inputType="text"
-                android:hint="ราคา"
-                android:textStyle="bold"
-                android:textSize="@dimen/dp25"
                 android:id="@+id/edtprice"
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
+                android:hint="ราคา"
+                android:inputType="text"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="@dimen/dp25"
+                android:textStyle="bold" />
+
+            <!--unit price-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="บาท"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/dp25"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
 
         <!--category-->
         <LinearLayout
@@ -122,43 +100,34 @@
             android:padding="5dp">
 
             <TextView
-                android:text="หมวดหมู่"
-                android:textColor="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/dp25"
-                android:textStyle="bold" />
-<Spinner
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="20dp">
-</Spinner>
-
-
-        </LinearLayout>
-        <!--topping-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-
-            <EditText
-                android:textColorHint="@color/colorPrimaryDark"
-                android:hint="ส่วนผสม"
-                android:id="@+id/edtname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:text="หมวดหมู่"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/dp25"
                 android:textStyle="bold" />
 
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"></Spinner>
         </LinearLayout>
+
+        <!--topping-->
+        <EditText
+            android:id="@+id/edtname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ส่วนผสม"
+            android:inputType="text"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="@dimen/dp25"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
+    <!--Save Order-->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
@@ -166,7 +135,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorSecondary"
         android:src="@drawable/confirm"
-        android:text="สันทึก"
+        android:text="บันทึก"
         android:textColor="@color/textcolorPrimary"
         android:textSize="@dimen/size20"
         android:textStyle="bold" />

@@ -11,6 +11,8 @@
         android:id="@+id/realTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
         android:padding="@dimen/padHeader">
 
@@ -33,109 +35,58 @@
 
     </RelativeLayout>
 
-    <!--register-->
+    <!--Content-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/realTop"
         android:orientation="vertical"
-        android:padding="@dimen/padding20">
+        android:padding="@dimen/padding20"
+        android:weightSum="1">
 
+        <ImageView
+            android:id="@+id/imvAddNew"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/addproduct" />
 
-        <!--number-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-
-                android:textStyle="bold"
-                android:textSize="@dimen/h1"
-                android:text="No.1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <!--Picture-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_marginStart="@dimen/dp100"
-                android:text="เพิ่มรูปภาพ"
-                android:textStyle="bold"
-                android:textSize="@dimen/dp25"
-                android:background="@color/colorAccent"
-                android:padding="@dimen/dp10"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <!--Name-->
-        <RelativeLayout
+        <!--Title New-->
+        <EditText
+            android:id="@+id/edtNameNews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:hint="หัวข้อ"
+            android:inputType="text"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dp25"
+            android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edtnamenews"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="หัวข้อ"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dp25"
-                android:inputType="text" />
-
-
-            <EditText
-                android:layout_below="@+id/edtnamenews"
-                android:id="@+id/edtnews"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="รายละเอียด"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dp25"
-                android:inputType="text" />
-
-        </RelativeLayout>
-        <!--price-->
-        <LinearLayout
+        <!--Detail-->
+        <EditText
+            android:maxLength="100"
+            android:id="@+id/edtDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-
-        </LinearLayout>
-
-        <!--category-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-
-        </LinearLayout>
-        <!--topping-->
-
+            android:layout_weight="0.14"
+            android:ems="10"
+            android:hint="รายละเอียดโปรโมชั่น"
+            android:inputType="textMultiLine"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/colorSecondary"
         android:src="@drawable/confirm"
-        android:text="สันทึก"
+        android:text="บันทึก"
         android:textColor="@color/textcolorPrimary"
         android:textSize="@dimen/size20"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

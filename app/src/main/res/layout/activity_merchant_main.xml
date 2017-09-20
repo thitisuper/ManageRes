@@ -9,13 +9,15 @@
         android:id="@+id/myToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
-        android:padding="@dimen/dp10">
+        android:padding="@dimen/dp10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <!--back-->
         <ImageView
+            android:layout_weight="1"
             android:id="@+id/imvBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,14 +25,22 @@
 
         <!--Title-->
         <TextView
+            android:layout_weight="1"
             android:id="@+id/textHeader"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="50dp"
             android:text="รายการสั่งซื้อ"
             android:textColor="@color/textcolorPrimary"
             android:textSize="@dimen/txtH1"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:src="@drawable/edit" />
 
     </LinearLayout>
 

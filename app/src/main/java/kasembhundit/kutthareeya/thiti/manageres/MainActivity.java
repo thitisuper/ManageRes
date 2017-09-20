@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     // Explicit
-    private ImageView imageView;
+    private ImageView imageView, registerImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AuthenActivity.class);
+                startActivity(intent);
+            }
+        });
+        registerImageView = (ImageView) findViewById(R.id.imvregister);
+        registerImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });

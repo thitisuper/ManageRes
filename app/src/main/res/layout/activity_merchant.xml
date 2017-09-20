@@ -38,104 +38,107 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/padding20"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/realTop"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical"
+        android:padding="@dimen/padding20">
 
         <!--Add-->
         <LinearLayout
-            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
 
             <ImageView
+                android:id="@+id/imvAddOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/addproduct" />
 
             <TextView
-                android:padding="@dimen/dp10"
-                android:textSize="@dimen/txtH2"
-                android:text="เพิ่มรายการอาหาร"
-                android:id="@+id/textAdd"
+                android:id="@+id/txtAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
+                android:padding="@dimen/dp10"
+                android:text="เพิ่มรายการอาหาร"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txtH2" />
 
         </LinearLayout>
 
         <!--edit-->
         <LinearLayout
-            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imvAddNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/addnews" />
 
             <TextView
-                android:padding="@dimen/dp10"
-                android:textSize="@dimen/txtH2"
-                android:text="เพิ่มข่าวสาร"
-                android:id="@+id/textEdit"
+                android:id="@+id/txtNew"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
+                android:padding="@dimen/dp10"
+                android:text="เพิ่มข่าวสาร"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txtH2" />
 
         </LinearLayout>
 
         <!--Edit promotion-->
 
         <LinearLayout
-            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <ImageView
+                android:id="@+id/imvEditNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/editnew" />
 
             <TextView
-                android:padding="@dimen/dp10"
-                android:textSize="@dimen/txtH2"
-                android:text="แก้ไขข่าวสาร"
-                android:id="@+id/textEdnews"
+                android:id="@+id/txtEditNew"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
+                android:padding="@dimen/dp10"
+                android:text="แก้ไขข่าวสาร"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txtH2" />
 
         </LinearLayout>
 
         <!--report-->
 
         <LinearLayout
-            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <ImageView
+                android:id="@+id/imvReport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/coinicon" />
 
             <TextView
-                android:padding="@dimen/dp10"
-                android:textSize="@dimen/txtH2"
-                android:text="รายงานรายได้"
-                android:id="@+id/textReport"
+                android:id="@+id/txtReport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
+                android:padding="@dimen/dp10"
+                android:text="รายงานรายได้"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txtH2" />
 
         </LinearLayout>
 
