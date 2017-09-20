@@ -6,9 +6,8 @@
 
     <ImageView
         android:id="@+id/imvIcon"
-        android:layout_width="@dimen/icon"
-        android:layout_height="@dimen/icon"
-        android:layout_margin="@dimen/padding20" />
+        android:layout_width="140dp"
+        android:layout_height="140dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

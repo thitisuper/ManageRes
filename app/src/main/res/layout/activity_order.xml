@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="ชื่ออาหาร"
                     android:textColor="@color/textcolorPrimary"
-                    android:textSize="@dimen/h1"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
                 <!--Price Name-->
                 <TextView
@@ -87,6 +87,7 @@
                     android:src="@mipmap/ic_online" />
 
                 <TextView
+                    android:id="@+id/txtUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp25"

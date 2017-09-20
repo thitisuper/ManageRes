@@ -20,6 +20,7 @@ public class MyConstant {
     private String urlGetUserWhereID = "http://androidthai.in.th/whi/getUserWhereID.php";
     private String urlPostStatusOrderMer = "http://androidthai.in.th/whi/postStatusOrder.php";
     private String urlPostNew = "http://androidthai.in.th/whi/addNew.php";
+    private String urlGetOrderWhereUser = "http://androidthai.in.th/whi/getOrderWhereIdUser.php";
 
     //For Spinner
     private String[] buildStrings = new String[]{"Build A", "Build B", "Build C"};
@@ -30,7 +31,7 @@ public class MyConstant {
     private String[] topping1 = new String[]{"ไม่มี", "เพิ่มผัก", "เพิ่มเนื้อสัตว์"};
     private String[] topping2 = new String[]{"ไม่มี", "เพิ่มผัก", "เพิ่มเนื้อสัตว์", "เพิ่มลูกชิ้น", "เพิ่มเส้น"};
     private String[] itemStrings = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-    private String[] receiveTimeStrings = new String[]{"CurrentTime", "10.00-14.00", "14:00-18.00"};
+    private String[] category = new String[]{"อาหารจานเดียว", "ประเภทกับข้าว", "ประเภทเส้น"};
 
     public int getTimeAnInt() {
         return timeAnInt;
@@ -38,6 +39,10 @@ public class MyConstant {
 
     //Delay Time
     private int timeAnInt = 1;  //Default ==> 30min
+
+    public String getUrlGetOrderWhereUser() {
+        return urlGetOrderWhereUser;
+    }
 
     public String getUrlPostNew() {
         return urlPostNew;
@@ -65,10 +70,6 @@ public class MyConstant {
 
     public String getUrlPostOrder() {
         return urlPostOrder;
-    }
-
-    public String[] getReceiveTimeStrings() {
-        return receiveTimeStrings;
     }
 
     public String[] getItemStrings() {

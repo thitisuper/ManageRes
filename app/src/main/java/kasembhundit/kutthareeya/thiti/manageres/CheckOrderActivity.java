@@ -124,18 +124,14 @@ public class CheckOrderActivity extends AppCompatActivity {
                             @Override
                             public void onTimeSet(TimePicker view, int Hour, int Minus) {
 
-                                if (Hour >= intHour) {
+                                if (Hour >= intHour && Minus >= intMinus) {
 
-                                    calendar.set(Calendar.HOUR_OF_DAY, Hour);
-                                    calendar.set(Calendar.MINUTE, Minus);
-                                    String chooseTime = dateFormat.format(calendar.getTime());
-                                    myShowTime(chooseTime);
+                                    //Check Close Shop
+                                    checkCloseShop(Hour, Minus, calendar, dateFormat);
 
                                 } else {
-
                                     MyAlert myAlert = new MyAlert(CheckOrderActivity.this);
                                     myAlert.myDialogError("ชั่วโมงย้อนหลัง", "โปรดเลือกชั่วโมงใหม่");
-
                                 }
 
                             }
@@ -144,6 +140,20 @@ public class CheckOrderActivity extends AppCompatActivity {
             }
         });
     }   //Receive Time
+
+    private void checkCloseShop(int Hour, int Minus, Calendar calendar, DateFormat dateFormat) {
+        if (Hour <= 18) {
+            calendar.set(Calendar.HOUR_OF_DAY, Hour);
+            calendar.set(Calendar.MINUTE, Minus);
+            String chooseTime = dateFormat.format(calendar.getTime());
+            myShowTime(chooseTime);
+        }else {
+            MyAlert myAlert = new MyAlert(CheckOrderActivity.this);
+            myAlert.myDialogError("ร้านปิด", "ร้านปิด 6 โมงเย็น กรุณาสั่งพรุ่งนี้ใหม่ค่ะ" +
+                    "");
+        }
+
+    }
 
 
     private void myShowTime(String strTime) {

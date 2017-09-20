@@ -3,18 +3,34 @@ package kasembhundit.kutthareeya.thiti.manageres;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class HubActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView favoriteImageView, foodPackImageView,
-            foodSingleImageView, noodleImageView, foodAllImageView;
+            foodSingleImageView, noodleImageView, foodAllImageView,
+            profileImageView;
+    TextView userTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub);
+        String[] loginString = getIntent().getStringArrayExtra("Login");
+        Log.d("20SepV2", "id ==> " + loginString[0]);
+        Log.d("20SepV2", "Name ==> " + loginString[1]);
+        Log.d("20SepV2", "Surname ==> " + loginString[2]);
+        Log.d("20SepV2", "Build ==> " + loginString[3]);
+        Log.d("20SepV2", "Room ==> " + loginString[4]);
+        Log.d("20SepV2", "User ==> " + loginString[5]);
+        Log.d("20SepV2", "password ==> " + loginString[6]);
+        Log.d("20SepV2", "status ==> " + loginString[7]);
+
+        userTextView = (TextView) findViewById(R.id.txtUser);
+        userTextView.setText(loginString[1] + " " + loginString[2]);
 
         //Initial View
         initialView();
@@ -25,8 +41,23 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
         //Bracker Market Controller
         marketController();
 
+        //profile Controller
+        profileController();
+
 
     }   //Main Method
+
+    private void profileController() {
+        profileImageView = (ImageView) findViewById(R.id.imvProfife);
+        profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HubActivity.this, UserActivity.class);
+                intent.putExtra("Login", getIntent().getStringArrayExtra("Login"));
+                startActivity(intent);
+            }
+        });
+    }
 
     private void marketController() {
         ImageView imageView = (ImageView) findViewById(R.id.imvMarket);

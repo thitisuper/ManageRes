@@ -9,16 +9,24 @@
     tools:context="kasembhundit.kutthareeya.thiti.manageres.HubActivity">
 
     <!--Header-->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:padding="@dimen/padHeader">
 
+        <ImageView
+            android:id="@+id/imvProfife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/edit" />
+
         <!--Title-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.4"
             android:text="หมวดหมู่อาหาร"
             android:textColor="@color/textcolorPrimary"
             android:textSize="@dimen/txtH1"
@@ -26,12 +34,13 @@
 
         <ImageView
             android:id="@+id/imvMarket"
-            android:layout_alignParentRight="true"
-            android:src="@mipmap/ic_market"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:src="@mipmap/ic_market" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <!--Information-->
     <RelativeLayout
@@ -44,16 +53,17 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_online"/>
+            android:src="@mipmap/ic_online" />
 
         <TextView
-            android:layout_marginLeft="@dimen/margin30"
+            android:id="@+id/txtUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
             android:text="@string/username"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/txt20"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

@@ -56,7 +56,7 @@ public class AuthenActivity extends AppCompatActivity {
                     message = "Have Space";
 
                     MyAlert myAlert = new MyAlert(AuthenActivity.this);
-                    myAlert.myDialogError("Have Space", "Please Fill All Every Blank");
+                    myAlert.myDialogError("มีช่องว่าง", "กรุณากรอกข้อมูลให้ครบ");
 
                 } else {
                     //No Space
@@ -100,17 +100,17 @@ public class AuthenActivity extends AppCompatActivity {
 
             if (b) {
                 //User False
-                myAlert.myDialogError("User False", "No This User in my Database");
+                myAlert.myDialogError("ชื่อผู้ใช้ผิดพลาด", "ไม่มีชื่อผู้ใช้นี้ในระบบ");
             } else if (passwordString.equals(loginStrings[6])) {
                 //Password True
                 Toast.makeText(AuthenActivity.this,
-                        "Welcome " + loginStrings[1],
+                        "ยินดีต้อนรับ " + loginStrings[1] + " เข้าสู่ระบบ",
                         Toast.LENGTH_SHORT).show();
 
                 myIntentToService(Integer.parseInt(loginStrings[7]), loginStrings);
             } else {
                 //Password Failed
-                myAlert.myDialogError("Password Failed", "Please Try Again");
+                myAlert.myDialogError("รหัสผ่านผิดพลาด", "กรุณากรอกลองใหม่อีกครั้ง");
             }
 
         } catch (Exception e) {

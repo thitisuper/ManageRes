@@ -120,8 +120,8 @@ public class RegisterActivity extends AppCompatActivity {
                 if (nameString.equals("") || surnameString.equals("") ||
                         userString.equals("") || passwordString.equals("")) {
                     //Have Space
-                    myAlert.myDialogError(getResources().getString(R.string.titleHaveSpace),
-                            getResources().getString(R.string.messageHaveSpace));
+                    myAlert.myDialogError("มีช่องว่างค่ะ",
+                            "กรุณากรอกข้อมูลใหม่อีกครั้ง");
                 } else {
                     confirmValue();
                 }
@@ -141,20 +141,20 @@ public class RegisterActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
         builder.setCancelable(false);
-        builder.setTitle("Please Confirm!");
-        builder.setMessage("Name = " + nameString + "\n" +
-                "SurName = " + surnameString + "\n" +
-                "User = " + userString + "\n" +
-                "Password = " + passwordString + "\n" +
-                "Build = " + buildString + "\n" +
-                "Room = " + roomString);
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setTitle("ตรวจเช็คข้อมูลให้ถูกต้อง");
+        builder.setMessage("ชื่อจริง = " + nameString + "\n" +
+                "นามสกุล = " + surnameString + "\n" +
+                "ชื่อผู้ใช้ = " + userString + "\n" +
+                "รหัสผ่าน = " + passwordString + "\n" +
+                "อาคาร = " + buildString + "\n" +
+                "ห้อง = " + roomString);
+        builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 uploadValueToServer();

@@ -34,7 +34,7 @@ public class OrderActivity extends AppCompatActivity {
     private String nameFoodString, priceToolbarString, iconString,
             idFoodString, categoryString, toppingChooseString, specialString = "0",
             itemString = "1", deliveryString = "0";
-    private TextView nameFoodTextView, priceToolbarTextView, textView;
+    private TextView nameFoodTextView, priceToolbarTextView, userTextView, textView;
     private ImageView iconImageView;
     private MyConstant myConstant;
     private int intHour, intMinus;
@@ -50,6 +50,10 @@ public class OrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+
+        String[] loginShowUserString = getIntent().getStringArrayExtra("Login");
+        userTextView = (TextView) findViewById(R.id.txtUser);
+        userTextView.setText(loginShowUserString[1] + " " + loginShowUserString[2]);
 
         //Get Value From Intent
         getValueFromIntent();
@@ -244,18 +248,18 @@ public class OrderActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(OrderActivity.this);
         builder.setCancelable(false);
         builder.setIcon(R.mipmap.ic_launcher);
-        builder.setTitle("Check Order");
-        builder.setMessage("NameFood = " + nameFoodString + "\n" +
-                "Special = " + showSpecial(specialAnInt) + "\n" +
-                "Topping = " + toppingChooseString + "\n" +
-                "Item = " + Integer.toString(itemAnInt));
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setTitle("ยืนยันการสั่งรายการนี้");
+        builder.setMessage("ชื่ออาหาร = " + nameFoodString + "\n" +
+                "พิเศษ = " + showSpecial(specialAnInt) + "\n" +
+                "ส่วนผสม = " + toppingChooseString + "\n" +
+                "จำนวน = " + Integer.toString(itemAnInt) + " จาน");
+        builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 addValueToSQLite();

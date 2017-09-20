@@ -1,26 +1,42 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ReceiveActivity extends AppCompatActivity {
     private String refString, dateString, timeString;
     private String[] id_foodStrings, specialStrings,
             toppingStrings, itemStrings, productNameStrings,
             productPriceStrings, titleStrings, unitPriceStrings;
+    ImageView backImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive);
+
+        backImageView = (ImageView) findViewById(R.id.imvBack);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         //Get String From SQLite
         getStringFromSQLite();
@@ -173,10 +189,15 @@ public class ReceiveActivity extends AppCompatActivity {
         TextView refTextView = (TextView) findViewById(R.id.txtRef);
         TextView dateTextView = (TextView) findViewById(R.id.txtDate);
         TextView timeTextView = (TextView) findViewById(R.id.txtTime);
+        TextView timeCurTextView = (TextView) findViewById(R.id.txtCurrentTime);
 
         refTextView.setText(refString);
         dateTextView.setText("วันที่: " + dateString);
-        timeTextView.setText("เวลา: " + timeString);
+        timeTextView.setText("เวลารับ: " + timeString);
+
+        final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        String currentDateTimeString = dateFormat.format(new Date());
+        timeCurTextView.setText("เวลาสั่ง: " + currentDateTimeString);
 
 
     }

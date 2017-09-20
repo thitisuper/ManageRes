@@ -5,9 +5,9 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_margin="4dp"
         android:background="@color/textcolorPrimary"
-        android:layout_marginBottom="6dp"
+        android:layout_margin="4dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/txtTotal"
@@ -28,18 +28,7 @@
                 android:layout_weight="1"
                 android:padding="@dimen/dp10"
                 android:text="Ref.01"
-                android:textSize="@dimen/h1"
-                android:textStyle="bold" />
-
-            <!--Name Order-->
-            <TextView
-                android:layout_weight="0.1"
-                android:id="@+id/txtNameSur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ชื่อผู้รับ : ธิติ ไทยนิยม"
-                android:textSize="18dp" />
-
+                android:textSize="20dp" />
 
         </LinearLayout>
 
