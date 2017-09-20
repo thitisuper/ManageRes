@@ -40,6 +40,10 @@ public class MyConstant {
     //Delay Time
     private int timeAnInt = 1;  //Default ==> 30min
 
+    public String[] getCategory() {
+        return category;
+    }
+
     public String getUrlGetOrderWhereUser() {
         return urlGetOrderWhereUser;
     }

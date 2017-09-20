@@ -50,8 +50,7 @@
 
         <!--Name-->
         <EditText
-
-            android:id="@+id/edtnamef"
+            android:id="@+id/edtNameFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ชื่ออาหาร"
@@ -70,7 +69,7 @@
             <!--Input Pirce-->
             <EditText
                 android:maxLength="3"
-                android:id="@+id/edtprice"
+                android:id="@+id/edtPriceFood"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:hint="ราคา"
@@ -108,6 +107,7 @@
                 android:textStyle="bold" />
 
             <Spinner
+                android:id="@+id/categorySpin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"></Spinner>
@@ -118,7 +118,7 @@
 
     <!--Save Order-->
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
