@@ -68,6 +68,56 @@
 
         </LinearLayout>
 
+        <!--Edit Food-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <ImageView
+                android:id="@+id/imvEdtFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/addproduct" />
+
+            <TextView
+                android:id="@+id/txtEdtFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10"
+                android:text="แก้ไขรายการอาหาร"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txtH2" />
+
+        </LinearLayout>
+
+        <!--Add Promotion-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <ImageView
+                android:id="@+id/imvAddPromotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/addproduct" />
+
+            <TextView
+                android:id="@+id/txtAddPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10"
+                android:text="แก้ไขโปรโมชั่น"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txtH2" />
+
+        </LinearLayout>
+
         <!--edit-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,7 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp10"
-                android:text="รายงานรายได้"
+                android:text="รายงานรายรับ"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/txtH2" />
 

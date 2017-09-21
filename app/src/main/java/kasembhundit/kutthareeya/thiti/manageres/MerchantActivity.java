@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MerchantActivity extends AppCompatActivity {
-    TextView addOrderTextView, addNewTextView, editNewTextView, reportTextView;
+    TextView addOrderTextView, addNewTextView, editNewTextView, reportTextView, edtFoodTextView;
     ImageView addOrderImageView, addNewImageView, editNewImageView, reportImageView,
-            imageBack;
+            imageBack, edtFoodImageView;
     String addOrderString, addNewString, editNewString, reportString;
 
     @Override
@@ -40,6 +40,7 @@ public class MerchantActivity extends AppCompatActivity {
     }
 
     private void buttonController() {
+        //Intent To Add Product
         addOrderImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,19 +48,36 @@ public class MerchantActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        addNewImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MerchantActivity.this, AddPromotionActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         addOrderTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MerchantActivity.this, addFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        edtFoodImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, EditFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Intetn To Edit Product
+        edtFoodTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, EditFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Intent Add To New
+        addNewImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, AddPromotionActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,5 +100,7 @@ public class MerchantActivity extends AppCompatActivity {
         editNewImageView = (ImageView) findViewById(R.id.imvEditNew);
         reportImageView = (ImageView) findViewById(R.id.imvReport);
         imageBack = (ImageView) findViewById(R.id.imvBack);
+        edtFoodImageView = (ImageView) findViewById(R.id.imvEdtFood);
+        edtFoodTextView = (TextView) findViewById(R.id.txtEdtFood);
     }
 }   //Main Class

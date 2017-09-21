@@ -21,12 +21,13 @@ public class MyConstant {
     private String urlPostStatusOrderMer = "http://androidthai.in.th/whi/postStatusOrder.php";
     private String urlPostNew = "http://androidthai.in.th/whi/addNew.php";
     private String urlGetOrderWhereUser = "http://androidthai.in.th/whi/getOrderWhereIdUser.php";
+    private String urlPostProduct = "http://androidthai.in.th/whi/addProduct.php";
 
     //For Spinner
     private String[] buildStrings = new String[]{"Build A", "Build B", "Build C"};
-    private String[] roomAStrings = new String[]{"RA1", "2", "3", "4", "5", "6", "7", "8"};
-    private String[] roomBStrings = new String[]{"RB1", "2", "3", "4", "5", "6", "7"};
-    private String[] roomCStrings = new String[]{"RC1", "2", "3", "4", "5"};
+    private String[] roomAStrings = new String[]{"RA-001", "RA-002", "RA-003", "RA-004", "RA-005", "RA-006", "RA-007", "RA-008"};
+    private String[] roomBStrings = new String[]{"RB-001", "RB-002", "RB-003", "RB-004", "RB-005", "RB-006", "RB-007"};
+    private String[] roomCStrings = new String[]{"RC-001", "RC-002", "RC-003", "RC-004", "RC-005"};
     private String[] topping0 = new String[]{"ไม่มี", "ไข่ดาว", "ไข่เจียว", "เพิ่มเนื้อสัตว์", "เพิ่มผัก"};
     private String[] topping1 = new String[]{"ไม่มี", "เพิ่มผัก", "เพิ่มเนื้อสัตว์"};
     private String[] topping2 = new String[]{"ไม่มี", "เพิ่มผัก", "เพิ่มเนื้อสัตว์", "เพิ่มลูกชิ้น", "เพิ่มเส้น"};
@@ -40,8 +41,8 @@ public class MyConstant {
     //Delay Time
     private int timeAnInt = 1;  //Default ==> 30min
 
-    public String[] getCategory() {
-        return category;
+    public String getUrlPostProduct() {
+        return urlPostProduct;
     }
 
     public String getUrlGetOrderWhereUser() {
@@ -129,6 +130,10 @@ public class MyConstant {
 
     public String[] getBuildStrings() {
         return buildStrings;
+    }
+
+    public String[] getCategory() {
+        return category;
     }
 
     public String[] getRoomAStrings() {

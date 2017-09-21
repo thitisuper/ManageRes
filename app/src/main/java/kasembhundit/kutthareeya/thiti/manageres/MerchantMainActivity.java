@@ -102,7 +102,6 @@ public class MerchantMainActivity extends AppCompatActivity {
                 Log.d(tag, "SurName ==> " + surnameUserStrings[i]);
                 Log.d(tag, "id Food ==> " + id_foodStrings[i]);
                 Log.d(tag, "Price ==> " + priceFoodStrings[i]);
-
             }
 
             ListView listView = (ListView) findViewById(R.id.livOrderMerchant);
@@ -115,15 +114,15 @@ public class MerchantMainActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MerchantMainActivity.this);
                     builder.setCancelable(false);
                     builder.setIcon(R.mipmap.ic_launcher);
-                    builder.setTitle("Are You Sure?");
-                    builder.setMessage("You want to Delete this Order!");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setTitle("ยืนยันการทำอาหาร");
+                    builder.setMessage("คุณต้องการยืนยันรายการอาหารนี้เสร็จเรียบร้อยแล้ว");
+                    builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
                     });
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             PostStatusOrderMer postStatusOrderMer = new PostStatusOrderMer(MerchantMainActivity.this);

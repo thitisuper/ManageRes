@@ -62,18 +62,19 @@
 
         <!--price-->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <!--Input Pirce-->
             <EditText
-                android:maxLength="3"
                 android:id="@+id/edtPriceFood"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
+                android:digits="0123456789."
                 android:hint="ราคา"
-                android:inputType="text"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="@dimen/dp25"

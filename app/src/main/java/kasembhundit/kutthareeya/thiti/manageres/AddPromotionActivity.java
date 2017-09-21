@@ -29,7 +29,6 @@ public class AddPromotionActivity extends AppCompatActivity {
     String titleString, detailString;
     Button saveButton;
     Context context;
-    MyConstant myConstant = new MyConstant();
 
     Uri fileUri;
 
@@ -67,64 +66,59 @@ public class AddPromotionActivity extends AppCompatActivity {
 
     private void uploadToServer() {
         String tag = "20SepV1";
-            Bitmap bitmap = ((BitmapDrawable) addNewImageView.getDrawable()).getBitmap();
-            titleString = titleEditText.getText().toString().trim();
-            detailString = detailEditText.getText().toString().trim();
+        Bitmap bitmap = ((BitmapDrawable) addNewImageView.getDrawable()).getBitmap();
+        titleString = titleEditText.getText().toString().trim();
+        detailString = detailEditText.getText().toString().trim();
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-            final String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        final String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
 
-            final MyAlert myAlert = new MyAlert(AddPromotionActivity.this);
+        final MyAlert myAlert = new MyAlert(AddPromotionActivity.this);
 
-            if (titleString.equals("") || detailString.equals("0") || encodedImage.equals("")) {
-                //มีช่องว่าง
-                myAlert.myDialogError("มีช่องว่าง", "กรุณากรอกให้ครบทุกช่องนะคะ");
-            } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddPromotionActivity.this);
-                builder.setCancelable(false);
-                builder.setTitle("ยืนยันการเพิ่มโปรโมชั่น");
-                builder.setMessage("หัวข้อ = " + titleString + "\n" +
-                        "รายละเอียด" + "\n" + detailString + "\n");
-                builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            PostNews postNews = new PostNews(AddPromotionActivity.this);
-                            postNews.execute(titleString, detailString, encodedImage, myConstant.getUrlPostNew());
-                            String result = postNews.get();
+        if (titleString.equals("") || detailString.equals("") || encodedImage.equals("")) {
+            //มีช่องว่าง
+            myAlert.myDialogError("มีช่องว่าง", "กรุณากรอกให้ครบทุกช่องนะคะ");
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddPromotionActivity.this);
+            builder.setCancelable(false);
+            builder.setTitle("ยืนยันการเพิ่มโปรโมชั่น");
+            builder.setMessage("หัวข้อ = " + titleString + "\n" +
+                    "รายละเอียด" + "\n" + detailString + "\n");
+            builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    try {
+                        MyConstant myConstant = new MyConstant();
+                        PostNews postNews = new PostNews(AddPromotionActivity.this);
+                        postNews.execute(titleString, detailString, encodedImage, myConstant.getUrlPostNew());
+                        String result = postNews.get();
+                        Log.d("21SepV1", "result ==> " + result);
 
-                            if (Boolean.parseBoolean(result)) {
-                                finish();
-                            } else {
-                                MyAlert myAlert1 = new MyAlert(AddPromotionActivity.this);
-                                myAlert.myDialogError("ไม่สามารถเพิ่มข่าวสารได้", "กรุณาเช็คความถูกต้องให้เรียบร้อยก่อนยืนยัน");
-                            }
-
-                            dialog.dismiss();
-
-                        } catch (Exception e) {
-                            Log.d("20SepV1", "e to ยืนยันส่งข้อมูลไปเซิฟเวอร์ ==> " + e.toString());
+                        if (Boolean.parseBoolean(result)) {
+                            finish();
+                        } else {
+                            MyAlert myAlert1 = new MyAlert(AddPromotionActivity.this);
+                            myAlert1.myDialogError("ไม่สามารถเพิ่มข่าวสารได้", "กรุณาเช็คความถูกต้องให้เรียบร้อยก่อนยืนยัน");
                         }
+
+                        dialog.dismiss();
+
+                    } catch (Exception e) {
+                        Log.d("20SepV1", "e to ยืนยันส่งข้อมูลไปเซิฟเวอร์ ==> " + e.toString());
                     }
-                });
-                builder.show();
-                Log.d(tag, "Title ==> " + titleString);
-                Log.d(tag, "Detail ==> " + detailString);
-                Log.d(tag, "Image ==> " + encodedImage);
-            }
+                }
+            });
+            builder.show();
+        }
 
     }
-
-    private void confirmDialog() {
-    }
-
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != RESULT_OK) {
@@ -181,7 +175,6 @@ public class AddPromotionActivity extends AppCompatActivity {
         detailEditText = (EditText) findViewById(R.id.edtDetail);
         saveButton = (Button) findViewById(R.id.btnSave);
     }
-
 
 
 }   //Main Class

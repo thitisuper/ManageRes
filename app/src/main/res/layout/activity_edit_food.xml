@@ -6,44 +6,4 @@
 
 
 
-   <LinearLayout
-
-       android:layout_width="wrap_content"
-       android:layout_height="match_parent">
-       <ImageView
-           android:id="@+id/imvIcon"
-           android:layout_width="@dimen/icon"
-           android:layout_height="@dimen/icon"
-           android:layout_margin="@dimen/padding20" />
-
-   </LinearLayout>
-
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/padding20"
-        android:paddingRight="@dimen/padding20"
-        android:paddingTop="@dimen/padding20">
-
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/h2"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txtDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="detail ..."
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/h2"
-            android:textStyle="italic" />
-
-
-    </LinearLayout>
 </LinearLayout>

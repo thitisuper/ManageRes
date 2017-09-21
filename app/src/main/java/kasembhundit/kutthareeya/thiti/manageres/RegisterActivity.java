@@ -59,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 buildString = buildStrings[position];
                 createRoomSpinner(position);
+                Log.d("21SepV1", "Test ==> " + buildString);
             }
 
             @Override
@@ -115,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
                 passwordString = passwordEditText.getText().toString().trim();
 
                 MyAlert myAlert = new MyAlert(RegisterActivity.this);
-                MyConstant myConstant = new MyConstant();
+//                MyConstant myConstant = new MyConstant();
 
                 if (nameString.equals("") || surnameString.equals("") ||
                         userString.equals("") || passwordString.equals("")) {
