@@ -28,11 +28,11 @@ public class MerchantMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_merchant_main);
 
-        //Create ListView
-        createListView();
-
         //Initial View
         initialView();
+
+        //Create ListView
+        createListView();
 
     }   // Main Method
 

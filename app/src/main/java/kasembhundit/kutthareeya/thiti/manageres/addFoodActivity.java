@@ -28,8 +28,7 @@ public class addFoodActivity extends AppCompatActivity {
     private EditText nameEditText, priceEditText;
     private Spinner categorySpinner;
     private Button saveButton;
-    private String nameFoodString, priceFoodString, categoryFoodString;
-    private String categoryString;
+    private String nameFoodString, priceFoodString, categoryFoodString, categoryString;
 
     Uri fileUri;
 

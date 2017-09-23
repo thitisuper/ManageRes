@@ -20,7 +20,6 @@ public class EditFoodAdapter extends BaseAdapter{
     private String[] iconStrings, nameFoodStrings;
     private ImageView iconImageView;
     private TextView nameTextView;
-    private String nameFoodString;
 
     public EditFoodAdapter(Context context,
                            String[] iconStrings,
@@ -32,7 +31,7 @@ public class EditFoodAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return nameFoodString.length();
+        return nameFoodStrings.length;
     }
 
     @Override
