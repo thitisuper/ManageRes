@@ -34,7 +34,6 @@
         <activity android:name=".CheckOrderActivity" />
         <activity android:name=".ReceiveActivity" />
         <activity android:name=".addFoodActivity" />
-        <activity android:name=".editPromotionActivity" />
         <activity android:name=".ReportActivity" />
         <activity android:name=".EditFoodActivity" />
         <activity android:name=".DeleteFoodtActivity" />
@@ -50,7 +49,8 @@
 
         <activity android:name=".MerchantMainActivity" />
         <activity android:name=".EditFoodManageActivity" />
-        <activity android:name=".EditNewsActivity"></activity>
+        <activity android:name=".EditNewsActivity" />
+        <activity android:name=".EditPromotionActivityz"></activity>
     </application>
 
 </manifest>

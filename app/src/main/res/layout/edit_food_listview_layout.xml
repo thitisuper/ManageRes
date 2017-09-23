@@ -10,16 +10,16 @@
         android:layout_height="140dp"/>
 
 
-        <TextView
-            android:paddingLeft="10dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name Food"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/h2"
-            android:textStyle="bold" />
+    <TextView
+        android:paddingLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name Food"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/h2"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

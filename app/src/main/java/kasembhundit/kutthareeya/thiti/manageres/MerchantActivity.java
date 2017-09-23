@@ -8,9 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MerchantActivity extends AppCompatActivity {
-    TextView addOrderTextView, addNewTextView, editNewTextView, reportTextView, edtFoodTextView;
+    TextView addOrderTextView, addNewTextView, editNewTextView, reportTextView,
+            edtFoodTextView, addPromotionTextView;
     ImageView addOrderImageView, addNewImageView, editNewImageView, reportImageView,
-            imageBack, edtFoodImageView;
+            imageBack, edtFoodImageView, addPromotionImageView;
     String addOrderString, addNewString, editNewString, reportString;
 
     @Override
@@ -64,11 +65,34 @@ public class MerchantActivity extends AppCompatActivity {
             }
         });
 
-        //Intetn To Edit Product
+        //Intent To Edit Product
         edtFoodTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MerchantActivity.this, EditFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+        edtFoodImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, EditFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Intent Add Promotion
+        addPromotionTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this,EditPromotionActivityz.class);
+                startActivity(intent);
+            }
+        });
+        addPromotionImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, EditPromotionActivityz.class);
                 startActivity(intent);
             }
         });
@@ -102,5 +126,7 @@ public class MerchantActivity extends AppCompatActivity {
         imageBack = (ImageView) findViewById(R.id.imvBack);
         edtFoodImageView = (ImageView) findViewById(R.id.imvEdtFood);
         edtFoodTextView = (TextView) findViewById(R.id.txtEdtFood);
+        addPromotionImageView = (ImageView) findViewById(R.id.imvAddPromotion);
+        addPromotionTextView = (TextView) findViewById(R.id.txtAddPromotion);
     }
 }   //Main Class

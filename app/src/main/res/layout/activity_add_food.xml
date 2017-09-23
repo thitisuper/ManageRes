@@ -71,7 +71,7 @@
                 android:id="@+id/edtPriceFood"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:digits="0123456789."
+                android:digits="0123456789"
                 android:hint="ราคา"
                 android:inputType="numberDecimal"
                 android:maxLength="3"

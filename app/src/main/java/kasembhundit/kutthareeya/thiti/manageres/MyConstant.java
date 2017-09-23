@@ -23,6 +23,7 @@ public class MyConstant {
     private String urlGetOrderWhereUser = "http://androidthai.in.th/whi/getOrderWhereIdUser.php";
     private String urlPostProduct = "http://androidthai.in.th/whi/addProduct.php";
     private String urlUpdateProduct = "http://androidthai.in.th/whi/updateProduct.php";
+    private String urlUpdateProductPromotion = "http://androidthai.in.th/whi/updateProductPromotion.php";
 
     //For Spinner
     private String[] buildStrings = new String[]{"Build A", "Build B", "Build C"};
@@ -41,6 +42,10 @@ public class MyConstant {
 
     //Delay Time
     private int timeAnInt = 1;  //Default ==> 30min
+
+    public String getUrlUpdateProductPromotion() {
+        return urlUpdateProductPromotion;
+    }
 
     public String getUrlUpdateProduct() {
         return urlUpdateProduct;
