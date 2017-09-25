@@ -291,7 +291,8 @@ public class OrderActivity extends AppCompatActivity {
 
         MyManage myManage = new MyManage(OrderActivity.this);
         myManage.addOrder(idFoodString, specialSQLite,
-                toppingChooseString, Integer.toString(itemAnInt));
+                toppingChooseString, Integer.toString(itemAnInt),
+                Integer.toString((int) totalPriceAnInt));
 
         Intent intent = new Intent(OrderActivity.this, CheckOrderActivity.class);
         intent.putExtra("Login", loginStrings);

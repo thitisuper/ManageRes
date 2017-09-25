@@ -38,13 +38,15 @@ public class MyManage {
     public long addOrder(String id_Food,
                          String Special,
                          String Topping,
-                         String Item) {
+                         String Item,
+                         String price) {
 
         ContentValues contentValues = new ContentValues();//เปลี่ยน String
         contentValues.put("id_Food", id_Food);
         contentValues.put("Special", Special);
         contentValues.put("Topping", Topping);
         contentValues.put("Item", Item);
+        contentValues.put("Price", price);
 
         return sqLiteDatabase.insert("orderTABLE", null, contentValues);
     }

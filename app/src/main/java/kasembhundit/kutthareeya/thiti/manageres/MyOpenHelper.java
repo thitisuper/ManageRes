@@ -19,7 +19,8 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "id_Food TEXT," +
             "Special TEXT," +
             "Topping TEXT," +
-            "Item TEXT);";
+            "Item TEXT," +
+            "Price Text);";
 
     private static final String create_receive_table = "create table receiveTABLE (" +
             "id Integer Primary Key, " +

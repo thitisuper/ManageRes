@@ -186,6 +186,7 @@ public class CheckOrderActivity extends AppCompatActivity {
             String[] factorPriceStrings = new String[cursor.getCount()];
             int[] priceInts = new int[cursor.getCount()];
             String[] showPriceStrings = new String[cursor.getCount()];//จองหน่วยความจำ
+            String[] priceTotalStrings = new String[cursor.getCount()];
 
             String[] strings = new String[]{"ธรรมดา", "พิเศษ"};
 
@@ -196,14 +197,16 @@ public class CheckOrderActivity extends AppCompatActivity {
                 specialStrings[i] = cursor.getString(2);
                 toppingStrings[i] = cursor.getString(3);
                 itemStrings[i] = cursor.getString(4);
+                priceTotalStrings[i] = cursor.getString(5);
 
                 nameFoodStrings[i] = findNameFood(id_FoodStrings[i], true);
                 Log.d(tag, "nameFood[ " + i + "] ==> " + nameFoodStrings[i]);
 
                 factorPriceStrings[i] = findNameFood(id_FoodStrings[i], false);
-                priceInts[i] = Integer.parseInt(factorPriceStrings[i]) * Integer.parseInt(itemStrings[i]);
-                totalPrice = totalPrice + priceInts[i];
-                showPriceStrings[i] = Integer.toString(priceInts[i]);
+//                priceInts[i] = Integer.parseInt(factorPriceStrings[i]) * Integer.parseInt(itemStrings[i]);
+//                totalPrice = totalPrice + priceInts[i];
+//                showPriceStrings[i] = Integer.toString(priceInts[i]);
+                totalPrice = totalPrice + Integer.parseInt(priceTotalStrings[i]);
 
                 showSpecialStrings[i] = strings[Integer.parseInt(specialStrings[i])];
 
@@ -217,7 +220,7 @@ public class CheckOrderActivity extends AppCompatActivity {
                     nameFoodStrings,
                     showSpecialStrings,
                     itemStrings,
-                    showPriceStrings,
+                    priceTotalStrings,
                     toppingStrings);
             listView.setAdapter(orderAdapter);
 
@@ -245,15 +248,15 @@ public class CheckOrderActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(CheckOrderActivity.this);
         builder.setCancelable(false);
         builder.setIcon(R.mipmap.ic_launcher);
-        builder.setTitle("Are You Sure?");
-        builder.setMessage("You want to Delete this Order!");
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setTitle("ยืนยันความถูกต้อง");
+        builder.setMessage("คุณต้องการลบรายการนี้หรือไม่?");
+        builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 sqLiteDatabase.delete("orderTABLE",
@@ -327,6 +330,7 @@ public class CheckOrderActivity extends AppCompatActivity {
             String[] Special = new String[cursor.getCount()];
             String[] Topping = new String[cursor.getCount()];
             String[] Item = new String[cursor.getCount()];
+            String[] priceTo = new String[cursor.getCount()];
 
             for (int i = 0; i < cursor.getCount(); i += 1) {
 
@@ -334,6 +338,7 @@ public class CheckOrderActivity extends AppCompatActivity {
                 Special[i] = cursor.getString(2);
                 Topping[i] = cursor.getString(3);
                 Item[i] = cursor.getString(4);
+                priceTo[i] = cursor.getString(5);
 
                 Log.d(tag, "id_Food[" + i + "] ==> " + id_Food[i]);
 
