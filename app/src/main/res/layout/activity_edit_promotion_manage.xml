@@ -118,14 +118,14 @@
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
         android:background="@color/colorSecondary"
         android:src="@drawable/confirm"
         android:text="บันทึก"
         android:textColor="@color/textcolorPrimary"
         android:textSize="@dimen/size20"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
