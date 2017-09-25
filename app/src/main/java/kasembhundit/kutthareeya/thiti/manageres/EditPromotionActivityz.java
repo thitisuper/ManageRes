@@ -1,11 +1,13 @@
 package kasembhundit.kutthareeya.thiti.manageres;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,8 +26,7 @@ public class EditPromotionActivityz extends AppCompatActivity {
     private Button saveButton;
     ListView listView;
     String[] id_productStrings, productNameStrings, productImageStrings,
-            productPromotionStrings;
-    String id_product, productPromotion;
+            productPromotionStrings, productPriceStrings;
 
     MyConstant myConstant;
 
@@ -60,19 +61,36 @@ public class EditPromotionActivityz extends AppCompatActivity {
             productNameStrings = new String[lengthAnInt];
             productImageStrings = new String[lengthAnInt];
             productPromotionStrings = new String[lengthAnInt];
+            productPriceStrings = new String[lengthAnInt];
 
-            for (int i = 0; i < lengthAnInt; i += 1) {
+
+            int i;
+            for (i = 0; i < lengthAnInt; i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 id_productStrings[i] = jsonObject.getString("id");
                 productNameStrings[i] = jsonObject.getString("ProductName");
                 productImageStrings[i] = jsonObject.getString("ProductImage");
                 productPromotionStrings[i] = jsonObject.getString("promotion");
+                productPriceStrings[i] = jsonObject.getString("ProductPrice");
 
             }   //for
 
-            EditPromotionAdapter editPromotionAdapter = new EditPromotionAdapter(EditPromotionActivityz.this,
-                    productNameStrings, productImageStrings, productPromotionStrings);
-            listView.setAdapter(editPromotionAdapter);
+            EditFoodAdapter editFoodAdapter = new EditFoodAdapter(EditPromotionActivityz.this,
+                    productImageStrings, productNameStrings);
+            listView.setAdapter(editFoodAdapter);
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(EditPromotionActivityz.this, EditPromotionManage.class);
+                    intent.putExtra("idFood", id_productStrings[position]);
+                    intent.putExtra("nameFood", productNameStrings[position]);
+                    intent.putExtra("priceFood", productPriceStrings[position]);
+                    intent.putExtra("imageFood", productImageStrings[position]);
+                    intent.putExtra("promotion", productPromotionStrings[position]);
+                    startActivity(intent);
+                }
+            });
 
 
         } catch (Exception e) {
@@ -93,7 +111,6 @@ public class EditPromotionActivityz extends AppCompatActivity {
     private void initialView() {
         backImageView = (ImageView) findViewById(R.id.imvBack);
         iconImageView = (ImageView) findViewById(R.id.imvIcon);
-        promotionEditText = (EditText) findViewById(R.id.edtPromotion);
         nameFoodTextView = (TextView) findViewById(R.id.txtTitle);
         saveButton = (Button) findViewById(R.id.btnSave);
         listView = (ListView) findViewById(R.id.livProduct);

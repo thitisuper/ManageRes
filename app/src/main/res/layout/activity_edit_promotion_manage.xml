@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kasembhundit.kutthareeya.thiti.manageres.addFoodActivity">
+    <!--Layout on top-->
+    <RelativeLayout
+        android:id="@+id/realTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padHeader">
+
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_back" />
+
+        <TextView
+            android:id="@+id/manage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="แก้ไขรายการอาหาร"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <!--Content-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/realTop"
+        android:orientation="vertical"
+        android:padding="@dimen/padding20">
+
+        <!--Picture-->
+        <ImageView
+            android:id="@+id/imvShow"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/addproduct" />
+
+        <!--Name-->
+        <TextView
+            android:id="@+id/txtNameFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ชื่ออาหาร"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="@dimen/dp25"
+            android:textStyle="bold" />
+
+        <!--price-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Show Price-->
+            <EditText
+                android:id="@+id/edtPromotion"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:hint="ส่วนลด"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="@dimen/dp25" />
+
+            <!--unit price-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/dp25"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!--Show Price Now-->
+        <TextView
+            android:id="@+id/showPriceNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ราคาปัจจุบัน"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="@dimen/dp25"
+            android:textStyle="bold" />
+
+        <!--Show Price future-->
+        <TextView
+            android:id="@+id/showPriceFuture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="ราคาลดแล้ว"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="@dimen/dp25"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!--Save Order-->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorSecondary"
+        android:src="@drawable/confirm"
+        android:text="บันทึก"
+        android:textColor="@color/textcolorPrimary"
+        android:textSize="@dimen/size20"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

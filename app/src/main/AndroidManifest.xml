@@ -50,7 +50,8 @@
         <activity android:name=".MerchantMainActivity" />
         <activity android:name=".EditFoodManageActivity" />
         <activity android:name=".EditNewsActivity" />
-        <activity android:name=".EditPromotionActivityz"></activity>
+        <activity android:name=".EditPromotionActivityz" />
+        <activity android:name=".EditPromotionManage"></activity>
     </application>
 
 </manifest>
