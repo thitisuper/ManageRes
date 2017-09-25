@@ -90,11 +90,11 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
             Log.d(tag, "strJSON ==> " + strJSON);
 
             JSONArray jsonArray = new JSONArray(strJSON);
-
             final String[] productNameStrings = new String[jsonArray.length()];
             final String[] productPriceStrings = new String[jsonArray.length()];
             final String[] iconFood = new String[jsonArray.length()];
             final String[] idFoodStrings = new String[jsonArray.length()];
+            final String[] promotionStrings = new String[jsonArray.length()];
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -102,6 +102,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                 productPriceStrings[i] = "ราคา " + jsonObject.getString("ProductPrice") + " บาท";
                 iconFood[i] = jsonObject.getString("ProductImage");
                 idFoodStrings[i] = jsonObject.getString("id");
+                promotionStrings[i] = jsonObject.getString("promotion");
             }   // for
 
             NewAdapter newAdapter = new NewAdapter(ServiceActivity.this, productNameStrings,
@@ -119,6 +120,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                     intent.putExtra("NameFood", productNameStrings[position]);
                     intent.putExtra("PriceFood", productPriceStrings[position]);
                     intent.putExtra("iconFood", iconFood[position]);
+                    intent.putExtra("promotion", promotionStrings[position]);
                     startActivity(intent);
 
                 }

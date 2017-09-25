@@ -33,16 +33,17 @@ public class OrderActivity extends AppCompatActivity {
     private String[] loginStrings, toppingStrings;
     private String nameFoodString, priceToolbarString, iconString,
             idFoodString, categoryString, toppingChooseString, specialString = "0",
-            itemString = "1", deliveryString = "0";
-    private TextView nameFoodTextView, priceToolbarTextView, userTextView, textView;
+            itemString = "1", deliveryString = "0", promotionString;
+    private TextView nameFoodTextView, priceToolbarTextView, userTextView, promoTextView;
     private ImageView iconImageView;
     private MyConstant myConstant;
     private int intHour, intMinus;
     private String strCurrentTime;
 
     private TextView showTotalPriceTextView;
-    private int totalPriceAnInt, factorPriceAnInt, specialAnInt = 0, toppingAnInt = 0,
+    private int factorPriceAnInt, specialAnInt = 0, toppingAnInt = 0,
             itemAnInt = 1;
+    float totalPriceAnInt, percen, number1;
 
     private String id_FoodString, specialSQLite;
 
@@ -92,6 +93,7 @@ public class OrderActivity extends AppCompatActivity {
 
     }   //Main Method
 
+
     private void specialController() {
         CheckBox checkBox = (CheckBox) findViewById(R.id.chbSpecial);
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -109,14 +111,19 @@ public class OrderActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void showTotalPrice() {
 
         //Calculate
-        totalPriceAnInt = (factorPriceAnInt + specialAnInt + toppingAnInt) * itemAnInt;
-
+        percen = Integer.parseInt(promotionString);
+        percen /= 100;
+        number1 = ((factorPriceAnInt + specialAnInt + toppingAnInt) * itemAnInt) * percen;
+        totalPriceAnInt = ((factorPriceAnInt + specialAnInt + toppingAnInt) * itemAnInt) - number1;
 
         showTotalPriceTextView = (TextView) findViewById(R.id.txtTotalPrice);
-        showTotalPriceTextView.setText("ราคารวม = " + Integer.toString(totalPriceAnInt) + " บาท");
+        showTotalPriceTextView.setText("ราคารวม = " + Integer.toString((int) totalPriceAnInt) + " บาท");
+        Log.d("25SepV1", "Test ==> " + totalPriceAnInt);
     }
 
 
@@ -157,6 +164,7 @@ public class OrderActivity extends AppCompatActivity {
         Log.d("13JulyV1", "specialString ==> " + specialString);
 
     }
+
 
     private void findCategory() {
 
@@ -330,12 +338,18 @@ public class OrderActivity extends AppCompatActivity {
         nameFoodTextView.setText(nameFoodString);
         priceToolbarTextView.setText(priceToolbarString);
         Picasso.with(OrderActivity.this).load(iconString).into(iconImageView);
+        if (promotionString.equals("0")) {
+            promoTextView.setText("");
+        } else {
+            promoTextView.setText("**ลดราคา " + promotionString + " %");
+        }
     }
 
     private void initialView() {
         nameFoodTextView = (TextView) findViewById(R.id.txtNameFood);
         priceToolbarTextView = (TextView) findViewById(R.id.txtPriceFood);
         iconImageView = (ImageView) findViewById(R.id.imvIcon);
+        promoTextView = (TextView) findViewById(R.id.txtPromotion);
     }
 
     private void getValueFromIntent() {
@@ -345,5 +359,6 @@ public class OrderActivity extends AppCompatActivity {
         priceToolbarString = getIntent().getStringExtra("PriceFood");
         iconString = getIntent().getStringExtra("iconFood");
         idFoodString = getIntent().getStringExtra("idFood");
+        promotionString = getIntent().getStringExtra("promotion");
     }
 }   //Main Class
