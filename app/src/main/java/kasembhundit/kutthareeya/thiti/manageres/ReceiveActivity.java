@@ -22,7 +22,9 @@ public class ReceiveActivity extends AppCompatActivity {
     private String refString, dateString, timeString;
     private String[] id_foodStrings, specialStrings,
             toppingStrings, itemStrings, productNameStrings,
-            productPriceStrings, titleStrings, unitPriceStrings;
+            productPriceStrings, titleStrings, unitPriceStrings,
+            promotionStrings, priceTotalStrings;
+    float number1, number2, number3;
     ImageView backImageView;
 
     @Override
@@ -70,6 +72,8 @@ public class ReceiveActivity extends AppCompatActivity {
             productPriceStrings = new String[lengthAInt];
             titleStrings = new String[lengthAInt];
             unitPriceStrings = new String[lengthAInt];
+            promotionStrings = new String[lengthAInt];
+            priceTotalStrings = new String[lengthAInt];
 
 
             for (int i = 0; i < lengthAInt; i += 1) {
@@ -81,6 +85,7 @@ public class ReceiveActivity extends AppCompatActivity {
                 itemStrings[i] = jsonObject.getString("Item");
                 productNameStrings[i] = myFindNameAndPrice(0, id_foodStrings[i]);//ไปค้นหาชื่อของอาหารโยนเลข 0 ไป โดยไอดีของอาหาร
                 productPriceStrings[i] = myFindNameAndPrice(1, id_foodStrings[i]);//ไปค้นหาราคาของอาหารโยนเลข 1 ไป โดยไอดีของอาหาร
+                promotionStrings[i] = myFindNameAndPrice(2, id_foodStrings[i]);//ไปค้นหาโปรโมชั่นของอาหารโยนเลข 1 ไป โดยไอดีของอาหาร
                 titleStrings[i] = productNameStrings[i] +
                         ", " +
                         strings[Integer.parseInt(specialStrings[i])] +
@@ -90,23 +95,33 @@ public class ReceiveActivity extends AppCompatActivity {
                         (addSpecial(specialStrings[i])) +
                         (addTopping(toppingStrings[i])));
 
-                Log.d(tag, "id_food [" + i + "] ==> " + id_foodStrings[i]);
-                Log.d(tag, "productName [" + i + "]" + productNameStrings[i]);
-
             }   // for
 
             //Create ListView
             ListView listView1 = (ListView) findViewById(R.id.livReceive);
             ReceiveAdapter receiveAdapter = new ReceiveAdapter(ReceiveActivity.this,
-                    titleStrings, itemStrings, unitPriceStrings);
+                    titleStrings, itemStrings, unitPriceStrings, promotionStrings);
             listView1.setAdapter(receiveAdapter);
 
             //Show Total
             int totalAInt = 0;
             for (int i = 0; i < itemStrings.length; i += 1) {
+                priceTotalStrings[i] = Integer.toString(((Integer.parseInt(productPriceStrings[i])) +
+                        (addSpecial(specialStrings[i])) +
+                        (addTopping(toppingStrings[i]))) *
+                        Integer.parseInt(itemStrings[i]));
+                number1 = Integer.parseInt(promotionStrings[i]);
+                number1 /= 100;
+                number2 = Integer.parseInt(priceTotalStrings[i]) * number1;
+                number3 = Integer.parseInt(priceTotalStrings[i]) - number2;
+                totalAInt = (int) (totalAInt + number3);
 
-                int subTotalAInt = (Integer.parseInt(itemStrings[i])) * (Integer.parseInt(unitPriceStrings[i]));
-                totalAInt = totalAInt + subTotalAInt;
+                Log.d("26SepV1", "Unit Price ==> " + unitPriceStrings[i]);
+                Log.d("26SepV1", "Total Price ==> " + priceTotalStrings[i]);
+                Log.d("26SepV1", "Number1 ==> " + number1);
+                Log.d("26SepV1", "Number2 ==> " + number2);
+                Log.d("26SepV1", "Number3 ==> " + number3);
+                Log.d("26SepV1", "============================= ");
 
             }   // for
 
@@ -165,6 +180,9 @@ public class ReceiveActivity extends AppCompatActivity {
                     break;
                 case 1:
                     myResultString = jsonObject.getString("ProductPrice");
+                    break;
+                case 2:
+                    myResultString = jsonObject.getString("promotion");
                     break;
             }
 

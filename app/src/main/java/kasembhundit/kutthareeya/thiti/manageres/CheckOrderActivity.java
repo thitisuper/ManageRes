@@ -346,7 +346,7 @@ public class CheckOrderActivity extends AppCompatActivity {
                 MyConstant myConstant = new MyConstant();
 
                 postOrderToServer.execute(loginStrings[0], id_ref, id_Food[i],
-                        Special[i], Topping[i], Item[i],
+                        Special[i], Topping[i], Item[i], priceTo[i],
                         myConstant.getUrlPostOrder());
 
                 String result = postOrderToServer.get();
