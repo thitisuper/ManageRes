@@ -51,16 +51,36 @@
 
     </LinearLayout>
 
-    <!--Topping-->
-    <TextView
-        android:id="@+id/txtTopping"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp10"
-        android:layout_marginLeft="5dp"
-        android:text="Topping"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Topping-->
+        <TextView
+            android:id="@+id/txtTopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginLeft="5dp"
+            android:text="Topping"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <!--Promotion-->
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/txtPromotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

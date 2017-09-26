@@ -8,52 +8,43 @@
     tools:context="kasembhundit.kutthareeya.thiti.manageres.ShowNotification">
 
     <LinearLayout
-android:padding="@dimen/dp100"
+        android:layout_marginTop="80dp"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin30"
-        android:layout_marginRight="@dimen/margin30"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <ImageView
-            android:padding="@dimen/dp10"
-            android:id="@+id/imvhome"
-            android:src="@drawable/home"
-            android:layout_width="match_parent"
-            android:layout_height="90dp" />
-
-        <ImageView
-            android:src="@drawable/food"
-            android:layout_width="169dp"
-            android:layout_height="165dp" />
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:src="@drawable/food" />
 
 
         <TextView
-            android:padding="@dimen/dp10"
-            android:textColor="@color/colorSecondary"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:text="อาหารของคุณเสร็จแล้วค่ะ"
-            android:textSize="@dimen/h1"
+            android:id="@+id/textView"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" />
+            android:layout_centerInParent="true"
+            android:text="อาหารของคุณเสร็จแล้วค่ะ"
+            android:textColor="@color/colorSecondary"
+            android:textSize="27dp"
+            android:textStyle="bold" />
 
         <ImageView
-
+            android:id="@+id/imvorder"
             android:layout_width="200dp"
             android:layout_height="170dp"
-            android:id="@+id/imvorder"
             android:padding="@dimen/dp25"
             android:src="@drawable/ic_oder" />
 
 
     </LinearLayout>
-
 
 
     <LinearLayout
@@ -63,8 +54,6 @@ android:padding="@dimen/dp100"
 
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

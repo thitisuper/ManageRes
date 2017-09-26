@@ -15,22 +15,26 @@ public class OrderAdapter extends BaseAdapter {
 
     private Context context;
     private String[] nameFoodStrings, specialStrings,
-            itemStrings, priceStrings, toppingStrings;
+            itemStrings, priceStrings, toppingStrings,
+            promotionStrings;
     private TextView nameFoodTextView, specialTextView,
-            itemTextView, priceTextView, toppingTextView;
+            itemTextView, priceTextView, toppingTextView,
+            promotionTextView;
 
     public OrderAdapter(Context context,
                         String[] nameFoodStrings,
                         String[] specialStrings,
                         String[] itemStrings,
                         String[] priceStrings,
-                        String[] toppingStrings) {
+                        String[] toppingStrings,
+                        String[] promotionStrings) {
         this.context = context;
         this.nameFoodStrings = nameFoodStrings;
         this.specialStrings = specialStrings;
         this.itemStrings = itemStrings;
         this.priceStrings = priceStrings;
         this.toppingStrings = toppingStrings;
+        this.promotionStrings = promotionStrings;
     }
 
     @Override
@@ -60,6 +64,7 @@ public class OrderAdapter extends BaseAdapter {
         itemTextView = (TextView) view1.findViewById(R.id.txtItem);
         priceTextView = (TextView) view1.findViewById(R.id.txtPrice);
         toppingTextView = (TextView) view1.findViewById(R.id.txtTopping);
+        promotionTextView = (TextView) view1.findViewById(R.id.txtPromotion);
 
         //Show Text
         nameFoodTextView.setText(nameFoodStrings[i]);
@@ -67,7 +72,11 @@ public class OrderAdapter extends BaseAdapter {
         itemTextView.setText(itemStrings[i]);
         priceTextView.setText(priceStrings[i]);
         toppingTextView.setText(toppingStrings[i]);
-
+        if (promotionStrings[i].equals("0")) {
+            promotionTextView.setText("");
+        } else {
+            promotionTextView.setText("(" + "ลด " + promotionStrings[i] + " %" + ")");
+        }
 
         return view1;
     }

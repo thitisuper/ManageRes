@@ -39,14 +39,16 @@ public class MyManage {
                          String Special,
                          String Topping,
                          String Item,
-                         String price) {
+                         String Price,
+                         String Promotion) {
 
         ContentValues contentValues = new ContentValues();//เปลี่ยน String
         contentValues.put("id_Food", id_Food);
         contentValues.put("Special", Special);
         contentValues.put("Topping", Topping);
         contentValues.put("Item", Item);
-        contentValues.put("Price", price);
+        contentValues.put("Price", Price);
+        contentValues.put("Promotion", Promotion);
 
         return sqLiteDatabase.insert("orderTABLE", null, contentValues);
     }

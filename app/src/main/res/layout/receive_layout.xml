@@ -1,48 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <!--Name-->
-    <TextView
-        android:layout_weight="2.3"
-        android:id="@+id/txtName"
-        android:text="name"
-        android:textSize="@dimen/h2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-    <!--Amount-->
-    <TextView
-        android:layout_weight="0.8"
-        android:id="@+id/txtAmount"
-        android:text="5"
-        android:textSize="@dimen/h2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+        <!--Name-->
+        <TextView
+            android:layout_weight="2.3"
+            android:id="@+id/txtName"
+            android:text="name"
+            android:textSize="@dimen/h2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
 
-    <!--UnitPrice-->
-    <TextView
-        android:layout_weight="0.7"
-        android:id="@+id/txtUnitPrice"
-        android:text="50"
-        android:textSize="@dimen/h2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+        <!--Amount-->
+        <TextView
+            android:layout_weight="0.8"
+            android:id="@+id/txtAmount"
+            android:text="5"
+            android:textSize="@dimen/h2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
 
-    <!--Total-->
-    <TextView
-        android:layout_weight="0.7"
-        android:id="@+id/txtTotal"
-        android:text="250"
-        android:textSize="@dimen/h2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+        <!--UnitPrice-->
+        <TextView
+            android:layout_weight="0.7"
+            android:id="@+id/txtUnitPrice"
+            android:text="50"
+            android:textSize="@dimen/h2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
 
+        <!--Total-->
+        <TextView
+            android:layout_weight="0.7"
+            android:id="@+id/txtTotal"
+            android:text="250"
+            android:textSize="@dimen/h2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--Name-->
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/txtPromotion"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

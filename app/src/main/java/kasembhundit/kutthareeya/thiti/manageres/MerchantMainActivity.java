@@ -20,7 +20,7 @@ public class MerchantMainActivity extends AppCompatActivity {
     String[] id_ref, id_userStrings, nameUserStrings, surnameUserStrings,
             id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
             itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
-            specialAndStrings, id_orderStrings;
+            specialAndStrings, id_orderStrings, priceStrings;
     ImageView manageImageView;
 
     @Override
@@ -75,6 +75,7 @@ public class MerchantMainActivity extends AppCompatActivity {
             toppingStrings = new String[lengthAnInt];
             nameAndSurnameString = new String[lengthAnInt];
             specialAndStrings = new String[lengthAnInt];
+            priceStrings = new String[lengthAnInt];
 
             for (int i = 0; i < lengthAnInt; i += 1) {
 
@@ -86,15 +87,19 @@ public class MerchantMainActivity extends AppCompatActivity {
                 specialStrings[i] = jsonObject.getString("Special");
                 itemStrings[i] = jsonObject.getString("Item");
                 toppingStrings[i] = jsonObject.getString("Topping");
+                priceStrings[i] = jsonObject.getString("PriceOrder");
                 nameUserStrings[i] = myFindNameAndSurUser(0, id_userStrings[i]);
                 surnameUserStrings[i] = myFindNameAndSurUser(1, id_userStrings[i]);
                 foodNameStrings[i] = myFindNameFoodAndPrice(0, id_foodStrings[i]);
                 priceFoodStrings[i] = myFindNameFoodAndPrice(1, id_foodStrings[i]);
+
                 specialAndStrings[i] = stringsSpecial[Integer.parseInt(specialStrings[i])];
 
                 unitPriceStrings[i] = Integer.toString((Integer.parseInt(priceFoodStrings[i])) +
                         (addSpecial(specialStrings[i])) +
                         (addTopping(toppingStrings[i])));
+
+
                 nameAndSurnameString[i] = nameUserStrings[i] + "  " + surnameUserStrings[i];
 
                 Log.d(tag, "id User ==> " + id_userStrings[i]);
@@ -106,7 +111,7 @@ public class MerchantMainActivity extends AppCompatActivity {
 
             ListView listView = (ListView) findViewById(R.id.livOrderMerchant);
             MerchantOrderAdapter merchantOrderAdapter = new MerchantOrderAdapter(MerchantMainActivity.this,
-                    id_ref, nameAndSurnameString, foodNameStrings, unitPriceStrings, specialAndStrings, toppingStrings, itemStrings);
+                    id_ref, nameAndSurnameString, foodNameStrings, priceStrings, specialAndStrings, toppingStrings, itemStrings);
             listView.setAdapter(merchantOrderAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

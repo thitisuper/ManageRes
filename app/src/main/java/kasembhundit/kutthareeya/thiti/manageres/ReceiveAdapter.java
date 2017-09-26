@@ -16,8 +16,10 @@ import android.widget.TextView;
 public class ReceiveAdapter extends BaseAdapter {
 
     private Context context;
-    private String[] titleStrings, amountStrings, unitPriceStrings, promotionStrings;
-    private TextView titleTextView, amountTextView, unitPriceTextView, totalTextView;
+    private String[] titleStrings, amountStrings, unitPriceStrings,
+            promotionStrings;
+    private TextView titleTextView, amountTextView, unitPriceTextView,
+            totalTextView, promotionTextView;
 
     public ReceiveAdapter(Context context,
                           String[] titleStrings,
@@ -57,6 +59,7 @@ public class ReceiveAdapter extends BaseAdapter {
         amountTextView = (TextView) view.findViewById(R.id.txtAmount);
         unitPriceTextView = (TextView) view.findViewById(R.id.txtUnitPrice);
         totalTextView = (TextView) view.findViewById(R.id.txtTotal);
+        promotionTextView = (TextView) view.findViewById(R.id.txtPromotion);
 
         titleTextView.setText(titleStrings[position]);
         amountTextView.setText(amountStrings[position]);
@@ -66,6 +69,11 @@ public class ReceiveAdapter extends BaseAdapter {
         float number2 = (Integer.parseInt(amountStrings[position])) * (Integer.parseInt(unitPriceStrings[position]));
         float number3 = number2*number;
         totalTextView.setText(Integer.toString((int) (number2 - number3)));
+        if (promotionStrings[position].equals("0")) {
+            promotionTextView.setText("");
+        } else {
+            promotionTextView.setText("(" + "ลด " + promotionStrings[position] + " %" + ")");
+        }
 
         return view;
     }

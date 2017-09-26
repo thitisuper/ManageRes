@@ -60,6 +60,7 @@ public class CheckOrderActivity extends AppCompatActivity {
         //Create ListView
         createListView();
 
+
     }   //Main Method
 
     private void radioController() {
@@ -187,6 +188,7 @@ public class CheckOrderActivity extends AppCompatActivity {
             int[] priceInts = new int[cursor.getCount()];
             String[] showPriceStrings = new String[cursor.getCount()];//จองหน่วยความจำ
             String[] priceTotalStrings = new String[cursor.getCount()];
+            String[] promotionStrings = new String[cursor.getCount()];
 
             String[] strings = new String[]{"ธรรมดา", "พิเศษ"};
 
@@ -198,6 +200,7 @@ public class CheckOrderActivity extends AppCompatActivity {
                 toppingStrings[i] = cursor.getString(3);
                 itemStrings[i] = cursor.getString(4);
                 priceTotalStrings[i] = cursor.getString(5);
+                promotionStrings[i] = cursor.getString(6);
 
                 nameFoodStrings[i] = findNameFood(id_FoodStrings[i], true);
                 Log.d(tag, "nameFood[ " + i + "] ==> " + nameFoodStrings[i]);
@@ -221,7 +224,8 @@ public class CheckOrderActivity extends AppCompatActivity {
                     showSpecialStrings,
                     itemStrings,
                     priceTotalStrings,
-                    toppingStrings);
+                    toppingStrings,
+                    promotionStrings);
             listView.setAdapter(orderAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
