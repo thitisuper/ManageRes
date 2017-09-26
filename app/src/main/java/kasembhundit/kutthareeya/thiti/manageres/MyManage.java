@@ -24,11 +24,13 @@ public class MyManage {
 
     public long addReceive(String strRef,
                            String strDate,
+                           String strCurTime,
                            String strTime) {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("Ref", strRef);
         contentValues.put("MyDate", strDate);
+        contentValues.put("MyCurTime", strCurTime);
         contentValues.put("MyTime", strTime);
 
         return sqLiteDatabase.insert("receiveTABLE", null, contentValues);

@@ -19,11 +19,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReceiveActivity extends AppCompatActivity {
-    private String refString, dateString, timeString;
+    private String refString, dateString, curTimeString, timeString;
     private String[] id_foodStrings, specialStrings,
             toppingStrings, itemStrings, productNameStrings,
             productPriceStrings, titleStrings, unitPriceStrings,
-            promotionStrings, priceTotalStrings;
+            promotionStrings, priceTotalStrings, timeOrderStrings;
     float number1, number2, number3;
     ImageView backImageView;
 
@@ -74,6 +74,7 @@ public class ReceiveActivity extends AppCompatActivity {
             unitPriceStrings = new String[lengthAInt];
             promotionStrings = new String[lengthAInt];
             priceTotalStrings = new String[lengthAInt];
+            timeOrderStrings = new String[lengthAInt];
 
 
             for (int i = 0; i < lengthAInt; i += 1) {
@@ -83,6 +84,7 @@ public class ReceiveActivity extends AppCompatActivity {
                 specialStrings[i] = jsonObject.getString("Special");
                 toppingStrings[i] = jsonObject.getString("Topping");
                 itemStrings[i] = jsonObject.getString("Item");
+                timeOrderStrings[i] = jsonObject.getString("Timeorder");
                 productNameStrings[i] = myFindNameAndPrice(0, id_foodStrings[i]);//ไปค้นหาชื่อของอาหารโยนเลข 0 ไป โดยไอดีของอาหาร
                 productPriceStrings[i] = myFindNameAndPrice(1, id_foodStrings[i]);//ไปค้นหาราคาของอาหารโยนเลข 1 ไป โดยไอดีของอาหาร
                 promotionStrings[i] = myFindNameAndPrice(2, id_foodStrings[i]);//ไปค้นหาโปรโมชั่นของอาหารโยนเลข 1 ไป โดยไอดีของอาหาร
@@ -202,7 +204,8 @@ public class ReceiveActivity extends AppCompatActivity {
         cursor.moveToFirst();
         refString = cursor.getString(1);
         dateString = cursor.getString(2);
-        timeString = cursor.getString(3);
+        curTimeString = cursor.getString(3);
+        timeString = cursor.getString(4);
 
         TextView refTextView = (TextView) findViewById(R.id.txtRef);
         TextView dateTextView = (TextView) findViewById(R.id.txtDate);
@@ -212,10 +215,7 @@ public class ReceiveActivity extends AppCompatActivity {
         refTextView.setText(refString);
         dateTextView.setText("วันที่: " + dateString);
         timeTextView.setText("เวลารับ: " + timeString);
-
-        final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        String currentDateTimeString = dateFormat.format(new Date());
-        timeCurTextView.setText("เวลาสั่ง: " + currentDateTimeString);
+        timeCurTextView.setText("เวลาสั่ง: " + curTimeString);
 
 
     }

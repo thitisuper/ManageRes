@@ -14,9 +14,11 @@ import android.widget.TextView;
 public class MerchantOrderAdapter extends BaseAdapter{
     private Context context;
     private String[] id_ref, nameUserStrings, foodNameStrings,
-            priceStrings, specialStrings, toppingStrings, itemStrings;
+            priceStrings, specialStrings, toppingStrings, itemStrings,
+            timeStrings;
     private TextView refTextView, nameUserTextView, foodNameTextView,
-            priceTextView, specialTextView, toppingTextView, itemTextView;
+            priceTextView, specialTextView, toppingTextView, itemTextView,
+            timeTextView;
 
     public MerchantOrderAdapter(Context context,
                                 String[] id_ref,
@@ -25,7 +27,8 @@ public class MerchantOrderAdapter extends BaseAdapter{
                                 String[] priceStrings,
                                 String[] specialStrings,
                                 String[] toppingStrings,
-                                String[] itemStrings) {
+                                String[] itemStrings,
+                                String[] timeStrings) {
         this.context = context;
         this.id_ref = id_ref;
         this.nameUserStrings = nameUserStrings;
@@ -34,8 +37,8 @@ public class MerchantOrderAdapter extends BaseAdapter{
         this.specialStrings = specialStrings;
         this.toppingStrings = toppingStrings;
         this.itemStrings = itemStrings;
+        this.timeStrings = timeStrings;
     }
-
 
     @Override
     public int getCount() {
@@ -66,6 +69,7 @@ public class MerchantOrderAdapter extends BaseAdapter{
         specialTextView = (TextView) view.findViewById(R.id.txtSpecial);
         toppingTextView = (TextView) view.findViewById(R.id.txtTopping);
         itemTextView = (TextView) view.findViewById(R.id.txtItem);
+        timeTextView = (TextView) view.findViewById(R.id.txtTime);
 
         //Show Text
         refTextView.setText(id_ref[position]);
@@ -75,6 +79,7 @@ public class MerchantOrderAdapter extends BaseAdapter{
         specialTextView.setText(specialStrings[position]);
         toppingTextView.setText(toppingStrings[position]);
         itemTextView.setText(itemStrings[position] + " จาน");
+        timeTextView.setText("เวลารับ = " + timeStrings[position]);
 
         return view;
     }

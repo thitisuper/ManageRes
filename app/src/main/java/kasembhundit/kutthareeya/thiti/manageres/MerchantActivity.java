@@ -112,6 +112,26 @@ public class MerchantActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Intent Edit News
+
+
+
+        //Intent Report
+        reportImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, ReportActivity.class);
+                startActivity(intent);
+            }
+        });
+        reportTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MerchantActivity.this, ReportActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initialView() {

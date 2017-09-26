@@ -143,7 +143,7 @@ public class CheckOrderActivity extends AppCompatActivity {
     }   //Receive Time
 
     private void checkCloseShop(int Hour, int Minus, Calendar calendar, DateFormat dateFormat) {
-        if (Hour <= 18) {
+        if (Hour <= 18 && Hour >= 8) {
             calendar.set(Calendar.HOUR_OF_DAY, Hour);
             calendar.set(Calendar.MINUTE, Minus);
             String chooseTime = dateFormat.format(calendar.getTime());
@@ -349,8 +349,12 @@ public class CheckOrderActivity extends AppCompatActivity {
                 PostOrderToServer postOrderToServer = new PostOrderToServer(CheckOrderActivity.this);
                 MyConstant myConstant = new MyConstant();
 
+                final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+                String currentDateTimeString = dateFormat.format(new Date());
+
                 postOrderToServer.execute(loginStrings[0], id_ref, id_Food[i],
-                        Special[i], Topping[i], Item[i], priceTo[i],
+                        Special[i], Topping[i], Item[i], priceTo[i],myDateString,
+                        currentDateTimeString, strCurrentTime,
                         myConstant.getUrlPostOrder());
 
                 String result = postOrderToServer.get();
@@ -366,10 +370,11 @@ public class CheckOrderActivity extends AppCompatActivity {
 
             //Delete All SQLite
             sqLiteDatabase.delete("orderTABLE", null, null);
-
+            final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            String currentDateTimeString = dateFormat.format(new Date());
             //Add New Value to ReceiveTABLE
             MyManage myManage = new MyManage(CheckOrderActivity.this);
-            myManage.addReceive(id_ref, myDateString, strCurrentTime);
+            myManage.addReceive(id_ref, myDateString, currentDateTimeString, strCurrentTime);
 
             setupNotification(strCurrentTime);
 

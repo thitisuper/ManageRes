@@ -9,5 +9,5 @@ public class ReportActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
-    }
-}
+    }   //Main Method
+}   //Main Class

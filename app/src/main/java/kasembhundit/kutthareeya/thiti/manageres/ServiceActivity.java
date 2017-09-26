@@ -55,7 +55,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                 //Get Favorite
                 getFoodWhere.execute("Favorite", "1",
                         myConstant.getUrlGetFoodFavorite());
-                strTitle = "Favorite";
+                strTitle = "อาหารยอดนิยม";
                 strJSON = getFoodWhere.get();
             } else if (groupAnInt == 0) {
                 //อาหารจารเดี่ยว

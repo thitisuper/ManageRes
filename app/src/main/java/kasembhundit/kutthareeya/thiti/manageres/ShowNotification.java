@@ -39,8 +39,8 @@ public class ShowNotification extends AppCompatActivity {
         builder.setSmallIcon(R.mipmap.ic_authen);
         builder.setTicker("MasterUNG Alert");
         builder.setWhen(System.currentTimeMillis());
-        builder.setContentTitle("อาหารได้เสร็จแล้ว");
-        builder.setContentText("โปรดไปรับอาหารด้วยนะครับ");
+        builder.setContentTitle("อาหารเสร็จแล้ว");
+        builder.setContentText("โปรดไปรับอาหารด้วยนะค่ะ");
         builder.setAutoCancel(false);
 
 

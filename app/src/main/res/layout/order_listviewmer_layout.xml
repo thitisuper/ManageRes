@@ -31,14 +31,31 @@
                 android:textSize="@dimen/h1"
                 android:textStyle="bold" />
 
-            <!--Name Order-->
-            <TextView
-                android:layout_weight="0.1"
-                android:id="@+id/txtNameSur"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ชื่อผู้รับ : ธิติ ไทยนิยม"
-                android:textSize="18dp" />
+                android:layout_height="wrap_content">
+
+                <!--Name Order-->
+                <TextView
+                    android:layout_weight="0.1"
+                    android:id="@+id/txtNameSur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ชื่อผู้รับ : ธิติ ไทยนิยม"
+                    android:textSize="18dp" />
+
+                <!--Time-->
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.1"
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="เวลาสั่ง : 12:00"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

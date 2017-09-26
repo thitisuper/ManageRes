@@ -27,6 +27,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "id Integer Primary Key, " +
             "Ref Text, " +
             "MyDate Text, " +
+            "MyCurTime Text, " +
             "MyTime Text);";
 
     public MyOpenHelper(Context context) {

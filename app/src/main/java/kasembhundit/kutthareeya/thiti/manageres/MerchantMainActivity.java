@@ -20,7 +20,7 @@ public class MerchantMainActivity extends AppCompatActivity {
     String[] id_ref, id_userStrings, nameUserStrings, surnameUserStrings,
             id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
             itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
-            specialAndStrings, id_orderStrings, priceStrings;
+            specialAndStrings, id_orderStrings, priceStrings, timeStrings;
     ImageView manageImageView;
 
     @Override
@@ -76,6 +76,7 @@ public class MerchantMainActivity extends AppCompatActivity {
             nameAndSurnameString = new String[lengthAnInt];
             specialAndStrings = new String[lengthAnInt];
             priceStrings = new String[lengthAnInt];
+            timeStrings = new String[lengthAnInt];
 
             for (int i = 0; i < lengthAnInt; i += 1) {
 
@@ -88,6 +89,7 @@ public class MerchantMainActivity extends AppCompatActivity {
                 itemStrings[i] = jsonObject.getString("Item");
                 toppingStrings[i] = jsonObject.getString("Topping");
                 priceStrings[i] = jsonObject.getString("PriceOrder");
+                timeStrings[i] = jsonObject.getString("TimeReceive");
                 nameUserStrings[i] = myFindNameAndSurUser(0, id_userStrings[i]);
                 surnameUserStrings[i] = myFindNameAndSurUser(1, id_userStrings[i]);
                 foodNameStrings[i] = myFindNameFoodAndPrice(0, id_foodStrings[i]);
@@ -111,7 +113,7 @@ public class MerchantMainActivity extends AppCompatActivity {
 
             ListView listView = (ListView) findViewById(R.id.livOrderMerchant);
             MerchantOrderAdapter merchantOrderAdapter = new MerchantOrderAdapter(MerchantMainActivity.this,
-                    id_ref, nameAndSurnameString, foodNameStrings, priceStrings, specialAndStrings, toppingStrings, itemStrings);
+                    id_ref, nameAndSurnameString, foodNameStrings, priceStrings, specialAndStrings, toppingStrings, itemStrings, timeStrings);
             listView.setAdapter(merchantOrderAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
