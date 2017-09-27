@@ -40,7 +40,6 @@
         <activity android:name=".AddPromotionActivity" />
         <activity android:name=".UserActivity" />
         <activity android:name=".StatusActivity" />
-        <activity android:name=".OderSlipActivity" />
         <activity android:name=".ShowNotification" />
 
         <receiver
@@ -51,7 +50,8 @@
         <activity android:name=".EditFoodManageActivity" />
         <activity android:name=".EditNewsActivity" />
         <activity android:name=".EditPromotionActivityz" />
-        <activity android:name=".EditPromotionManage"></activity>
+        <activity android:name=".EditPromotionManage" />
+        <activity android:name=".EditNewsListActivity"></activity>
     </application>
 
 </manifest>

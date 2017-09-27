@@ -4,49 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kasembhundit.kutthareeya.thiti.manageres.EditPromotionActivityz">
-
+    tools:context="kasembhundit.kutthareeya.thiti.manageres.addFoodActivity">
     <!--Layout on top-->
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/realTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
+        android:orientation="horizontal"
         android:padding="@dimen/padHeader">
 
         <ImageView
-            android:layout_weight="1"
             android:id="@+id/imvBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.0"
             android:src="@mipmap/ic_back" />
 
         <TextView
-            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
             android:id="@+id/manage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="แก้ไขโปรโมชั่น"
+            android:layout_gravity="center"
+            android:text="แก้ไขข่าวสาร"
             android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/h1"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <ImageView
-            android:layout_weight="1"
             android:id="@+id/imvRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.04"
             android:src="@drawable/edit" />
-
 
     </LinearLayout>
 
     <ListView
-        android:id="@+id/livProduct"
-        android:layout_below="@id/realTop"
+        android:id="@+id/livEdtNews"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:layout_below="@id/realTop"></ListView>
+
 
 </RelativeLayout>

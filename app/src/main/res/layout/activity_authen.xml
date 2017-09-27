@@ -19,48 +19,50 @@
         android:layout_centerHorizontal="true">
 
         <ImageView
+            android:layout_marginTop="50dp"
             android:src="@drawable/food"
             android:layout_width="169dp"
             android:layout_height="165dp" />
 
+        <EditText
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="13"
+            android:inputType="text"
+            android:hint="ชื่อผู้ใช้งาน"/>
+
+
+        <EditText
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimary"
+            android:id="@+id/edtPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="13"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            android:hint="รหัสผ่าน"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="สมัครสมาชิก"
+            android:textColor="@color/colortext"
+            android:textSize="@dimen/txtH2"
+            android:id="@+id/txtRegister"
+            android:layout_marginTop="27dp"
+            android:layout_below="@+id/edtPassword"
+            android:layout_centerHorizontal="true" />
+
+
+
 
     </LinearLayout>
-
-    <EditText
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp200"
-        android:id="@+id/edtUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="13"
-        android:inputType="text"
-       android:hint="ชื่อผู้ใช้งาน"/>
-
-
-    <EditText
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimary"
-        android:layout_marginTop="@dimen/dp250"
-        android:id="@+id/edtPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="13"
-        android:inputType="textPassword"
-        android:layout_centerHorizontal="true"
-        android:hint="รหัสผ่าน"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="สมัครสมาชิก"
-        android:textColor="@color/colortext"
-        android:textSize="@dimen/txtH2"
-        android:id="@+id/txtRegister"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/edtPassword"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -72,6 +74,7 @@
         android:textColor="@color/textcolorPrimary"
         android:textSize="@dimen/size20"
         android:textStyle="bold" />
+
 
 
 

@@ -38,9 +38,6 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
         //Controller
         controller();
 
-        //Bracker Market Controller
-        marketController();
-
         //profile Controller
         profileController();
 
@@ -55,16 +52,6 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
                 Intent intent = new Intent(HubActivity.this, UserActivity.class);
                 intent.putExtra("Login", getIntent().getStringArrayExtra("Login"));
                 startActivity(intent);
-            }
-        });
-    }
-
-    private void marketController() {
-        ImageView imageView = (ImageView) findViewById(R.id.imvMarket);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HubActivity.this, ReceiveActivity.class));
             }
         });
     }

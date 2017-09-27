@@ -21,7 +21,7 @@ public class MerchantMainActivity extends AppCompatActivity {
             id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
             itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
             specialAndStrings, id_orderStrings, priceStrings, timeStrings;
-    ImageView manageImageView;
+    ImageView manageImageView, refreshImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,17 @@ public class MerchantMainActivity extends AppCompatActivity {
     }   // Main Method
 
     private void initialView() {
+
+        refreshImageView = (ImageView) findViewById(R.id.imvRefresh);
+        refreshImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent(MerchantMainActivity.this, MerchantMainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         manageImageView = (ImageView) findViewById(R.id.imvManage);
         manageImageView.setOnClickListener(new View.OnClickListener() {
             @Override

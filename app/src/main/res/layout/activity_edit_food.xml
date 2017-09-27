@@ -7,40 +7,48 @@
     tools:context="kasembhundit.kutthareeya.thiti.manageres.addFoodActivity">
     <!--Layout on top-->
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/realTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
+        android:orientation="horizontal"
         android:padding="@dimen/padHeader">
 
         <ImageView
-            android:layout_weight="0.1"
             android:id="@+id/imvBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.1"
             android:src="@mipmap/ic_back" />
 
         <TextView
-            android:layout_gravity="center"
-            android:layout_weight="1"
             android:id="@+id/manage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="แก้ไขรายการอาหาร"
             android:textColor="@color/textcolorPrimary"
-            android:textSize="@dimen/h1"
+            android:textSize="27dp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:src="@drawable/edit" />
+
     </LinearLayout>
 
-        <ListView
-            android:id="@+id/livEdtFood"
-            android:layout_below="@id/realTop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
-
-
+    <ListView
+        android:id="@+id/livEdtFood"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/realTop"></ListView>
 
 
 </RelativeLayout>

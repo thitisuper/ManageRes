@@ -40,13 +40,6 @@
             android:textColor="@color/textcolorPrimary"
             android:textStyle="italic" />
 
-        <ImageView
-            android:layout_alignParentRight="true"
-            android:id="@+id/imvShowOrder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/login" />
-
     </RelativeLayout>
 
     <ListView

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView backImageView, showOrderImageView;
+    private ImageView backImageView;
     private TextView titleTextView, nameTextView;
     private ListView listView;
     private int favoriteAnInt, groupAnInt;
@@ -144,12 +144,10 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
     private void controller() {
         backImageView.setOnClickListener(ServiceActivity.this);
-        showOrderImageView.setOnClickListener(this);
     }
 
     private void initialVIew() {
         backImageView = (ImageView) findViewById(R.id.imvBack);
-        showOrderImageView = (ImageView) findViewById(R.id.imvShowOrder);
         titleTextView = (TextView) findViewById(R.id.txtTitle);
         nameTextView = (TextView) findViewById(R.id.txtName);
         listView = (ListView) findViewById(R.id.livFood);
@@ -161,11 +159,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         //For Back
         if (v == backImageView) {
             finish();
-        }
-
-        //For Show
-        if (v == showOrderImageView) {
-
         }
 
     }

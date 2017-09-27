@@ -128,10 +128,10 @@
                         android:id="@+id/txtTotalPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginLeft="5dp"
                         android:text="ราคา: 100฿"
                         android:textColor="@color/colorSecondary"
-                        android:textSize="@dimen/h1"
+                        android:textSize="26dp"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/txtPromotion"
@@ -210,7 +210,7 @@
                     android:layout_marginLeft="@dimen/h2"
                     android:padding="20sp"></Spinner>
 
-            </LinearLayout>"
+            </LinearLayout>
 
 
             <Button

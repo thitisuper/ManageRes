@@ -16,8 +16,7 @@ import org.json.JSONObject;
 public class EditFoodActivity extends AppCompatActivity {
 
     MyConstant myConstant = new MyConstant();
-    private ImageView backImageView, foodImageView;
-    private TextView nameFoodTextView;
+    private ImageView backImageView, refreshImageView;
     String[] id_productStrings, productNameStrings, productPriceStrings,
             productImage, categoryStrings;
     ListView listView;
@@ -34,11 +33,25 @@ public class EditFoodActivity extends AppCompatActivity {
         //back Controller
         backController();
 
+        //Refresh Controller
+        refreshController();
+
         //Create ListView
         createListView();
 
 
     }   //Main Method
+
+    private void refreshController() {
+        refreshImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent(EditFoodActivity.this, EditFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     private void createListView() {
         String tag = "23SepV1";
@@ -106,8 +119,7 @@ public class EditFoodActivity extends AppCompatActivity {
 
     private void initialView() {
         backImageView = (ImageView) findViewById(R.id.imvBack);
-        foodImageView = (ImageView) findViewById(R.id.imvIcon);
-        nameFoodTextView = (TextView) findViewById(R.id.txtTitle);
+        refreshImageView = (ImageView) findViewById(R.id.imvRefresh);
         listView = (ListView) findViewById(R.id.livEdtFood);
     }
 }   //Main Class
