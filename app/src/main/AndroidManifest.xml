@@ -51,7 +51,8 @@
         <activity android:name=".EditNewsActivity" />
         <activity android:name=".EditPromotionActivityz" />
         <activity android:name=".EditPromotionManage" />
-        <activity android:name=".EditNewsListActivity"></activity>
+        <activity android:name=".EditNewsListActivity" />
+        <activity android:name=".MyCalendarView" />
     </application>
 
 </manifest>

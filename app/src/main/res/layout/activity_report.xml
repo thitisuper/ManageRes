@@ -6,18 +6,22 @@
     android:layout_height="match_parent"
     tools:context="kasembhundit.kutthareeya.thiti.manageres.ReportActivity">
 
-
+    <!--Top-->
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/padHeader"
-        android:id="@+id/relativeLayout">
+        android:padding="@dimen/padHeader">
+
         <ImageView
             android:id="@+id/imvBack"
-            android:src="@mipmap/ic_back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_back"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,10 +32,84 @@
             android:textStyle="bold" />
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/linDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentStart="true">
+
+        <!--Start Date-->
+        <TextView
+            android:id="@+id/txtStartDate"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/colorLight"
+            android:gravity="center"
+            android:text="27/06/2017"
+            android:textSize="20dp" />
+
+        <!--Button-->
+        <ImageButton
+            android:id="@+id/imvButtonStart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/colorAccent"
+            android:src="@mipmap/ic_back1" />
+
+
+        <!--End Date-->
+        <TextView
+            android:id="@+id/txtEndDate"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorLight"
+            android:gravity="center"
+            android:text="27/06/2017"
+            android:textSize="20dp" />
+
+        <!--Button-->
+        <ImageButton
+            android:id="@+id/imvButtonEnd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/colorAccent"
+            android:src="@mipmap/ic_back1" />
+
+    </LinearLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/relativeLayout"></ListView>
+        android:layout_below="@+id/linDate"></ListView>
+
+    <!--Buttom Total-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtTotalReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="รวม = 10 บาท"
+            android:textColor="@color/textcolorPrimary"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
