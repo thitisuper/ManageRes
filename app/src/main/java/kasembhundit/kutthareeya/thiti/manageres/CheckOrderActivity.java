@@ -83,7 +83,7 @@ public class CheckOrderActivity extends AppCompatActivity {
     private void setUpTimeAndDate() {
 
         Calendar calendar = Calendar.getInstance();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         myDateString = dateFormat.format(calendar.getTime());
 
         myTimeString = strCurrentTime;

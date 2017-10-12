@@ -25,9 +25,9 @@ public class MyCalendarView extends AppCompatActivity {
                 mDay = dayOfMonth;
 
                 String selectedDate = new StringBuilder()
-                        .append(mDay).append("/")
-                        .append(mMonth + 1).append("/")
-                        .append(mYear + 543).append(" ").toString();
+                        .append(mYear).append("-")
+                        .append(mMonth + 1).append("-")
+                        .append(mDay).toString();
 
                 Bundle b = new Bundle();
                 b.putString("dateSelected", selectedDate);
@@ -37,7 +37,6 @@ public class MyCalendarView extends AppCompatActivity {
                 intent.putExtras(b);
                 setResult(RESULT_OK,intent);
                 finish();
-
 
 //                Toast.makeText(MyCalendarView.this,
 //                        "วันที่ " + mDay + "-" + mMonth + "-" + mYear,

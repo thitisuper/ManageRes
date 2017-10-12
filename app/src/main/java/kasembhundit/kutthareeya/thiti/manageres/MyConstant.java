@@ -25,6 +25,7 @@ public class MyConstant {
     private String urlUpdateProduct = "http://androidthai.in.th/whi/updateProduct.php";
     private String urlUpdateProductPromotion = "http://androidthai.in.th/whi/updateProductPromotion.php";
     private String urlUpdateNews = "http://androidthai.in.th/whi/updateNews.php";
+    private String urlCheckDate = "http://androidthai.in.th/whi/checkDateMoney.php";
 
     //For Spinner
     private String[] buildStrings = new String[]{"Build A", "Build B", "Build C"};
@@ -43,6 +44,10 @@ public class MyConstant {
 
     //Delay Time
     private int timeAnInt = 1;  //Default ==> 30min
+
+    public String getUrlCheckDate() {
+        return urlCheckDate;
+    }
 
     public String getUrlUpdateNews() {
         return urlUpdateNews;

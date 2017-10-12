@@ -3,11 +3,19 @@ package kasembhundit.kutthareeya.thiti.manageres;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,13 +27,15 @@ import java.util.Locale;
 
 public class ReportActivity extends AppCompatActivity {
     private ImageView backImageView;
-    private TextView startDateTextView,endDateTextView,totalTextView;
-    private ImageButton startDateImageButton,endDateImageButton;
-    private int mYear,mMonth,mDay,mDayTwo,mMonthTwo,mYearTwo;
+    private TextView startDateTextView, endDateTextView, totalTextView;
+    private ImageButton startDateImageButton, endDateImageButton;
+    private int mYear, mMonth, mDay, mDayTwo, mMonthTwo, mYearTwo;
+    Button saveButton;
     static final int CALENDAR_VIEW_ID = 0;
     static final int CALENDAR_VIEW_ID_END = 1;
     private Bundle bundle;
-    private String startDateShow, endDateShow;
+    private String startDateShow, endDateShow, startTest, endTest;
+    private String[] id_foodStrings, foodNameStrings, priceOrderStrings, dateOrderStrings;
 
     @Override
 
@@ -51,31 +61,8 @@ public class ReportActivity extends AppCompatActivity {
         // display the current date
         updateCurrentDate();
 
-        try {
-
-            List<Date> dates = new ArrayList<Date>();
-
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date startDateDate = (Date) dateFormat.parse(startDateShow);
-            Date endDateDate = (Date) dateFormat.parse(endDateShow);
-            long interval = 24 * 1000 * 60 * 60;
-            long eneTime = endDateDate.getTime();
-            long curTime = startDateDate.getTime();
-            while (curTime <= eneTime) {
-                dates.add(new Date(curTime));
-                curTime += interval;
-            }
-            for (int i=0; i<dates.size(); i++) {
-                Date lDate = (Date) dates.get(i);
-                String ds = dateFormat.format(lDate);
-                Log.d("10OctV1", "Date is = " + ds + "\n");
-            }
-
-        } catch (Exception e) {
-            Log.d("10OctV1", "e ==> " + e.toString());
-        }
-
-
+        //Button Controller
+        buttonController();
 
 
     }   //Main Method
@@ -112,14 +99,16 @@ public class ReportActivity extends AppCompatActivity {
         startDateTextView.setText(
                 new StringBuilder()
                         // Month is 0 based so add 1
-                        .append(mDay).append("/")
-                        .append(mMonth + 1).append("/")
-                        .append(mYear + 543).append(" "));
+                        .append(mYear).append("-")
+                        .append(mMonth + 1).append("-")
+                        .append(mDay)
+                );
         endDateTextView.setText(
                 new StringBuilder()
-                        .append(mDay).append("/")
-                        .append(mMonth + 1).append("/")
-                        .append(mYear + 543).append(" "));
+                        .append(mYear).append("-")
+                        .append(mMonth + 1).append("-")
+                        .append(mDay)
+                );
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -127,17 +116,148 @@ public class ReportActivity extends AppCompatActivity {
             case CALENDAR_VIEW_ID:
                 if (resultCode == RESULT_OK) {
                     bundle = data.getExtras();
-                    startDateShow = bundle.getString("dateSelected");
-                    startDateTextView.setText(startDateShow);
+                    String startGetDate = bundle.getString("dateSelected");
+                    startDateTextView.setText(startGetDate);
                     break;
                 }
             case CALENDAR_VIEW_ID_END:
                 if (resultCode == RESULT_OK) {
                     bundle = data.getExtras();
-                    endDateShow = bundle.getString("dateSelected");
-                    endDateTextView.setText(endDateShow);
+                    String endGetDate = bundle.getString("dateSelected");
+                    endDateTextView.setText(endGetDate);
+                    break;
                 }
         }
+    }
+
+    private void buttonController() {
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Check Date
+
+                try {
+
+                    startTest = startDateTextView.getText().toString();
+                    endTest = endDateTextView.getText().toString();
+                    Log.d("10OctV2", "Start Date ==> " + startTest);
+                    Log.d("10OctV2", "End Date ==> " + endTest);
+
+                    MyAlert myAlert = new MyAlert(ReportActivity.this);
+
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date startDateDate = (Date) dateFormat.parse(startTest);
+                    Date endDateDate = (Date) dateFormat.parse(endTest);
+                    String testDate = dateFormat.format(startDateDate);
+                    String TestEnd = dateFormat.format(endDateDate);
+                    long eneTime = endDateDate.getTime();
+                    long curTime = startDateDate.getTime();
+
+                        if (curTime > eneTime) {
+                            //Have Space
+                            myAlert.myDialogError("เลือกวันที่ไม่ถูกค่ะ",
+                                    "กรุณาตรวจสอบวันที่เริ่มและวันที่สุดท้ายใหม่อีกครั้งค่ะ");
+                        } else {
+
+                            Log.d("12OctV2", "StartDateTest :: " + testDate);
+                            Log.d("12OctV2", "EndDateTest :: " + TestEnd);
+                            //Select Date to ListView
+                            selectDateToListview(testDate, TestEnd);
+//                        while (curTime <= eneTime) {
+//                            dates.add(new Date(curTime));
+//                            curTime += interval;
+//                        }
+//                        for (int i = 0; i < dates.size(); i++) {
+//                            Date lDate = (Date) dates.get(i);
+//                            String ds = dateFormat.format(lDate);
+//                        }
+//                        //Log.d("10OctV1", "Date is = " + ds);
+                        }
+
+                } catch (Exception e) {
+                    Log.d("12OctV2", "e Button Report ==> " + e.toString());
+                }
+            }   //End Onclick
+        });
+    }
+
+    private void selectDateToListview(String testDate, String testEnd) {
+        try {
+
+            MyAlert myAlert = new MyAlert(ReportActivity.this);
+            MyConstant myConstant = new MyConstant();
+            CheckDateMoney checkDateMoney = new CheckDateMoney(ReportActivity.this);
+            checkDateMoney.execute(testDate, testEnd, myConstant.getUrlCheckDate());
+            String result = checkDateMoney.get();
+            Log.d("12OctV2", "result ==> " + result);
+
+            if (result == null) {
+
+                //Have Space
+                myAlert.myDialogError("ไม่มีวันที่นี้ค่ะ",
+                        "ไม่มีวันที่ที่ท่านต้องการ");
+
+            } else {
+
+                //จองหน่วยความจำ
+                JSONArray jsonArray = new JSONArray(result);
+                int lengthAnInt = jsonArray.length();
+                id_foodStrings = new String[lengthAnInt];
+                foodNameStrings = new String[lengthAnInt];
+                priceOrderStrings = new String[lengthAnInt];
+                dateOrderStrings = new String[lengthAnInt];
+
+                for (int i = 0; i < lengthAnInt; i += 1) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    id_foodStrings[i] = jsonObject.getString("id_Food");
+                    foodNameStrings[i] = myFindName(0, id_foodStrings[i]);
+                    priceOrderStrings[i] = jsonObject.getString("PriceOrder");
+                    dateOrderStrings[i] = jsonObject.getString("Dateorder");
+                }
+
+                //Create ListView
+                ListView listView = (ListView) findViewById(R.id.livShowInfo);
+                ReportAdapter reportAdapter = new ReportAdapter(ReportActivity.this, foodNameStrings,
+                        dateOrderStrings, priceOrderStrings);
+                listView.setAdapter(reportAdapter);
+
+            }
+
+        } catch (Exception e) {
+            Log.d("12OctV2", "e SelectDateToListView ==> " + e.toString());
+        }
+    }
+
+    private String myFindName(int index, String id_foodStrings) {
+
+        String tag = "12OctV2";
+        MyConstant myConstant = new MyConstant();
+        String myResultString = null;
+
+        try {
+
+            GetFoodWhere getFoodWhere = new GetFoodWhere(ReportActivity.this);
+            getFoodWhere.execute("id", id_foodStrings, myConstant.getUrlGetProductWhereID());
+            String resultString = getFoodWhere.get();
+            Log.d(tag, "result ==> " + resultString);
+
+            JSONArray jsonArray = new JSONArray(resultString);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            switch (index) {
+                case 0:
+                    myResultString = jsonObject.getString("ProductName");
+                    break;
+            }
+
+            return myResultString;
+
+        } catch (Exception e) {
+            Log.d(tag, "e to myFindName ==> " + e.toString());
+            return null;
+        }
+
     }
 
     private void backController() {
@@ -155,6 +275,7 @@ public class ReportActivity extends AppCompatActivity {
         startDateImageButton = (ImageButton) findViewById(R.id.imvButtonStart);
         endDateImageButton = (ImageButton) findViewById(R.id.imvButtonEnd);
         backImageView = (ImageView) findViewById(R.id.imvBack);
+        saveButton = (Button) findViewById(R.id.btnDate);
 
     }
 }   //Main Class

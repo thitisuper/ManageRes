@@ -51,7 +51,7 @@
             android:background="@color/colorLight"
             android:gravity="center"
             android:text="27/06/2017"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <!--Button-->
         <ImageButton
@@ -72,7 +72,7 @@
             android:background="@color/colorLight"
             android:gravity="center"
             android:text="27/06/2017"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <!--Button-->
         <ImageButton
@@ -82,15 +82,26 @@
             android:background="@color/colorAccent"
             android:src="@mipmap/ic_back1" />
 
+        <Button
+            android:id="@+id/btnDate"
+            android:text="ตกลง"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <ListView
+        android:layout_above="@+id/linTotal"
+        android:id="@+id/livShowInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linDate"></ListView>
+        android:layout_below="@+id/linDate">
+
+    </ListView>
 
     <!--Buttom Total-->
     <LinearLayout
+        android:id="@+id/linTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
