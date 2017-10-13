@@ -15,10 +15,10 @@ public class MerchantOrderAdapter extends BaseAdapter{
     private Context context;
     private String[] id_ref, nameUserStrings, foodNameStrings,
             priceStrings, specialStrings, toppingStrings, itemStrings,
-            timeStrings;
+            timeStrings, deliveryStrings;
     private TextView refTextView, nameUserTextView, foodNameTextView,
             priceTextView, specialTextView, toppingTextView, itemTextView,
-            timeTextView;
+            timeTextView, deliveryTextView;
 
     public MerchantOrderAdapter(Context context,
                                 String[] id_ref,
@@ -28,7 +28,8 @@ public class MerchantOrderAdapter extends BaseAdapter{
                                 String[] specialStrings,
                                 String[] toppingStrings,
                                 String[] itemStrings,
-                                String[] timeStrings) {
+                                String[] timeStrings,
+                                String[] deliveryStrings) {
         this.context = context;
         this.id_ref = id_ref;
         this.nameUserStrings = nameUserStrings;
@@ -38,6 +39,7 @@ public class MerchantOrderAdapter extends BaseAdapter{
         this.toppingStrings = toppingStrings;
         this.itemStrings = itemStrings;
         this.timeStrings = timeStrings;
+        this.deliveryStrings = deliveryStrings;
     }
 
     @Override
@@ -70,6 +72,7 @@ public class MerchantOrderAdapter extends BaseAdapter{
         toppingTextView = (TextView) view.findViewById(R.id.txtTopping);
         itemTextView = (TextView) view.findViewById(R.id.txtItem);
         timeTextView = (TextView) view.findViewById(R.id.txtTime);
+        deliveryTextView = (TextView) view.findViewById(R.id.txtDelivery);
 
         //Show Text
         refTextView.setText(id_ref[position]);
@@ -80,6 +83,7 @@ public class MerchantOrderAdapter extends BaseAdapter{
         toppingTextView.setText(toppingStrings[position]);
         itemTextView.setText(itemStrings[position] + " จาน");
         timeTextView.setText("เวลารับ = " + timeStrings[position]);
+        deliveryTextView.setText("จัดส่ง : " + deliveryStrings[position]);
 
         return view;
     }

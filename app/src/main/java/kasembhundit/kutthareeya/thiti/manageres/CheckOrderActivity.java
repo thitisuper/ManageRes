@@ -354,7 +354,7 @@ public class CheckOrderActivity extends AppCompatActivity {
 
                 postOrderToServer.execute(loginStrings[0], id_ref, id_Food[i],
                         Special[i], Topping[i], Item[i], priceTo[i],myDateString,
-                        currentDateTimeString, strCurrentTime,
+                        currentDateTimeString, strCurrentTime, deliveryString,
                         myConstant.getUrlPostOrder());
 
                 String result = postOrderToServer.get();

@@ -38,9 +38,10 @@ public class PostOrderToServer extends AsyncTask<String, Void, String>{
                     .add("Date", params[7])
                     .add("Timeorder", params[8])
                     .add("TimeReceive", params[9])
+                    .add("Delivery", params[10])
                     .build();
             Request.Builder builder = new Request.Builder();
-            Request request = builder.url(params[10]).post(requestBody).build();
+            Request request = builder.url(params[11]).post(requestBody).build();
             Response response = okHttpClient.newCall(request).execute();
             return response.body().toString();
 
