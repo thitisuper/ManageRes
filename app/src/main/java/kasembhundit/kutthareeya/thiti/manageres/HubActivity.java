@@ -12,7 +12,7 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
 
     private ImageView favoriteImageView, foodPackImageView,
             foodSingleImageView, noodleImageView, foodAllImageView,
-            profileImageView;
+            profileImageView, promotionImageView;
     TextView userTextView;
 
     @Override
@@ -62,6 +62,7 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
         foodSingleImageView.setOnClickListener(this);
         noodleImageView.setOnClickListener(this);
         foodAllImageView.setOnClickListener(this);
+        promotionImageView.setOnClickListener(this);
     }
 
     private void initialView() {
@@ -70,6 +71,7 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
         foodSingleImageView = (ImageView) findViewById(R.id.imvFood);
         noodleImageView = (ImageView) findViewById(R.id.imvNoodle);
         foodAllImageView = (ImageView) findViewById(R.id.imvFoodAll);
+        promotionImageView = (ImageView) findViewById(R.id.imvPromotion);
     }
 
     @Override
@@ -80,6 +82,9 @@ public class HubActivity extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.imvFavorite:
                 intFavorite = 1;
+                break;
+            case R.id.imvPromotion:
+                intFavorite = 2;
                 break;
             case R.id.imvPack:
                 intGroup = 0; //อาหารจานเดี่ยว

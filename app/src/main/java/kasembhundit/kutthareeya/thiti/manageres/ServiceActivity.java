@@ -57,6 +57,11 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                         myConstant.getUrlGetFoodFavorite());
                 strTitle = "อาหารยอดนิยม";
                 strJSON = getFoodWhere.get();
+            } else if (favoriteAnInt == 2) {
+                getFoodWhere.execute("Favorite", "2",
+                        myConstant.getUrlGetFoodFavorite());
+                strTitle = "อาหารโปรโมชั่น";
+                strJSON = getFoodWhere.get();
             } else if (groupAnInt == 0) {
                 //อาหารจารเดี่ยว
                 getFoodWhere.execute("Group", "0",

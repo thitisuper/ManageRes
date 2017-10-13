@@ -118,14 +118,26 @@ public class RegisterActivity extends AppCompatActivity {
                 MyAlert myAlert = new MyAlert(RegisterActivity.this);
 //                MyConstant myConstant = new MyConstant();
 
-                if (nameString.equals("") || surnameString.equals("") ||
-                        userString.equals("") || passwordString.equals("")) {
+                if (nameString.equals("")) {
                     //Have Space
                     myAlert.myDialogError("มีช่องว่างค่ะ",
-                            "กรุณากรอกข้อมูลใหม่อีกครั้ง");
+                            "กรุณากรอกชื่อด้วยค่ะ");
+                } else if (surnameString.equals("")) {
+                    //Have Space
+                    myAlert.myDialogError("มีช่องว่างค่ะ",
+                            "กรุณากรอกนามสกุลด้วยค่ะ");
+                } else if (userString.equals("")) {
+                    //Have Space
+                    myAlert.myDialogError("มีช่องว่างค่ะ",
+                            "กรุณากรอกชื่อผูใช้ด้วยค่ะ");
+                } else if (passwordString.equals("")) {
+                    //Have Space
+                    myAlert.myDialogError("มีช่องว่างค่ะ",
+                            "กรุณากรอกรหัสผ่านด้วยค่ะ");
                 } else {
                     confirmValue();
                 }
+
 
             }   //onClick
         });

@@ -51,13 +51,19 @@ public class AuthenActivity extends AppCompatActivity {
                 String message = null;
 
                 //Check Space
-                if ((userString.length() == 0) || (passwordString.length() == 0)) {
+                if ((userString.length() == 0)) {
                     //Have Space
                     message = "Have Space";
 
                     MyAlert myAlert = new MyAlert(AuthenActivity.this);
-                    myAlert.myDialogError("มีช่องว่าง", "กรุณากรอกข้อมูลให้ครบ");
+                    myAlert.myDialogError("มีช่องว่าง", "กรุณากรอกชื่อผู้ใช้งานด้วยค่ะ");
 
+                } else if ((passwordString.length() == 0)) {
+                    //Have Space
+                    message = "Have Space";
+
+                    MyAlert myAlert1 = new MyAlert(AuthenActivity.this);
+                    myAlert1.myDialogError("มีช่องว่าง", "กรุณากรอกรหัสผ่านด้วยค่ะ");
                 } else {
                     //No Space
                     message = "No Space";

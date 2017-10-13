@@ -107,6 +107,7 @@ public class ReceiveActivity extends AppCompatActivity {
 
             //Show Total
             int totalAInt = 0;
+            Log.d("12OctV2", " item ==> " + itemStrings.length);
             for (int i = 0; i < itemStrings.length; i += 1) {
                 priceTotalStrings[i] = Integer.toString(((Integer.parseInt(productPriceStrings[i])) +
                         (addSpecial(specialStrings[i])) +
@@ -123,7 +124,7 @@ public class ReceiveActivity extends AppCompatActivity {
                 Log.d("26SepV1", "Number1 ==> " + number1);
                 Log.d("26SepV1", "Number2 ==> " + number2);
                 Log.d("26SepV1", "Number3 ==> " + number3);
-                Log.d("26SepV1", "============================= ");
+                Log.d("26SepV1", "=============================");
 
             }   // for
 

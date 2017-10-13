@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,13 +30,14 @@ public class ReportActivity extends AppCompatActivity {
     private ImageView backImageView;
     private TextView startDateTextView, endDateTextView, totalTextView;
     private ImageButton startDateImageButton, endDateImageButton;
-    private int mYear, mMonth, mDay, mDayTwo, mMonthTwo, mYearTwo;
+    private int mYear, mMonth, mDay, mDayTwo, mMonthTwo, mYearTwo, priceTotalStrings;
     Button saveButton;
     static final int CALENDAR_VIEW_ID = 0;
     static final int CALENDAR_VIEW_ID_END = 1;
     private Bundle bundle;
     private String startDateShow, endDateShow, startTest, endTest;
-    private String[] id_foodStrings, foodNameStrings, priceOrderStrings, dateOrderStrings;
+    private String[] id_foodStrings, foodNameStrings, priceOrderStrings,
+            dateOrderStrings, itemStrings;
 
     @Override
 
@@ -102,13 +104,13 @@ public class ReportActivity extends AppCompatActivity {
                         .append(mYear).append("-")
                         .append(mMonth + 1).append("-")
                         .append(mDay)
-                );
+        );
         endDateTextView.setText(
                 new StringBuilder()
                         .append(mYear).append("-")
                         .append(mMonth + 1).append("-")
                         .append(mDay)
-                );
+        );
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -154,16 +156,16 @@ public class ReportActivity extends AppCompatActivity {
                     long eneTime = endDateDate.getTime();
                     long curTime = startDateDate.getTime();
 
-                        if (curTime > eneTime) {
-                            //Have Space
-                            myAlert.myDialogError("เลือกวันที่ไม่ถูกค่ะ",
-                                    "กรุณาตรวจสอบวันที่เริ่มและวันที่สุดท้ายใหม่อีกครั้งค่ะ");
-                        } else {
+                    if (curTime > eneTime) {
+                        //Have Space
+                        myAlert.myDialogError("เลือกวันที่ไม่ถูกค่ะ",
+                                "กรุณาตรวจสอบวันที่เริ่มและวันที่สุดท้ายใหม่อีกครั้งค่ะ");
+                    } else {
 
-                            Log.d("12OctV2", "StartDateTest :: " + testDate);
-                            Log.d("12OctV2", "EndDateTest :: " + TestEnd);
-                            //Select Date to ListView
-                            selectDateToListview(testDate, TestEnd);
+                        Log.d("12OctV2", "StartDateTest :: " + testDate);
+                        Log.d("12OctV2", "EndDateTest :: " + TestEnd);
+                        //Select Date to ListView
+                        selectDateToListview(testDate, TestEnd);
 //                        while (curTime <= eneTime) {
 //                            dates.add(new Date(curTime));
 //                            curTime += interval;
@@ -173,7 +175,7 @@ public class ReportActivity extends AppCompatActivity {
 //                            String ds = dateFormat.format(lDate);
 //                        }
 //                        //Log.d("10OctV1", "Date is = " + ds);
-                        }
+                    }
 
                 } catch (Exception e) {
                     Log.d("12OctV2", "e Button Report ==> " + e.toString());
@@ -184,45 +186,49 @@ public class ReportActivity extends AppCompatActivity {
 
     private void selectDateToListview(String testDate, String testEnd) {
         try {
-
-            MyAlert myAlert = new MyAlert(ReportActivity.this);
+            MyAlert myAlert1 = new MyAlert(ReportActivity.this);
             MyConstant myConstant = new MyConstant();
             CheckDateMoney checkDateMoney = new CheckDateMoney(ReportActivity.this);
             checkDateMoney.execute(testDate, testEnd, myConstant.getUrlCheckDate());
             String result = checkDateMoney.get();
             Log.d("12OctV2", "result ==> " + result);
 
-            if (result == null) {
+            //จองหน่วยความจำ
+            JSONArray jsonArray = new JSONArray(result);
+            int lengthAnInt = jsonArray.length();
+            id_foodStrings = new String[lengthAnInt];
+            foodNameStrings = new String[lengthAnInt];
+            priceOrderStrings = new String[lengthAnInt];
+            dateOrderStrings = new String[lengthAnInt];
+            itemStrings = new String[lengthAnInt];
 
-                //Have Space
-                myAlert.myDialogError("ไม่มีวันที่นี้ค่ะ",
-                        "ไม่มีวันที่ที่ท่านต้องการ");
-
-            } else {
-
-                //จองหน่วยความจำ
-                JSONArray jsonArray = new JSONArray(result);
-                int lengthAnInt = jsonArray.length();
-                id_foodStrings = new String[lengthAnInt];
-                foodNameStrings = new String[lengthAnInt];
-                priceOrderStrings = new String[lengthAnInt];
-                dateOrderStrings = new String[lengthAnInt];
-
-                for (int i = 0; i < lengthAnInt; i += 1) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    id_foodStrings[i] = jsonObject.getString("id_Food");
-                    foodNameStrings[i] = myFindName(0, id_foodStrings[i]);
-                    priceOrderStrings[i] = jsonObject.getString("PriceOrder");
-                    dateOrderStrings[i] = jsonObject.getString("Dateorder");
-                }
-
-                //Create ListView
-                ListView listView = (ListView) findViewById(R.id.livShowInfo);
-                ReportAdapter reportAdapter = new ReportAdapter(ReportActivity.this, foodNameStrings,
-                        dateOrderStrings, priceOrderStrings);
-                listView.setAdapter(reportAdapter);
-
+            for (int i = 0; i < lengthAnInt; i += 1) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                id_foodStrings[i] = jsonObject.getString("id_Food");
+                foodNameStrings[i] = myFindName(0, id_foodStrings[i]);
+                priceOrderStrings[i] = jsonObject.getString("PriceOrder");
+                dateOrderStrings[i] = jsonObject.getString("Dateorder");
+                itemStrings[i] = jsonObject.getString("Item");
             }
+
+            //Create ListView
+            ListView listView = (ListView) findViewById(R.id.livShowInfo);
+            ReportAdapter reportAdapter = new ReportAdapter(ReportActivity.this, foodNameStrings,
+                    dateOrderStrings, priceOrderStrings);
+            listView.setAdapter(reportAdapter);
+
+            //Show Total
+            int totalAnInt = 0;
+            Log.d("12OctV2", "Test ==> " + itemStrings.length);
+            for (int i = 0; i < itemStrings.length; i += 1) {
+                totalAnInt = totalAnInt + Integer.parseInt(priceOrderStrings[i]);
+            }
+            NumberFormat numberFormat = NumberFormat.getNumberInstance();
+            String totalMoney = numberFormat.format(totalAnInt);
+
+            TextView totalTextView = (TextView) findViewById(R.id.txtTotalReport);
+            totalTextView.setText("ราคารวม: " + totalMoney + " บาท");
+
 
         } catch (Exception e) {
             Log.d("12OctV2", "e SelectDateToListView ==> " + e.toString());

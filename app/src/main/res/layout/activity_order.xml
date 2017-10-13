@@ -205,10 +205,17 @@
 
                 <Spinner
                     android:id="@+id/spnItem"
-                    android:layout_width="match_parent"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/h2"
                     android:padding="20sp"></Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="จาน"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dp25"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
