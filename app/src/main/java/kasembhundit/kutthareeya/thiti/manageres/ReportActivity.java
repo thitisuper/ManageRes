@@ -186,7 +186,6 @@ public class ReportActivity extends AppCompatActivity {
 
     private void selectDateToListview(String testDate, String testEnd) {
         try {
-            MyAlert myAlert1 = new MyAlert(ReportActivity.this);
             MyConstant myConstant = new MyConstant();
             CheckDateMoney checkDateMoney = new CheckDateMoney(ReportActivity.this);
             checkDateMoney.execute(testDate, testEnd, myConstant.getUrlCheckDate());
@@ -232,6 +231,10 @@ public class ReportActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             Log.d("12OctV2", "e SelectDateToListView ==> " + e.toString());
+            MyAlert myAlert1 = new MyAlert(ReportActivity.this);
+            //Have Space
+            myAlert1.myDialogError(null,
+                    "ไม่มีรายการในวันที่คุณต้องการค่ะ");
         }
     }
 
