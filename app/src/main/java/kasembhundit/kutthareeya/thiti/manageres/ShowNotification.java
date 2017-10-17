@@ -27,6 +27,7 @@ public class ShowNotification extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ShowNotification.this, ReceiveActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

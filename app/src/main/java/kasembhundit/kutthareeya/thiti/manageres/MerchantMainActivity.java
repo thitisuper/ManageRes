@@ -20,7 +20,8 @@ public class MerchantMainActivity extends AppCompatActivity {
     String[] id_ref, id_userStrings, nameUserStrings, surnameUserStrings,
             id_foodStrings, foodNameStrings, priceFoodStrings, specialStrings,
             itemStrings, toppingStrings, nameAndSurnameString, unitPriceStrings,
-            specialAndStrings, id_orderStrings, priceStrings, timeStrings, deliveryStrings;
+            specialAndStrings, id_orderStrings, priceStrings, timeStrings, deliveryStrings,
+            detailStrings;
     ImageView manageImageView, refreshImageView;
 
     @Override
@@ -89,6 +90,8 @@ public class MerchantMainActivity extends AppCompatActivity {
             priceStrings = new String[lengthAnInt];
             timeStrings = new String[lengthAnInt];
             deliveryStrings = new String[lengthAnInt];
+            detailStrings = new String[lengthAnInt];
+
 
             for (int i = 0; i < lengthAnInt; i += 1) {
 
@@ -103,6 +106,7 @@ public class MerchantMainActivity extends AppCompatActivity {
                 priceStrings[i] = jsonObject.getString("PriceOrder");
                 timeStrings[i] = jsonObject.getString("TimeReceive");
                 deliveryStrings[i] = jsonObject.getString("Delivery");
+                detailStrings[i] = jsonObject.getString("Detail");
                 nameUserStrings[i] = myFindNameAndSurUser(0, id_userStrings[i]);
                 surnameUserStrings[i] = myFindNameAndSurUser(1, id_userStrings[i]);
                 foodNameStrings[i] = myFindNameFoodAndPrice(0, id_foodStrings[i]);
@@ -126,7 +130,8 @@ public class MerchantMainActivity extends AppCompatActivity {
 
             ListView listView = (ListView) findViewById(R.id.livOrderMerchant);
             MerchantOrderAdapter merchantOrderAdapter = new MerchantOrderAdapter(MerchantMainActivity.this,
-                    id_ref, nameAndSurnameString, foodNameStrings, priceStrings, specialAndStrings, toppingStrings, itemStrings, timeStrings, deliveryStrings);
+                    id_ref, nameAndSurnameString, foodNameStrings, priceStrings, specialAndStrings, toppingStrings,
+                    itemStrings, timeStrings, deliveryStrings, detailStrings);
             listView.setAdapter(merchantOrderAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

@@ -55,7 +55,7 @@
                 android:id="@+id/imvAddOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/addproduct" />
+                android:src="@drawable/imv_addfood" />
 
             <TextView
                 android:id="@+id/txtAdd"
@@ -80,7 +80,7 @@
                 android:id="@+id/imvEdtFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/addproduct" />
+                android:src="@drawable/imv_editfood" />
 
             <TextView
                 android:id="@+id/txtEdtFood"
@@ -105,7 +105,7 @@
                 android:id="@+id/imvAddPromotion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/addproduct" />
+                android:src="@drawable/imv_promotion" />
 
             <TextView
                 android:id="@+id/txtAddPromotion"

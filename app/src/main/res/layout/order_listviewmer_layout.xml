@@ -130,6 +130,20 @@
                 android:textStyle="italic" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Topping-->
+            <TextView
+                android:id="@+id/txtDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Detail"
+                android:textSize="20dp" />
+
+        </LinearLayout>
 
         <!--Price-->
         <TextView

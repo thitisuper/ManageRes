@@ -38,7 +38,7 @@
             android:id="@+id/imvRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/edit" />
+            android:src="@drawable/imv_refresh" />
 
 
     </LinearLayout>

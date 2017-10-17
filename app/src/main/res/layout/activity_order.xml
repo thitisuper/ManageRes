@@ -120,9 +120,9 @@
                     android:layout_height="@dimen/dp100" />
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtTotalPrice"
@@ -133,6 +133,7 @@
                         android:textColor="@color/colorSecondary"
                         android:textSize="26dp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/txtPromotion"
                         android:layout_width="wrap_content"
@@ -209,6 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/h2"
                     android:padding="20sp"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -218,6 +220,16 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
+
+            <!--หมายเหตุ-->
+            <EditText
+                android:inputType="text"
+                android:id="@+id/edtDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="หมายเหตุเพิ่มเติม"
+                android:maxLength="50"
+                android:textSize="22dp" />
 
 
             <Button

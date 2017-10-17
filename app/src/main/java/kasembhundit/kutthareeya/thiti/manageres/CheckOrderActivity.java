@@ -200,7 +200,7 @@ public class CheckOrderActivity extends AppCompatActivity {
                 toppingStrings[i] = cursor.getString(3);
                 itemStrings[i] = cursor.getString(4);
                 priceTotalStrings[i] = cursor.getString(5);
-                promotionStrings[i] = cursor.getString(6);
+                promotionStrings[i] = cursor.getString(7);
 
                 nameFoodStrings[i] = findNameFood(id_FoodStrings[i], true);
                 Log.d(tag, "nameFood[ " + i + "] ==> " + nameFoodStrings[i]);
@@ -335,6 +335,7 @@ public class CheckOrderActivity extends AppCompatActivity {
             String[] Topping = new String[cursor.getCount()];
             String[] Item = new String[cursor.getCount()];
             String[] priceTo = new String[cursor.getCount()];
+            String[] detailStrings = new String[cursor.getCount()];
 
             for (int i = 0; i < cursor.getCount(); i += 1) {
 
@@ -343,8 +344,10 @@ public class CheckOrderActivity extends AppCompatActivity {
                 Topping[i] = cursor.getString(3);
                 Item[i] = cursor.getString(4);
                 priceTo[i] = cursor.getString(5);
+                detailStrings[i] = cursor.getString(6);
 
                 Log.d(tag, "id_Food[" + i + "] ==> " + id_Food[i]);
+                Log.d(tag, "detail[" + i + "] ==> " + detailStrings[i]);
 
                 PostOrderToServer postOrderToServer = new PostOrderToServer(CheckOrderActivity.this);
                 MyConstant myConstant = new MyConstant();
@@ -354,7 +357,7 @@ public class CheckOrderActivity extends AppCompatActivity {
 
                 postOrderToServer.execute(loginStrings[0], id_ref, id_Food[i],
                         Special[i], Topping[i], Item[i], priceTo[i],myDateString,
-                        currentDateTimeString, strCurrentTime, deliveryString,
+                        currentDateTimeString, strCurrentTime, deliveryString, detailStrings[i],
                         myConstant.getUrlPostOrder());
 
                 String result = postOrderToServer.get();

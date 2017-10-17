@@ -42,6 +42,7 @@ public class MyManage {
                          String Topping,
                          String Item,
                          String Price,
+                         String Detail,
                          String Promotion) {
 
         ContentValues contentValues = new ContentValues();//เปลี่ยน String
@@ -50,6 +51,7 @@ public class MyManage {
         contentValues.put("Topping", Topping);
         contentValues.put("Item", Item);
         contentValues.put("Price", Price);
+        contentValues.put("Detail", Detail);
         contentValues.put("Promotion", Promotion);
 
         return sqLiteDatabase.insert("orderTABLE", null, contentValues);

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,8 +34,9 @@ public class OrderActivity extends AppCompatActivity {
     private String[] loginStrings, toppingStrings;
     private String nameFoodString, priceToolbarString, iconString,
             idFoodString, categoryString, toppingChooseString, specialString = "0",
-            itemString = "1", deliveryString = "0", promotionString;
+            itemString = "1", deliveryString = "0", promotionString, detailString;
     private TextView nameFoodTextView, priceToolbarTextView, userTextView, promoTextView;
+    private EditText detialEditText;
     private ImageView iconImageView;
     private MyConstant myConstant;
     private int intHour, intMinus;
@@ -284,15 +286,17 @@ public class OrderActivity extends AppCompatActivity {
 
         specialSQLite = findSpecialSQLite();
 
+        detailString = detialEditText.getText().toString().trim();
         Log.d(tag, "id_Food ==> " + idFoodString);
         Log.d(tag, "Special ==> " + specialSQLite);
         Log.d(tag, "Topping ==> " + toppingChooseString);
         Log.d(tag, "Item ==> " + Integer.toString(itemAnInt));
+        Log.d(tag, "detail ==> " + detailString);
 
         MyManage myManage = new MyManage(OrderActivity.this);
         myManage.addOrder(idFoodString, specialSQLite,
                 toppingChooseString, Integer.toString(itemAnInt),
-                Integer.toString((int) totalPriceAnInt), promotionString);
+                Integer.toString((int) totalPriceAnInt), detailString, promotionString);
 
         Intent intent = new Intent(OrderActivity.this, CheckOrderActivity.class);
         intent.putExtra("Login", loginStrings);
@@ -351,6 +355,7 @@ public class OrderActivity extends AppCompatActivity {
         priceToolbarTextView = (TextView) findViewById(R.id.txtPriceFood);
         iconImageView = (ImageView) findViewById(R.id.imvIcon);
         promoTextView = (TextView) findViewById(R.id.txtPromotion);
+        detialEditText = (EditText) findViewById(R.id.edtDetail);
     }
 
     private void getValueFromIntent() {

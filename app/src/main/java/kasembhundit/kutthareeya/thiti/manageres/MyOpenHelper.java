@@ -21,6 +21,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "Topping TEXT," +
             "Item TEXT," +
             "Price TEXT," +
+            "Detail TEXT," +
             "Promotion TEXT);";
 
     private static final String create_receive_table = "create table receiveTABLE (" +
